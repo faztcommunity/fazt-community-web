@@ -7,7 +7,7 @@ jobs:
   GreetCommitter: 
     runs-on: ubuntu-latest
     steps:
-    - name: "Fazt Community"
+    - name: faztcommunity
       uses: ibakshay/greet-contributors-action@v3
       with:
         organization: faztcommunity
