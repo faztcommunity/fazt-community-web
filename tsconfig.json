@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@Atoms/*": ["src/components/atoms/*"],
+      "@Molecules/*": ["src/components/molecules/*"],
+      "@Organism/*": ["src/components/organism/*"],
+      "@Templates/*": ["src/components/templates/*"],
+      "@Assets/*": ["src/assets/*"],
+      "@Styles/*": ["src/styles/*"]
+    },
+
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "exclude": ["node_modules", ".next"],
+  "include": [
+    "src",
+    "react-app-env.d.ts",
+    "../types.d.ts",
+    "../next-env.d.ts",
+    "../**/*.stories.ts",
+    "../**/*.stories.tsx",
+    "src/config",
+    "src/config"
+  ]
+}
