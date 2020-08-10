@@ -1,0 +1,17 @@
+name: "Inclusive Organitation"
+on:
+  push:
+    branches: [master,dev,initial]
+    
+jobs:
+  GreetCommitter: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Fazt Community"
+      uses: ibakshay/greet-contributors-action@v3
+      with:
+        organization: faztcommunity
+        team: frontend-team
+        comment: Bienvenido a Fazt Community
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
