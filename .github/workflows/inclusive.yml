@@ -1,17 +1,16 @@
-name: "Inclusive Organitation"
+name: Inclusive Organization
 on:
   push:
-    branches: [master,dev]
-    
+    branches: master
 jobs:
-  GreetCommitter: 
+  invite:
     runs-on: ubuntu-latest
     steps:
-    - name: faztcommunity
-      uses: ibakshay/greet-contributors-action@v3
-      with:
-        organization: faztcommunity
-        team: frontend-team
-        comment: Bienvenido a Fazt Community
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Invite contributor to the organization
+        uses: lekterable/inclusive-organization-action@v1.1.0
+        with:
+          organization: faztcommunity
+          team: frontend-team
+          comment: Bienvenido a Fazt Community
+        env:
+          ACCESS_TOKEN: ${{ secrets.SECRET_TOCKEN }}
