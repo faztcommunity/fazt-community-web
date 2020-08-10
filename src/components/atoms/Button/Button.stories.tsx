@@ -28,19 +28,19 @@ storiesOf('Button', module)
       <Button text="Some Text" size="md" variant="outline" color="secondary" />
     </>
   ))
+  .add('buttons rl', () => (
+    <>
+      <Button text="Some Text" size="rl" variant="fill" color="primary" />
+      <Button text="Some Text" size="rl" variant="fill" color="secondary" />
+      <Button text="Some Text" size="rl" variant="outline" color="primary" />
+      <Button text="Some Text" size="rl" variant="outline" color="secondary" />
+    </>
+  ))
   .add('buttons lg', () => (
     <>
       <Button text="Some Text" size="lg" variant="fill" color="primary" />
       <Button text="Some Text" size="lg" variant="fill" color="secondary" />
       <Button text="Some Text" size="lg" variant="outline" color="primary" />
       <Button text="Some Text" size="lg" variant="outline" color="secondary" />
-    </>
-  ))
-  .add('buttons xl', () => (
-    <>
-      <Button text="Some Text" size="xl" variant="fill" color="primary" />
-      <Button text="Some Text" size="xl" variant="fill" color="secondary" />
-      <Button text="Some Text" size="xl" variant="outline" color="primary" />
-      <Button text="Some Text" size="xl" variant="outline" color="secondary" />
     </>
   ));
