@@ -1,0 +1,16 @@
+name: Inclusive Organization
+on:
+  push:
+    branches: master
+jobs:
+  invite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invite contributor to the organization
+        uses: lekterable/inclusive-organization-action@v1.1.0
+        with:
+          organization: faztcommunity
+          team: frontend-team
+          comment: Bienvenido a la comunidad de Fazt
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
