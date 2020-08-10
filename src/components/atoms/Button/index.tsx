@@ -79,7 +79,7 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.FunctionComponent<ButtonProps> = ({ color, variant, text, size }) => (
+const Button: React.FC<ButtonProps> = ({ color, variant, text, size }) => (
   <StyledButton size={size} color={color} variant={variant}>
     {text}
   </StyledButton>
