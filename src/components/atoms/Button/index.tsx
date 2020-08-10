@@ -6,23 +6,23 @@ type ButtonProps = {
   text?: string;
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
-  size?: 'xsm' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xsm' | 'sm' | 'md' | 'rl' | 'lg';
 };
 
 const getSizes = (size: ButtonProps['size']) => {
   switch (size) {
     case 'xsm':
-      return { padding: '1rem 0.5rem', fontSize: '0.875rem' };
-    case 'sm':
       return { padding: '0.5rem', fontSize: '0.875rem' };
+    case 'sm':
+      return { padding: '0.5rem 1rem', fontSize: '0.875rem' };
     case 'md':
-      return { padding: '0.5rem', fontSize: '1rem' };
-    case 'lg':
+      return { padding: '0.5rem 1.5rem', fontSize: '1rem' };
+    case 'rl':
       return { padding: '1rem', fontSize: '1.125rem' };
-    case 'xl':
+    case 'lg':
       return { padding: '1.5rem', fontSize: '1.125rem' };
     default:
-      return { padding: '0.5rem', fontSize: '0.875rem' };
+      return { padding: '1rem', fontSize: '1.125rem' };
   }
 };
 
@@ -40,7 +40,9 @@ const StyledButton = styled.button<ButtonProps>`
   border: 1px solid ${({ theme, color }) => color && theme.light.color[color]};
   margin: 1rem;
   outline: none;
-  box-shadow: ${({ variant }) => variant !== 'outline' && '0px 10px 15px rgba(44, 155, 235, 0.5)'};
+  box-shadow: ${(
+    { theme, variant, color } // #color + 80 = color with 50% opacity
+  ) => (color && variant !== 'outline' ? `0px 10px 15px ${theme.light.color[color]}80` : 'transparent')};
   color: ${({ theme, color, variant }) =>
     variant !== 'fill' && color ? theme.light.color[color] : theme.light.background};
 
@@ -48,7 +50,9 @@ const StyledButton = styled.button<ButtonProps>`
     background-color: ${({ theme, variant, color = 'primary' }) =>
       variant !== 'outline' ? theme.normal.color[color] : theme.light.color[color]};
     color: ${({ variant, theme }) => variant === 'outline' && theme.light.background};
-    box-shadow: 0px 10px 15px rgba(44, 155, 235, 0.5);
+    box-shadow: ${(
+      { theme, variant, color } // #color + 80 = color with 50% opacity
+    ) => (color && variant ? `0px 10px 15px ${theme.light.color[color]}80` : 'transparent')};
   }
 
   &::after {
@@ -75,7 +79,7 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.SFC<ButtonProps> = ({ color, variant, text, size }) => (
+const Button: React.FunctionComponent<ButtonProps> = ({ color, variant, text, size }) => (
   <StyledButton size={size} color={color} variant={variant}>
     {text}
   </StyledButton>
@@ -85,14 +89,14 @@ Button.propTypes = {
   text: PropTypes.string,
   variant: PropTypes.oneOf(['fill', 'outline']),
   color: PropTypes.oneOf(['primary', 'secondary']),
-  size: PropTypes.oneOf(['xsm', 'sm', 'md', 'lg', 'xl'])
+  size: PropTypes.oneOf(['xsm', 'sm', 'md', 'rl', 'lg'])
 };
 
 Button.defaultProps = {
   text: 'some text',
   color: 'primary',
   variant: 'fill',
-  size: 'md'
+  size: 'rl'
 };
 
 export default Button;
