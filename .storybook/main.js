@@ -13,6 +13,30 @@ module.exports = {
       }
     });
 
+    config.module.rules = config.module.rules.map((rule) => {
+      if (String(rule.test).includes('svg')) {
+        return {
+          ...rule,
+          test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/
+        };
+      }
+
+      return rule;
+    });
+
+    config.module.rules.unshift({
+      test: /\.svg$/,
+      include: path.resolve(__dirname, '../src/assets/icons'),
+      loader: require.resolve('@svgr/webpack'),
+      options: {
+        svgoConfig: {
+          plugins: {
+            removeViewBox: false
+          }
+        }
+      }
+    });
+
     config.resolve.alias = {
       '@Styles': path.resolve(__dirname, '..', 'src', 'styles'),
       '@Assets': path.resolve(__dirname, '..', 'src', 'assets'),
