@@ -1,17 +1,21 @@
-import Button from '@Atoms/Button';
+import Icon from '@Atoms/Icon';
 
 export default function Home() {
   return (
     <>
-      <Button text="Hola Mundo" variant="fill" color="secondary" />
-      <Button text="Hola Mundo" variant="outline" color="primary" />
-      <Button text="Hola Mundo" variant="outline" color="secondary" />
-      <Button text="Hola Mundo" variant="fill" color="primary" />
-      <Button text="Hola Mundo" variant="fill" color="secondary" size="lg" />
-      <Button text="Hola Mundo" variant="fill" color="secondary" size="xsm" />
-      <Button text="Hola Mundo" variant="outline" color="secondary" size="rl" />
-      <Button text="Hola Mundo" variant="fill" color="primary" size="sm" />
-      <Button text="Hola Mundo" variant="outline" color="primary" size="xsm" />
+      <Icon icon="api" size="rl" />
+      <Icon icon="discord" size="rl" />
+      <Icon icon="github" size="rl" />
+      <Icon icon="web" size="rl" />
+      <Icon icon="database" size="rl" />
+      <Icon icon="bot" size="rl" />
+      <Icon icon="api" size="sm" />
+      <Icon icon="discord" size="sm" />
+      <Icon icon="github" size="sm" />
+      <Icon icon="web" size="sm" />
+      <Icon icon="database" size="sm" />
+      <Icon icon="bot" size="sm" />
+      <Icon icon="bot" />
     </>
   );
 }
