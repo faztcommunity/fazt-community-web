@@ -23,12 +23,24 @@ interface DarkPalette {
   };
 }
 
+interface NeutralePalette {
+  gray: {
+    900: string;
+    800: string;
+    600: string;
+    500: string;
+    300: string;
+    100: string;
+  };
+}
+
 export type Theme = {
   light: IPalette & {
     background: string;
   };
   normal: IPalette;
   dark: DarkPalette;
+  neutrale: NeutralePalette;
 };
 
 export default styled as CreateStyled<Theme>;
