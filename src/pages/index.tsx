@@ -1,6 +1,6 @@
 import Icon from '@Atoms/Icon';
 import Button from '@Atoms/Button';
-import UserImage from '@Atoms/UserImage';
+import Image from '@Atoms/Image';
 import Description from '@Atoms/Description';
 
 export default function Home() {
@@ -16,10 +16,9 @@ export default function Home() {
       <Button text="Hola Mundo" variant="fill" color="primary" size="sm" />
       <Button text="Hola Mundo" variant="outline" color="primary" size="xsm" />
 
-      <UserImage size="sm" src="http://www.w3.org/2008/site/images/logo-w3c-screen-lg'" />
-      <UserImage size="sm" variant="round" src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" />
-      <UserImage size="lg" src="http://www.w3.org/2008/site/images/logo-w3c-screen-lg'" />
-      <UserImage size="lg" variant="round" src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" />
+      <Image width="100px" height="100px" image="https://designthinking.gal/wp-content/uploads/2017/05/personas-731x330.jpg" variant="round"/>
+      <Image width="100px" height="100px" image="https://designthinking.gal/wp-content/uploads/2017/05/personas-731x330.jpg" />
+
       <Icon icon="api" size="rl" />
       <Icon icon="discord" size="rl" />
       <Icon icon="github" size="rl" />
