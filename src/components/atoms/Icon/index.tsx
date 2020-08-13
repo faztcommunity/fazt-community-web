@@ -28,9 +28,9 @@ const Icon: React.FC<IconProps> = ({ icon, size }) => {
       try {
         const { default: SVG } = await import(`@Assets/icons/${icon}.svg`);
         importedIconRef.current = SVG;
-      } catch (err) {
+      } /*catch (err) {
         throw err;
-      } finally {
+      } */finally {
         setLoading(false);
       }
     };

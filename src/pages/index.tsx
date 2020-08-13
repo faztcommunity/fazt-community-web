@@ -16,7 +16,10 @@ export default function Home() {
       <Button text="Hola Mundo" variant="fill" color="primary" size="sm" />
       <Button text="Hola Mundo" variant="outline" color="primary" size="xsm" />
 
-      <UserImage size="md" url="https://unsplash.com/photos/64YrPKiguAE" />
+      <UserImage size="sm" src="http://www.w3.org/2008/site/images/logo-w3c-screen-lg'" />
+      <UserImage size="sm" variant="round" src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" />
+      <UserImage size="lg" src="http://www.w3.org/2008/site/images/logo-w3c-screen-lg'" />
+      <UserImage size="lg" variant="round" src="https://homepages.cae.wisc.edu/~ece533/images/cat.png" />
       <Icon icon="api" size="rl" />
       <Icon icon="discord" size="rl" />
       <Icon icon="github" size="rl" />

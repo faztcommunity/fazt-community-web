@@ -3,19 +3,17 @@ import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
 
 type UserImageProps = {
-  url?: string;
+
   size?: 'xsm' | 'sm' | 'md' | 'rl' | 'lg';
   side?: 'left' | 'right';
+  variant?: 'round' | 'square';
 };
 
 const getSizes = (size: UserImageProps['size']) => {
   switch (size) {
-    case 'xsm':
-      return { width: '200px', fontSize: '0.875rem' };
+
     case 'sm':
       return { width: '200px', fontSize: '0.875rem' };
-    case 'md':
-      return { width: '400px', fontSize: '0.875rem' };
     case 'lg':
       return { width: '400px', fontSize: '0.875rem' };
     default:
@@ -23,14 +21,12 @@ const getSizes = (size: UserImageProps['size']) => {
   }
 };
 
-const StyledUserImage = styled.div<UserImageProps>`
-  border-radius: 8px;
-  position: relative;
-  margin: 1rem;
-  outline: none;
-  background-color: #f66c42;
-  width: 100px;
-  height: 100px;
+const StyledUserImage = styled.img<UserImageProps>`
+  border-radius: ${({ variant }) => (variant === 'round' ? '50%' : '0px')};
+  object-fit:cover;
+  width: ${({ size }) => (size === 'sm' ? '400px' : '200px')};
+  height: ${({ size }) => (size === 'sm' ? '400px' : '200px')};
 `;
+
 
 export default StyledUserImage;
