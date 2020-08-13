@@ -6,7 +6,7 @@ storiesOf('Navlink', module)
   .addParameters({ componentSubtitle: 'Navlink', component: Navlink })
   .add('Navlink', () => (
     <>
-      <Navlink href='/' text='navlink'/>
-      <Navlink href='/algo' text='navlink'/>
+      <Navlink href="/" text="navlink" />
+      <Navlink href="/algo" text="navlink" />
     </>
-  ))
+  ));
