@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 
 type IconProps = {
   size?: 'sm' | 'rl';
@@ -19,29 +20,16 @@ const IconWrapper = styled.div<IconProps>`
 `;
 
 const Icon: React.FC<IconProps> = ({ icon, size }) => {
-  const importedIconRef = useRef<any>(null);
-  const [loading, setLoading] = useState(false);
+  const DynamicIcon = dynamic(() =>
+    import(`@Assets/icons/${icon}.svg`).catch(() => {
+      return false;
+    })
+  );
 
-  useEffect(() => {
-    setLoading(true);
-    const getIcon = async () => {
-      try {
-        const { default: SVG } = await import(`@Assets/icons/${icon}.svg`);
-        importedIconRef.current = SVG;
-      } catch (err) {
-        throw err;
-      } finally {
-        setLoading(false);
-      }
-    };
-    getIcon();
-  }, []);
-
-  if (!loading && importedIconRef.current) {
-    const { current: IconComponent } = importedIconRef;
+  if (DynamicIcon) {
     return (
       <IconWrapper icon={icon} size={size}>
-        <IconComponent />
+        <DynamicIcon />
       </IconWrapper>
     );
   }
