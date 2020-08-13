@@ -20,7 +20,7 @@ const StyledNavlink = styled.a<NavlinkProps>`
 `;
 
 const Navlink: React.FC<NavlinkProps> = ({ text, href }) => {
-  const router = useRouter() || { pathname: '/' };
+  const router = useRouter();
 
   return (
     <Link href={href}>
