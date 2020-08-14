@@ -23,4 +23,18 @@ const Image: React.FC<ImageProps> = ({ image, width, height, variant }) => (
   <StyledImage image={image} width={width} height={height} variant={variant} />
 );
 
+Image.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  image: PropTypes.string,
+  variant: PropTypes.oneOf(['round', 'square'])
+};
+
+Image.defaultProps = {
+  width: '100%',
+  height: '100%',
+  image: 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg',
+  variant: 'square'
+};
+
 export default Image;
