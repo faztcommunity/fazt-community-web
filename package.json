@@ -26,6 +26,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "axios": "^0.19.2",
     "emotion-theming": "^10.0.27",
     "next": "^9.5.1",
     "next-react-svg": "1.1.2",
