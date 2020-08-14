@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import { useRouter } from 'next/router';
+import { useRouter, NextRouter } from 'next/router';
 import Link from 'next/link';
 
 type NavlinkProps = {
   text?: string;
   href: string;
-  router?: any;
+  router?: NextRouter;
 };
 
 const StyledNavlink = styled.a<NavlinkProps>`
@@ -16,11 +16,11 @@ const StyledNavlink = styled.a<NavlinkProps>`
   line-height: 21px;
   text-decoration: none;
   color: ${({ theme, router, href }) =>
-    router.pathname === href ? theme.normal.color.secondary : 'rgba(29, 29, 29, 0.38)'};
+    router?.pathname === href ? theme.normal.color.secondary : 'rgba(29, 29, 29, 0.38)'};
 `;
 
 const Navlink: React.FC<NavlinkProps> = ({ text, href }) => {
-  const router = useRouter() || { pathname: '/' };
+  const router = useRouter();
 
   return (
     <Link href={href}>
