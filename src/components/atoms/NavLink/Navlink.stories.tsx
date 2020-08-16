@@ -11,5 +11,5 @@ const Template: Story = (args) => <Navlink href="/" {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: ''
+  text: 'some text'
 };
