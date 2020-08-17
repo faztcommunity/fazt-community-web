@@ -2,11 +2,15 @@ import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
+import theme from '@Styles/theme';
 
 type IconProps = {
   size?: 'sm' | 'rl';
   icon?: 'api' | 'bot' | 'database' | 'discord' | 'github' | 'web';
+  dark?: boolean;
 };
+
+const getColor = (toggle?: boolean) => (toggle ? theme.neutrale.gray[800] : 'white');
 
 const IconWrapper = styled.div<IconProps>`
   display: inline-block;
@@ -16,10 +20,12 @@ const IconWrapper = styled.div<IconProps>`
   svg {
     width: ${({ size }) => (size === 'sm' ? '24px' : '32px')};
     height: ${({ size }) => (size === 'sm' ? '24px' : '32px')};
+    color: ${({ dark }) => getColor(dark)};
+    fill: currentColor;
   }
 `;
 
-const Icon: React.FC<IconProps> = ({ icon, size }) => {
+const Icon: React.FC<IconProps> = ({ icon, size, dark }) => {
   const DynamicIcon = dynamic(() =>
     import(`@Assets/icons/${icon}.svg`).catch(() => {
       return false;
@@ -28,7 +34,7 @@ const Icon: React.FC<IconProps> = ({ icon, size }) => {
 
   if (DynamicIcon) {
     return (
-      <IconWrapper icon={icon} size={size}>
+      <IconWrapper icon={icon} size={size} dark={dark}>
         <DynamicIcon />
       </IconWrapper>
     );
@@ -39,12 +45,14 @@ const Icon: React.FC<IconProps> = ({ icon, size }) => {
 
 Icon.propTypes = {
   icon: PropTypes.oneOf(['api', 'web', 'bot', 'discord', 'github', 'database']),
-  size: PropTypes.oneOf(['sm', 'rl'])
+  size: PropTypes.oneOf(['sm', 'rl']),
+  dark: PropTypes.bool
 };
 
 Icon.defaultProps = {
   size: 'rl',
-  icon: 'web'
+  icon: 'web',
+  dark: false
 };
 
 export default Icon;

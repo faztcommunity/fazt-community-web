@@ -12,5 +12,6 @@ const Template: Story = (args) => <Icon {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   icon: 'api',
-  size: 'sm'
+  size: 'sm',
+  dark: true
 };
