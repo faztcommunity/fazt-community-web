@@ -2,43 +2,54 @@ import React, { useState, useEffect } from 'react';
 import styled from '@Styles/styled';
 import axios from 'axios';
 import Image from '@Atoms/Image';
-import PropTypes from 'prop-types';
 
 type MapGridUsersProps = {
-  users?: [];
+  width?: string;
 };
+const StyledContainer = styled.div<MapGridUsersProps>`
+  width: 340px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    width: 260px;
+    height: 150px;
+  }
+  transition: all 0.3s ease;
+`;
 
 const StyledMapGridUsers = styled.div<MapGridUsersProps>`
-  width: max-content;
-  height: max-content;
+  width: 100%;
+  height: 100%;
   background: url('https://res.cloudinary.com/design-code-mx/image/upload/v1597433628/Group_cigctd.svg')
     center/cover no-repeat;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 15px;
+  grid-gap: 0px;
   grid-auto-rows: auto;
-  padding: 45px 30px 30px 45px;
+  padding: 7% 0% 8% 7%;
   div {
-    width: 40px;
-    height: 40px;
+    width: 50%;
+    height: 65%;
     margin: 0px;
-    &:nth-child(-2n + 4) {
+    &:nth-of-type(-2n + 4) {
       transform: translateY(20px);
     }
-    &:nth-child(7) {
+    &:nth-of-type(7) {
       transform: translateY(20px);
     }
-    &:nth-child(9) {
+    &:nth-of-type(9) {
       transform: translateY(20px);
     }
-    &:nth-child(2n + 12) {
+    &:nth-of-type(2n + 12) {
       transform: translateY(20px);
     }
   }
 `;
 
-const MapGridUsers: React.FC<MapGridUsersProps> = ({ users }) => {
+const MapGridUsers: React.FC<MapGridUsersProps> = () => {
   const initialState = [
     {
       albumId: 0,
@@ -58,11 +69,13 @@ const MapGridUsers: React.FC<MapGridUsersProps> = ({ users }) => {
   });
 
   return (
-    <StyledMapGridUsers>
-      {listUsers.slice(0, 15).map((user) => (
-        <Image key={user.id} variant="round" image={user.url} />
-      ))}
-    </StyledMapGridUsers>
+    <StyledContainer>
+      <StyledMapGridUsers>
+        {listUsers.slice(0, 15).map((user) => (
+          <Image key={user.id} variant="round" image={user.url} />
+        ))}
+      </StyledMapGridUsers>
+    </StyledContainer>
   );
 };
 
