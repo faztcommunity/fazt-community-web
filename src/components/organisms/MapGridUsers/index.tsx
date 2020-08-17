@@ -52,27 +52,41 @@ const StyledMapGridUsers = styled.div<MapGridUsersProps>`
 const MapGridUsers: React.FC<MapGridUsersProps> = () => {
   const initialState = [
     {
-      albumId: 0,
       id: 0,
-      title: 'SomeTitle',
-      url: '',
-      thumbnailUrl: ''
+      name: 'Fede',
+      username: 'Fede',
+      email: 'elfedeomg@gmail.com',
+      imagePath: '',
+      userDescription: ''
     }
   ];
 
   const [listUsers, setListUsers] = useState(initialState);
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/photos`).then((res) => {
-      const persons = res.data;
-      setListUsers(persons);
-    });
+    axios
+      .get(`https://api/getusers`)
+      .then((res) => {
+        const persons = res.data;
+        setListUsers(persons);
+      })
+      .catch(() => {
+        setListUsers(initialState);
+      });
   });
 
   return (
     <StyledContainer>
       <StyledMapGridUsers>
         {listUsers.slice(0, 15).map((user) => (
-          <Image key={user.id} variant="round" image={user.url} />
+          <Image
+            key={user.id}
+            variant="round"
+            image={
+              user.imagePath === ''
+                ? 'https://res.cloudinary.com/design-code-mx/image/upload/v1596616586/ReadMeFaztCommunity/faztcommunity_xbhnox.svg'
+                : user.imagePath
+            }
+          />
         ))}
       </StyledMapGridUsers>
     </StyledContainer>
