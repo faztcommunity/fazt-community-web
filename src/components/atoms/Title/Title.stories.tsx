@@ -1,17 +1,16 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Icon from '.';
+import Title from '.';
 
 export default {
-  title: 'Example/Icon',
-  component: Icon
+  title: 'Example/Title',
+  component: Title
 } as Meta;
 
-const Template: Story = (args) => <Icon {...args} />;
+const Template: Story = (args) => <Title {...args}>Some Text</Title>;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  icon: 'api',
-  size: 'sm',
-  dark: true
+  size: 'lg',
+  as: 'h1'
 };

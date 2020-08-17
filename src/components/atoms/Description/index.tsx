@@ -10,12 +10,12 @@ type DescriptionProps = {
 
 const getSize = (size: DescriptionProps['size']) => {
   switch (size) {
-    case 'md':
-      return { fontSize: '1rem', lineHeight: '21px' };
+    case 'xl':
+      return { fontSize: '1.5rem', lineHeight: '35px' };
     case 'lg':
       return { fontSize: '1.125rem', lineHeight: '24px' };
     default:
-      return { fontSize: '1.5rem', lineHeight: '35px' };
+      return { fontSize: '1rem', lineHeight: '21px' };
   }
 };
 
@@ -25,7 +25,6 @@ const StyledDescription = styled.p<DescriptionProps>`
   font-family: 'Roboto';
   font-size: ${({ size }) => getSize(size).fontSize};
   line-height: ${({ size }) => getSize(size).lineHeight};
-  margin: 1rem;
 `;
 
 const Description: React.FC<DescriptionProps> = ({ children, size, center, white }) => (
@@ -41,7 +40,7 @@ Description.propTypes = {
 };
 
 Description.defaultProps = {
-  size: 'xl',
+  size: 'md',
   center: false,
   white: false
 };

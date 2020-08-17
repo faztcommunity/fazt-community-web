@@ -8,11 +8,11 @@ type ImageProps = {
   image?: string;
   variant?: 'round' | 'square';
 };
-const defaultImg = 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg';
+const DEFAULT_IMG = '/default-image.jpg';
 const StyledImage = styled.div<ImageProps>`
   position: relative;
   margin: 1rem;
-  background: url(${({ image }) => image || defaultImg}) center/cover no-repeat;
+  background: url(${({ image }) => image || DEFAULT_IMG}) center/cover no-repeat;
   background-color: #f66c42;
   width: ${({ width }) => width || '100%'};
   height: ${({ height }) => height || '100%'};
@@ -33,7 +33,7 @@ Image.propTypes = {
 Image.defaultProps = {
   width: '100%',
   height: '100%',
-  image: 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg',
+  image: DEFAULT_IMG,
   variant: 'square'
 };
 
