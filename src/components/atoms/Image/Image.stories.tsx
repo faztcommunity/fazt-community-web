@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Image from '.';
 
 export default {
-  title: 'Example/Image',
+  title: 'Example/Atoms/Image',
   component: Image
   // argTypes: {
   //   backgroundColor: { control: 'color' },
