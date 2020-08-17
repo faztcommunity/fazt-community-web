@@ -5,7 +5,6 @@ type TitleProps = {
   size?: 'lg' | 'md' | 'sm' | 'xsm';
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   white?: boolean;
-  children: string;
   align?: 'center' | 'left' | 'right' | 'justify';
 };
 
@@ -28,9 +27,8 @@ const getSizes = (size: TitleProps['size']) => {
 const StyledTitle = styled.h1<TitleProps>`
   font-size: ${({ size }) => getSizes(size).fontSize};
   font-family: 'Open Sans';
-  line-height: ${({ size }) => getSizes(size).lineHeight};
+  /* line-height: ${({ size }) => getSizes(size).lineHeight}; */
   font-weight: 700;
-  margin-bottom: 16px;
   text-align: ${({ align }) => (align ? `${align}` : 'left')};
   color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[900])};
 `;
@@ -45,7 +43,6 @@ Title.propTypes = {
   size: PropTypes.oneOf(['lg', 'md', 'sm', 'xsm']),
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   white: PropTypes.bool,
-  children: PropTypes.string.isRequired,
   align: PropTypes.oneOf(['center', 'left', 'right', 'justify'])
 };
 
