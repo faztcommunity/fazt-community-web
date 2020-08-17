@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Description from '.';
 
 export default {
-  title: 'Example/Description',
+  title: 'Example/Atoms/Description',
   component: Description
   // argTypes: {
   //   backgroundColor: { control: 'color' },

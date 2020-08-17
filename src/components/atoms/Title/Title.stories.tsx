@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Title from '.';
 
 export default {
-  title: 'Example/Title',
+  title: 'Example/Atoms/Title',
   component: Title
 } as Meta;
 
