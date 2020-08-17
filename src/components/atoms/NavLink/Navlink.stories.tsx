@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Navlink from '.';
 
 export default {
-  title: 'Example/Navlink',
+  title: 'Example/Atoms/Navlink',
   component: Navlink
 } as Meta;
 
