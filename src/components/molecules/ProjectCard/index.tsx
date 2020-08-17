@@ -12,8 +12,7 @@ type ProjectCardProps = {
 };
 
 const StyledCard = styled.div<ProjectCardProps>`
-  margin: 20px;
-  padding: 24px 16px;
+  padding: 2rem 1rem;
   width: 332px;
   background: #fff;
   border-radius: 8px;
@@ -39,11 +38,11 @@ const StyledCard = styled.div<ProjectCardProps>`
 const StyledHead = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 `;
 
 const StyledTitle = styled.div`
-  margin-left: 16px;
+  margin-left: 1rem;
 `;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altBG }) => (
