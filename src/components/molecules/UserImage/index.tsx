@@ -31,6 +31,9 @@ const StyledUserImage = styled.div`
 const BigDiv = styled.div<UserImageProps>`
   position: relative;
   ${({ direction }) => (direction === 'left' ? `margin-right: 25px;` : `margin-left: 25px;`)}
+  @media (max-width: 815px) {
+    ${({ direction }) => (direction === 'left' ? `margin-right: 0px;` : `margin-left: 0px;`)}
+  }
 `;
 const StyledCube = styled.div<UserImageProps>`
   background-color: ${({ CubeColor, theme }) =>
@@ -56,6 +59,12 @@ const StyledCube = styled.div<UserImageProps>`
     top: 150px;
     ${({ direction }) => (direction === 'left' ? `left: 275px;` : `right: 275px;`)};
   }
+  @media (max-width: 350px) {
+    width: 56px;
+    height: 46px;
+    top: 135px;
+    ${({ direction }) => (direction === 'left' ? `left: 260px;` : `right: 260px;`)};
+  }
 `;
 
 const NewStyledImage = styled(StyledImage)<UserImageProps>`
@@ -70,6 +79,10 @@ const NewStyledImage = styled(StyledImage)<UserImageProps>`
   }
   @media (max-width: 696px) {
     margin-bottom: 35px;
+  }
+  @media (max-width: 350px){
+    width: 284px;
+    height: 150px;
   }
 `;
 

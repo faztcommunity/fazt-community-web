@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import UserImage from '.';
 
 export default {
-  title: 'Example/User Image',
+  title: 'Example/Molecules/User Image',
   component: UserImage
 } as Meta;
 
