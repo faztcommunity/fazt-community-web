@@ -5,7 +5,6 @@ type TitleProps = {
   size?: 'lg' | 'md' | 'sm' | 'xsm';
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   white?: boolean;
-  children: string;
   align?: 'center' | 'left' | 'right' | 'justify';
 };
 
@@ -45,7 +44,6 @@ Title.propTypes = {
   size: PropTypes.oneOf(['lg', 'md', 'sm', 'xsm']),
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   white: PropTypes.bool,
-  children: PropTypes.string.isRequired,
   align: PropTypes.oneOf(['center', 'left', 'right', 'justify'])
 };
 
