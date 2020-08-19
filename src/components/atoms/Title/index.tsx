@@ -27,9 +27,8 @@ const getSizes = (size: TitleProps['size']) => {
 const StyledTitle = styled.h1<TitleProps>`
   font-size: ${({ size }) => getSizes(size).fontSize};
   font-family: 'Open Sans';
-  line-height: ${({ size }) => getSizes(size).lineHeight};
+  /* line-height: ${({ size }) => getSizes(size).lineHeight}; */
   font-weight: 700;
-  margin-bottom: 16px;
   text-align: ${({ align }) => (align ? `${align}` : 'left')};
   color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[900])};
 `;
