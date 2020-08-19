@@ -9,7 +9,7 @@ type ImageProps = {
   variant?: 'round' | 'square';
 };
 const DEFAULT_IMG = '/default-image.jpg';
-const StyledImage = styled.div<ImageProps>`
+export const StyledImage = styled.div<ImageProps>`
   position: relative;
   margin: 1rem;
   background: url(${({ image }) => image || DEFAULT_IMG}) center/cover no-repeat;

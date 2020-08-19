@@ -19,7 +19,7 @@ const getSize = (size: DescriptionProps['size']) => {
   }
 };
 
-const StyledDescription = styled.p<DescriptionProps>`
+export const StyledDescription = styled.p<DescriptionProps>`
   color: ${({ theme, white }) => (white ? '#FFF' : theme.neutrale.gray[600])};
   text-align: ${({ center }) => (center ? 'center' : 'left')};
   font-family: 'Roboto';
