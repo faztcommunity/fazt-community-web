@@ -80,7 +80,7 @@ const NewStyledImage = styled(StyledImage)<UserImageProps>`
   @media (max-width: 696px) {
     margin-bottom: 35px;
   }
-  @media (max-width: 350px){
+  @media (max-width: 350px) {
     width: 284px;
     height: 150px;
   }

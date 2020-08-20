@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import ProjectCard from '.';
 
 export default {
-  title: 'Example/Molecule/ProjectCard',
+  title: 'Example/Molecules/ProjectCard',
   component: ProjectCard
 } as Meta;
 
