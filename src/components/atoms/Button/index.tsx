@@ -7,6 +7,7 @@ type ButtonProps = {
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
   size?: 'xsm' | 'sm' | 'md' | 'rl' | 'lg';
+  onClick?: any;
 };
 
 const getSizes = (size: ButtonProps['size']) => {
@@ -79,8 +80,8 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ color, variant, text, size }) => (
-  <StyledButton size={size} color={color} variant={variant}>
+const Button: React.FC<ButtonProps> = ({ color, variant, text, size, onClick }) => (
+  <StyledButton size={size} color={color} variant={variant} onClick={onClick}>
     {text}
   </StyledButton>
 );

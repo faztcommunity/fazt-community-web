@@ -7,6 +7,8 @@ type NavlinkProps = {
   text?: string;
   href: string;
   router?: NextRouter;
+  onClick?: any;
+  color?: string;
 };
 
 const StyledNavlink = styled.a<NavlinkProps>`
@@ -15,16 +17,16 @@ const StyledNavlink = styled.a<NavlinkProps>`
   font-size: 1rem;
   line-height: 21px;
   text-decoration: none;
-  color: ${({ theme, router, href }) =>
-    router?.pathname === href ? theme.normal.color.secondary : 'rgba(29, 29, 29, 0.38)'};
+  color: ${({ theme, router, href, color }) =>
+    router?.pathname === href ? theme.normal.color.secondary : color} !important;
 `;
 
-const Navlink: React.FC<NavlinkProps> = ({ text, href }) => {
+const Navlink: React.FC<NavlinkProps> = ({ text, href, onClick, color }) => {
   const router = useRouter();
 
   return (
     <Link href={href}>
-      <StyledNavlink href={href} router={router}>
+      <StyledNavlink href={href} router={router} onClick={onClick} color={color}>
         {text}
       </StyledNavlink>
     </Link>
@@ -33,7 +35,8 @@ const Navlink: React.FC<NavlinkProps> = ({ text, href }) => {
 
 Navlink.defaultProps = {
   text: 'Navlink',
-  href: '/'
+  href: '/',
+  color: 'rgba(29, 29, 29, 0.38)'
 };
 
 export default Navlink;
