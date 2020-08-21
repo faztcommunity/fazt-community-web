@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@Public/*": ["public/*"],
       "@Atoms/*": ["src/components/atoms/*"],
       "@Molecules/*": ["src/components/molecules/*"],
       "@Organisms/*": ["src/components/organisms/*"],
@@ -28,9 +29,10 @@
   "exclude": ["node_modules", ".next"],
   "include": [
     "src",
+    "public/**/*.svg",
     "react-app-env.d.ts",
     "../types.d.ts",
-    "../next-env.d.ts",
+    "next-env.d.ts",
     "../**/*.stories.ts",
     "../**/*.stories.tsx",
     "src/config",
