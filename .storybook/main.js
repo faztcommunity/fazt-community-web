@@ -38,12 +38,12 @@ module.exports = {
     });
 
     config.resolve.alias = {
-      '@Public': path.resolve(__dirname, 'public', 'public'),
+      '@Public': path.resolve(__dirname, '..', 'src', 'public'),
       '@Styles': path.resolve(__dirname, '..', 'src', 'styles'),
       '@Assets': path.resolve(__dirname, '..', 'src', 'assets'),
       '@Atoms': path.resolve(__dirname, '..', 'src', 'components', 'atoms'),
       '@Molecules': path.resolve(__dirname, '..', 'src', 'components', 'molecules'),
-      '@Organism': path.resolve(__dirname, '..', 'src', 'components', 'organism'),
+      '@Organisms': path.resolve(__dirname, '..', 'src', 'components', 'organisms'),
       '@Templates': path.resolve(__dirname, '..', 'src', 'components', 'templates')
     };
 
