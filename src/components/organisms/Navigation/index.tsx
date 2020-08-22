@@ -7,7 +7,8 @@ import Image from '@Atoms/Image';
 const StyledNavigation = styled.nav`
   background-color: #ffffff;
   position: fixed;
-  width: 100vw;
+  top: 0;
+  width: 100%;
   display: flex;
   height: 90px;
   align-items: center;
