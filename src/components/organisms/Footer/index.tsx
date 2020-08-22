@@ -7,7 +7,7 @@ const DISCORD_LINK = 'https://discord.com/invite/37PHuNw';
 const GITHUB_LINK = 'https://github.com/faztcommunity';
 
 const StyledFooter = styled.footer`
-  width: 100vw;
+  width: 100%;
   color: white;
   text-align: center;
   font-family: 'Roboto';
