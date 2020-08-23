@@ -2,7 +2,7 @@ import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
 
 type TitleProps = {
-  size?: 'lg' | 'md' | 'sm' | 'xsm';
+  size?: 'lg' | 'md' | 'sm' | 'xsm' | 'sub1' | 'sub2';
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   white?: boolean;
   align?: 'center' | 'left' | 'right' | 'justify';
@@ -17,7 +17,11 @@ const getSizes = (size: TitleProps['size']) => {
     case 'sm':
       return { fontSize: '3rem', lineHeight: '54px' };
     case 'xsm':
-      return { fontSzie: '1.125rem', lineHeight: '20px' };
+      return { fontSize: '1.125rem', lineHeight: '20px' };
+    case 'sub1':
+      return { fontSize: '2.5rem', lineHeight: '46px' };
+    case 'sub2':
+      return { fontSize: '2rem', lineHeight: '35px' };
 
     default:
       return { fontSize: '3.5rem', lineHeight: '65px' };
