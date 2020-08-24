@@ -34,6 +34,42 @@ interface NeutralePalette {
   };
 }
 
+type ButtonProps = {
+  fontSize: string;
+  padding: string;
+};
+
+type TextProps = {
+  fontSize: string;
+  lineHeight: string;
+};
+
+interface IButton {
+  lg: ButtonProps;
+  rl: ButtonProps;
+  md: ButtonProps;
+  sm: ButtonProps;
+  xs: ButtonProps;
+  lineHeight: number;
+  borderRadius: string;
+}
+
+interface ITitle {
+  lg: TextProps;
+  md: TextProps;
+  sm: TextProps;
+  xs: TextProps;
+  sub1: TextProps;
+  sub2: TextProps;
+}
+
+interface IBody {
+  xl: TextProps;
+  lg: TextProps;
+  md: TextProps;
+  sm: TextProps;
+}
+
 export type Theme = {
   light: IPalette & {
     background: string;
@@ -41,6 +77,9 @@ export type Theme = {
   normal: IPalette;
   dark: DarkPalette;
   neutrale: NeutralePalette;
+  button: IButton;
+  title: ITitle;
+  body: IBody;
 };
 
 export default styled as CreateStyled<Theme>;

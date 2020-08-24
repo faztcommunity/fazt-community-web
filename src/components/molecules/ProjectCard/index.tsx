@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altBG 
     <StyledHead>
       <Icon size="sm" icon={icon} dark />
       <StyledTitle>
-        <Title as="h3" size="xsm">
+        <Title as="h3" size="xs">
           {title}
         </Title>
       </StyledTitle>

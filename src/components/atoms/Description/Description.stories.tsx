@@ -10,9 +10,15 @@ export default {
   // },
 } as Meta;
 
-const Template: Story = (args) => <Description {...args}>some text</Description>;
+const Template: Story = (args) => (
+  <Description {...args}>
+    Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos Open
+    Source.
+  </Description>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-  size: 'md'
+  size: 'md',
+  align: 'center'
 };
