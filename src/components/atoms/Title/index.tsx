@@ -1,9 +1,10 @@
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
+import { screen } from '@Styles/theme';
 
 type TitleProps = {
-  size?: 'lg' | 'md' | 'sm' | 'xs' | 'sub1' | 'sub2';
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  size?: 'lg' | 'md' | 'sm';
+  as?: 'h1' | 'h2' | 'h3';
   align?: 'left' | 'center' | 'right';
   white?: boolean;
 };
@@ -11,10 +12,21 @@ type TitleProps = {
 const StyledTitle = styled.h1<TitleProps>`
   font-family: 'Open Sans';
   font-weight: 700;
-  text-align: ${({ align }) => (align ? `${align}` : 'left')};
-  font-size: ${({ theme, size }) => theme.title[size || 'md'].fontSize};
-  line-height: ${({ theme, size }) => theme.title[size || 'md'].lineHeight};
+  text-align: center;
+  font-size: ${({ theme }) => theme.title.sm.fontSize};
+  line-height: ${({ theme }) => theme.title.sm.lineHeight};
   color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[900])};
+
+  ${screen('md')} {
+    text-align: ${({ align }) => (align ? `${align}` : 'left')};
+    font-size: ${({ theme, size }) => (size !== 'sm' ? theme.title.md.fontSize : null)};
+    line-height: ${({ theme, size }) => (size !== 'sm' ? theme.title.md.lineHeight : null)};
+  }
+
+  ${screen('lg')} {
+    font-size: ${({ theme, size }) => theme.title[size || 'lg'].fontSize};
+    line-height: ${({ theme, size }) => theme.title[size || 'lg'].lineHeight};
+  }
 `;
 
 const Title: React.FC<TitleProps> = ({ children, size, as, white, align }) => (
@@ -24,14 +36,14 @@ const Title: React.FC<TitleProps> = ({ children, size, as, white, align }) => (
 );
 
 Title.propTypes = {
-  size: PropTypes.oneOf(['lg', 'md', 'sm', 'xs', 'sub1', 'sub2']),
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  size: PropTypes.oneOf(['lg', 'md', 'sm']),
+  as: PropTypes.oneOf(['h1', 'h2', 'h3']),
   align: PropTypes.oneOf(['left', 'center', 'right']),
   white: PropTypes.bool
 };
 
 Title.defaultProps = {
-  size: 'md',
+  size: 'lg',
   as: 'h1',
   white: false,
   align: 'left'

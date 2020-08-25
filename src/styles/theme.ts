@@ -1,4 +1,6 @@
-import { Theme } from './styled';
+import { Theme, MediaQuery } from './styled';
+
+const breakpoint = { sm: 576, md: 768, lg: 992, xl: 1200 };
 
 const theme: Theme = {
   light: {
@@ -76,18 +78,24 @@ const theme: Theme = {
     sm: {
       fontSize: '3rem',
       lineHeight: '54px'
-    },
-    xs: {
+    }
+  },
+  subtitle: {
+    sub1: {
       fontSize: '2.5rem',
       lineHeight: '46px'
     },
-    sub1: {
+    sub2: {
       fontSize: '2rem',
       lineHeight: '35px'
     },
-    sub2: {
+    sub3: {
       fontSize: '1.5rem',
       lineHeight: '30px'
+    },
+    sub4: {
+      fontSize: '1rem',
+      lineHeight: '21px'
     }
   },
   body: {
@@ -109,5 +117,7 @@ const theme: Theme = {
     }
   }
 };
+
+export const screen: MediaQuery = (bp) => `@media screen and (min-width: ${breakpoint[bp]}px)`;
 
 export default theme;

@@ -58,9 +58,13 @@ interface ITitle {
   lg: TextProps;
   md: TextProps;
   sm: TextProps;
-  xs: TextProps;
+}
+
+interface ISubtitle {
   sub1: TextProps;
   sub2: TextProps;
+  sub3: TextProps;
+  sub4: TextProps;
 }
 
 interface IBody {
@@ -79,7 +83,10 @@ export type Theme = {
   neutrale: NeutralePalette;
   button: IButton;
   title: ITitle;
+  subtitle: ISubtitle;
   body: IBody;
 };
+
+export type MediaQuery = (bp: 'sm' | 'md' | 'lg' | 'xl') => string;
 
 export default styled as CreateStyled<Theme>;
