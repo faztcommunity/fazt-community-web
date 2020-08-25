@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import ProjectCard from '@Molecules/ProjectCard';
+import { screen } from '@Styles/theme';
 
 const StyledCardGroupProjectsContainer = styled.div`
   display: flex;
@@ -17,11 +18,11 @@ const StyledCardGroupProjects = styled.div`
   align-items: center;
   width: max-content;
   height: max-content;
+  transition: all 0.4s ease;
 
-  @media (min-width: 768px) {
+  ${screen('md')} {
     grid-template-columns: 1fr 1fr;
   }
-  transition: all 0.4s ease;
 `;
 
 const CardGroupProjects: React.FC = () => (

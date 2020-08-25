@@ -5,9 +5,6 @@ import Description from '.';
 export default {
   title: 'Example/Atoms/Description',
   component: Description
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
 } as Meta;
 
 const Template: Story = (args) => (
@@ -19,6 +16,6 @@ const Template: Story = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  size: 'md',
+  size: 'xl',
   align: 'center'
 };

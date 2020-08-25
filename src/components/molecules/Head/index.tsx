@@ -25,7 +25,7 @@ const Head: React.FC<HeadProps> = ({ title, description }) => (
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Fazt Community" />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/preview__fazt-community.png" />
+    <meta name="twitter:image:src" content="/images/preview__fazt-community.png" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://faztcommunity.dev" />
@@ -33,6 +33,7 @@ const Head: React.FC<HeadProps> = ({ title, description }) => (
     <meta property="og:title" content={`Fazt Community | ${capitalize(title)}`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/images/preview__fazt-community.png" />
+    <meta property="og:type" content="object" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossOrigin="true" />
 

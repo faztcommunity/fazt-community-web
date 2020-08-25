@@ -4,6 +4,7 @@ import Title from '@Atoms/Title';
 import Icon from '@Atoms/Icon';
 import Description from '@Atoms/Description';
 import PropTypes from 'prop-types';
+import { screen } from '@Styles/theme';
 
 type ProjectCardProps = {
   title?: string;
@@ -30,7 +31,7 @@ const StyledCard = styled.div<ProjectCardProps>`
   }
 
   /* desktop */
-  @media (min-width: 768px) {
+  ${screen('md')} {
     width: 350px;
   }
 `;
@@ -50,13 +51,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altBG 
     <StyledHead>
       <Icon size="sm" icon={icon} dark />
       <StyledTitle>
-        <Title as="h3" size="xs">
+        <Title as="h3" size="sm">
           {title}
         </Title>
       </StyledTitle>
     </StyledHead>
 
-    <Description>{children}</Description>
+    <Description align="forceLeft">{children}</Description>
   </StyledCard>
 );
 
