@@ -18,5 +18,5 @@ Primary.args = {
   text: 'some text',
   color: 'primary',
   variant: 'fill',
-  size: 'xsm'
+  size: 'xs'
 };

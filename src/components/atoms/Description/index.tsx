@@ -1,47 +1,46 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
+import { screen } from '@Styles/theme';
 
 type DescriptionProps = {
-  size?: 'md' | 'lg' | 'xl';
-  center?: boolean;
+  size?: 'xl' | 'lg' | 'md';
+  align?: 'left' | 'forceLeft' | 'center' | 'right';
   white?: boolean;
 };
 
-const getSize = (size: DescriptionProps['size']) => {
-  switch (size) {
-    case 'xl':
-      return { fontSize: '1.5rem', lineHeight: '35px' };
-    case 'lg':
-      return { fontSize: '1.125rem', lineHeight: '24px' };
-    default:
-      return { fontSize: '1rem', lineHeight: '21px' };
-  }
-};
-
 export const StyledDescription = styled.p<DescriptionProps>`
-  color: ${({ theme, white }) => (white ? '#FFF' : theme.neutrale.gray[600])};
-  text-align: ${({ center }) => (center ? 'center' : 'left')};
   font-family: 'Roboto';
-  font-size: ${({ size }) => getSize(size).fontSize};
-  line-height: ${({ size }) => getSize(size).lineHeight};
+  text-align: ${({ align }) => (align === 'forceLeft' ? 'left' : 'center')};
+  font-size: ${({ theme, size }) => (size === 'md' ? theme.body.md.fontSize : theme.body.lg.fontSize)};
+  line-height: ${({ theme, size }) => (size === 'md' ? theme.body.md.lineHeight : theme.body.lg.lineHeight)};
+  color: ${({ theme, white }) => (white ? '#FFF' : theme.neutrale.gray[600])};
+
+  ${screen('sm')} {
+    text-align: ${({ align }) => (align ? `${align}` : 'left')};
+  }
+
+  ${screen('lg')} {
+    font-size: ${({ theme, size }) => theme.body[size || 'xl'].fontSize};
+    line-height: ${({ theme, size }) => theme.body[size || 'xl'].lineHeight};
+  }
 `;
 
-const Description: React.FC<DescriptionProps> = ({ children, size, center, white }) => (
-  <StyledDescription size={size} center={center} white={white}>
+const Description: React.FC<DescriptionProps> = ({ children, size, align, white }) => (
+  <StyledDescription size={size} align={align} white={white}>
     {children}
   </StyledDescription>
 );
 
 Description.propTypes = {
-  size: PropTypes.oneOf(['md', 'lg', 'xl']),
-  center: PropTypes.bool,
+  size: PropTypes.oneOf(['xl', 'lg', 'md']),
+  align: PropTypes.oneOf(['left', 'forceLeft', 'center', 'right']),
   white: PropTypes.bool
 };
 
 Description.defaultProps = {
-  size: 'md',
-  center: false,
+  size: 'xl',
+  align: 'left',
   white: false
 };
 

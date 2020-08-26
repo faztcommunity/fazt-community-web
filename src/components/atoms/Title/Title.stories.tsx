@@ -7,7 +7,7 @@ export default {
   component: Title
 } as Meta;
 
-const Template: Story = (args) => <Title {...args}>Some Text</Title>;
+const Template: Story = (args) => <Title {...args}>Somos Fazt Community</Title>;
 
 export const Primary = Template.bind({});
 Primary.args = {

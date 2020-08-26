@@ -6,34 +6,17 @@ type ButtonProps = {
   text?: string;
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
-  size?: 'xsm' | 'sm' | 'md' | 'rl' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'rl' | 'lg';
   onClick?: any;
-};
-
-const getSizes = (size: ButtonProps['size']) => {
-  switch (size) {
-    case 'xsm':
-      return { padding: '0.5rem', fontSize: '0.875rem' };
-    case 'sm':
-      return { padding: '0.5rem 1rem', fontSize: '0.875rem' };
-    case 'md':
-      return { padding: '0.5rem 1.5rem', fontSize: '1rem' };
-    case 'rl':
-      return { padding: '1rem', fontSize: '1.125rem' };
-    case 'lg':
-      return { padding: '1.5rem', fontSize: '1.125rem' };
-    default:
-      return { padding: '1rem', fontSize: '1.125rem' };
-  }
 };
 
 const StyledButton = styled.button<ButtonProps>`
   background-color: ${({ theme, variant, color }) =>
     color && variant !== 'outline' ? theme.light.color[color] : 'transparent'};
-  padding: ${({ size }) => getSizes(size).padding};
-  font-size: ${({ size }) => getSizes(size).fontSize};
-  border-radius: 8px;
-  line-height: 1.5;
+  padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
+  font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
+  border-radius: ${({ theme }) => theme.button.borderRadius};
+  line-height: ${({ theme }) => theme.button.lineHeight};
   cursor: pointer;
   position: relative;
   font-weight: bold;
@@ -90,7 +73,7 @@ Button.propTypes = {
   text: PropTypes.string,
   variant: PropTypes.oneOf(['fill', 'outline']),
   color: PropTypes.oneOf(['primary', 'secondary']),
-  size: PropTypes.oneOf(['xsm', 'sm', 'md', 'rl', 'lg'])
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'rl', 'lg'])
 };
 
 Button.defaultProps = {

@@ -3,6 +3,7 @@ import Navlink from '@Atoms/NavLink';
 import Button from '@Atoms/Button';
 import styled from '@Styles/styled';
 import Image from '@Atoms/Image';
+import { screen } from '@Styles/theme';
 
 const StyledNavigation = styled.nav`
   background-color: #ffffff;
@@ -24,7 +25,7 @@ const StyledNavigation = styled.nav`
     outline: none;
     font-size: 1.875rem;
   }
-  @media (max-width: 768px) {
+  ${screen('md')} {
     padding: 0rem 0.875rem;
     justify-content: space-between;
     .navlinks {
@@ -48,7 +49,7 @@ const StyledSidebar = styled.aside`
   width: 75vw;
   background-color: ${({ theme }) => theme.neutrale.gray[900]};
 
-  @media (max-width: 768px) {
+  ${screen('md')} {
     display: flex;
     .sidebarNavlinks {
       width: 100%;
@@ -102,7 +103,8 @@ const Toggle = styled.button`
   border: none;
   outline: none;
   font-size: 1.875rem;
-  @media (max-width: 768px) {
+
+  ${screen('md')} {
     display: block;
   }
 `;
