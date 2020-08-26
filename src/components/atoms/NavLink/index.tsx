@@ -7,7 +7,7 @@ type NavlinkProps = {
   text?: string;
   href: string;
   router?: NextRouter;
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   color?: string;
 };
 

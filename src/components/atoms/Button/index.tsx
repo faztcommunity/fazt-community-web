@@ -7,7 +7,7 @@ type ButtonProps = {
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
   size?: 'xs' | 'sm' | 'md' | 'rl' | 'lg';
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
 const StyledButton = styled.button<ButtonProps>`
