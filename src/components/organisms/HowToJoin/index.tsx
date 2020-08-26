@@ -3,8 +3,8 @@ import styled from '@Styles/styled';
 import Description from '@Atoms/Description';
 import Button from '@Atoms/Button';
 import Title from '@Atoms/Title';
-import Imagen1 from '@Assets/icons/CircuitoLeft.svg';
-import Imagen2 from '@Assets/icons/CircuitoRight.svg';
+import Imagen1 from '@Assets/images/CircuitoLeft.svg';
+import Imagen2 from '@Assets/images/CircuitoRight.svg';
 
 const StyledHowToJoinContainer = styled.div`
   display: flex;
