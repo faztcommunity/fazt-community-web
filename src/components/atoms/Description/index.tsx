@@ -10,11 +10,11 @@ type DescriptionProps = {
 };
 
 export const StyledDescription = styled.p<DescriptionProps>`
-  font-family: 'Roboto';
+  font-family: ${({ theme }) => theme.fontFamily.body};
   text-align: ${({ align }) => (align === 'forceLeft' ? 'left' : 'center')};
   font-size: ${({ theme, size }) => (size === 'md' ? theme.body.md.fontSize : theme.body.lg.fontSize)};
   line-height: ${({ theme, size }) => (size === 'md' ? theme.body.md.lineHeight : theme.body.lg.lineHeight)};
-  color: ${({ theme, white }) => (white ? '#FFF' : theme.neutrale.gray[600])};
+  color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[900])};
 
   ${screen('sm')} {
     text-align: ${({ align }) => (align ? `${align}` : 'left')};

@@ -42,6 +42,11 @@ const theme: Theme = {
       100: '#FAFAFA'
     }
   },
+  fontFamily: {
+    title:
+      "'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
+    body: "'Roboto', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+  },
   button: {
     lg: {
       fontSize: '1.125rem',

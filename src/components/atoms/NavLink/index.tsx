@@ -12,7 +12,7 @@ type NavlinkProps = {
 };
 
 const StyledNavlink = styled.a<NavlinkProps>`
-  font-family: Roboto;
+  font-family: ${({ theme }) => theme.fontFamily.body};
   margin: 1rem;
   font-size: 1rem;
   line-height: 21px;

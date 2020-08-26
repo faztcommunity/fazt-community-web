@@ -24,7 +24,7 @@ const StyledHowToJoinContainer = styled.div`
   .descriptionClassName {
     color: ${({ theme }) => theme.neutrale.gray[600]};
     text-align: center;
-    font-family: 'Roboto';
+    font-family: ${({ theme }) => theme.fontFamily.body};
     font-size: 24px;
     line-height: 37px;
     width: 42vw;

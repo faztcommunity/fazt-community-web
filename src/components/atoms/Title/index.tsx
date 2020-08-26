@@ -10,7 +10,7 @@ type TitleProps = {
 };
 
 const StyledTitle = styled.h1<TitleProps>`
-  font-family: 'Open Sans';
+  font-family: ${({ theme }) => theme.fontFamily.title};
   font-weight: 700;
   text-align: center;
   font-size: ${({ theme }) => theme.title.sm.fontSize};

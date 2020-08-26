@@ -11,7 +11,6 @@ const StyledFooter = styled.footer`
   width: 100%;
   color: white;
   text-align: center;
-  font-family: 'Roboto';
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   background: ${({ theme }) => theme.neutrale.gray[800]};
