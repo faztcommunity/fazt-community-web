@@ -13,8 +13,8 @@ const StyledTitle = styled.h1<TitleProps>`
   font-family: ${({ theme }) => theme.fontFamily.title};
   font-weight: 700;
   text-align: center;
-  font-size: ${({ theme }) => theme.title.sm.fontSize};
-  line-height: ${({ theme }) => theme.title.sm.lineHeight};
+  font-size: ${({ theme }) => theme.subtitle.sub1.fontSize};
+  line-height: ${({ theme }) => theme.subtitle.sub1.lineHeight};
   color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[900])};
 
   ${screen('md')} {
