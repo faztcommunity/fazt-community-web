@@ -7,6 +7,7 @@ const StyledMainContainer = styled.div`
   width: 100%;
   height: max-content;
 `;
+
 const StyledMainChildren = styled.div`
   margin: 90px 0px 0px 0px;
   padding: 0px 0px 0px 0px;

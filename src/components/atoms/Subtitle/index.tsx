@@ -10,7 +10,7 @@ type SubtitleProps = {
 };
 
 const StyledSubtitle = styled.h2<SubtitleProps>`
-  font-family: 'Open Sans';
+  font-family: ${({ theme }) => theme.fontFamily.title};
   font-weight: 700;
   text-align: center;
   font-size: ${({ theme }) => theme.subtitle.sub3.fontSize};

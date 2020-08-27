@@ -44,6 +44,11 @@ type TextProps = {
   lineHeight: string;
 };
 
+interface IFontFamily {
+  title: string;
+  body: string;
+}
+
 interface IButton {
   lg: ButtonProps;
   rl: ButtonProps;
@@ -81,6 +86,7 @@ export type Theme = {
   normal: IPalette;
   dark: DarkPalette;
   neutrale: NeutralePalette;
+  fontFamily: IFontFamily;
   button: IButton;
   title: ITitle;
   subtitle: ISubtitle;

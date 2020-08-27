@@ -7,10 +7,11 @@ type ButtonProps = {
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
   size?: 'xs' | 'sm' | 'md' | 'rl' | 'lg';
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
 const StyledButton = styled.button<ButtonProps>`
+  font-family: ${({ theme }) => theme.fontFamily.body};
   background-color: ${({ theme, variant, color }) =>
     color && variant !== 'outline' ? theme.light.color[color] : 'transparent'};
   padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};

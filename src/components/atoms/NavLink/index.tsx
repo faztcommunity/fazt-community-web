@@ -7,12 +7,12 @@ type NavlinkProps = {
   text?: string;
   href: string;
   router?: NextRouter;
-  onClick?: any;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   color?: string;
 };
 
 const StyledNavlink = styled.a<NavlinkProps>`
-  font-family: Roboto;
+  font-family: ${({ theme }) => theme.fontFamily.body};
   margin: 1rem;
   font-size: 1rem;
   line-height: 21px;
