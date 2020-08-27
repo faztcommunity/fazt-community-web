@@ -8,6 +8,7 @@ type ImageProps = {
   image?: string;
   variant?: 'round' | 'square';
 };
+
 const DEFAULT_IMG = '/default-image.jpg';
 export const StyledImage = styled.div<ImageProps>`
   position: relative;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@Styles/styled';
 import axios from 'axios';
 import Image from '@Atoms/Image';
+import { screen } from '@Styles/theme';
 
 type MapGridUsersProps = {
   width?: string;
@@ -12,11 +13,12 @@ const StyledContainer = styled.div<MapGridUsersProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (max-width: 768px) {
+  transition: all 0.3s ease;
+
+  ${screen('md')} {
     width: 260px;
     height: 150px;
   }
-  transition: all 0.3s ease;
 `;
 
 const StyledMapGridUsers = styled.div<MapGridUsersProps>`

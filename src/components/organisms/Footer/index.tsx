@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@Styles/styled';
+import { screen } from '@Styles/theme';
 import Description from '@Atoms/Description';
 import Icon from '@Atoms/Icon';
 
@@ -10,7 +11,6 @@ const StyledFooter = styled.footer`
   width: 100%;
   color: white;
   text-align: center;
-  font-family: 'Roboto';
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   background: ${({ theme }) => theme.neutrale.gray[800]};
@@ -31,7 +31,7 @@ const FooterContent = styled.section`
     margin-right: 0.5rem;
   }
 
-  @media (min-width: 768px) {
+  ${screen('md')} {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-row-gap: 0;
@@ -48,10 +48,10 @@ const FooterContent = styled.section`
 const Footer: React.FC = () => (
   <StyledFooter>
     <FooterContent>
-      <Description center white>
+      <Description size="md" align="center" white>
         All right reserved 2020
       </Description>
-      <Description center white>
+      <Description size="md" align="center" white>
         Fazt Community
       </Description>
       <span>
