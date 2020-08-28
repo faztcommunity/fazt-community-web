@@ -19,6 +19,7 @@ const StyledNavlink = styled.a<NavlinkProps>`
   text-decoration: none;
   color: ${({ theme, router, href, color }) =>
     router?.pathname === href ? theme.normal.color.secondary : color} !important;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const Navlink: React.FC<NavlinkProps> = ({ text, href, onClick, color }) => {

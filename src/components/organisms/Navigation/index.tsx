@@ -3,76 +3,90 @@ import Navlink from '@Atoms/NavLink';
 import Button from '@Atoms/Button';
 import styled from '@Styles/styled';
 import Image from '@Atoms/Image';
-import { screen } from '@Styles/theme';
+import { screen, index } from '@Styles/theme';
 
 const StyledNavigation = styled.nav`
-  z-index: 2;
+  align-items: center;
   background-color: #ffffff;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  box-shadow: 0px 1px 2px rgba(120, 120, 120, 0.15);
   display: flex;
   height: 90px;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 1px 2px rgba(120, 120, 120, 0.15);
-  padding: 0rem 10.313rem;
+  padding: 0rem 0.875rem;
+  position: fixed;
+  width: 100vw;
+  ${index(40)}
+
   .toggle {
     font-size: 1.25rem;
-    display: none;
+    display: block;
     background: none;
     box-shadow: none;
     border: none;
     outline: none;
     font-size: 1.875rem;
   }
-  ${screen('md')} {
-    padding: 0rem 0.875rem;
-    justify-content: space-between;
+
+  .navlinks {
+    display: none;
+  }
+
+  ${screen('lg')} {
+    justify-content: space-evenly;
+
     .navlinks {
-      display: none;
-    }
-    .toggle {
       display: block;
+    }
+
+    .toggle {
+      display: none;
     }
   }
 `;
 
 const StyledSidebar = styled.aside`
+  background-color: ${({ theme }) => theme.neutrale.gray[900]};
+  display: flex;
+  height: 100vh;
+  position: fixed;
   right: -75vw;
+  transition: 0.4s all;
+  width: 75vw;
+  ${index(50)}
+
   &.active {
     right: 0;
   }
-  z-index: 100;
-  position: fixed;
-  display: none;
-  height: 100vh;
-  width: 75vw;
-  background-color: ${({ theme }) => theme.neutrale.gray[900]};
 
-  ${screen('md')} {
+  .sidebarNavlinks {
     display: flex;
-    .sidebarNavlinks {
-      width: 100%;
-      margin: 0rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transition: 0.4s all;
-    }
-    .sidebarNavlinks a,
-    .sidebarNavlinks button {
-      margin: 2.5rem 0rem 1.938rem 2.5rem;
-    }
-    .line {
-      margin: 0rem;
-      width: 100%;
-      display: block;
-      border: 1px solid #272727;
-      margin: 2.5rem 0rem;
-    }
+    flex-direction: column;
+    justify-content: center;
+    margin: 0rem;
+    transition: 0.4s all;
+    width: 100%;
   }
-  transition: 0.4s all;
+
+  .sidebarNavlinks a,
+  .sidebarNavlinks button {
+    margin: 0.5rem 0rem 1.938rem 2.5rem;
+  }
+
+  .line {
+    border: 1px solid #272727;
+    display: block;
+    margin: 0rem;
+    margin: 2.5rem 0rem;
+    width: 100%;
+  }
+
+  ${screen('sm')} {
+    width: 50vw;
+  }
+
+  ${screen('lg')} {
+    display: none;
+  }
 `;
 
 const Styledleft = styled.div`
@@ -82,31 +96,27 @@ const Styledleft = styled.div`
 
 const Out = styled.button`
   background: none;
-  box-shadow: none;
   border: none;
-  outline: none;
+  box-shadow: none;
   color: white;
-  position: absolute;
-  font-size: 1.875rem;
-  right: 32px;
-  top: 16px;
+  font-size: 1.25rem;
   margin: 0rem !important;
+  outline: none;
+  position: absolute;
+  right: 32px;
+  top: 32px;
 `;
+
 const Toggle = styled.button`
   background: none;
-  box-shadow: none;
   border: none;
-  outline: none;
-  font-size: 1.25rem;
-  display: none;
-  background: none;
   box-shadow: none;
-  border: none;
-  outline: none;
+  display: block;
   font-size: 1.875rem;
+  outline: none;
 
-  ${screen('md')} {
-    display: block;
+  ${screen('lg')} {
+    display: none;
   }
 `;
 
@@ -128,7 +138,14 @@ const Navigation: React.FC = () => {
             <Navlink text="Contribuidores" href="/contribuidores" onClick={handleActive} color="#ffffff" />
             <hr className="line" />
             <div>
-              <Button text="Ingresar" variant="fill" color="secondary" size="md" onClick={handleActive} />
+              <Button
+                text="Ingresar"
+                variant="fill"
+                color="secondary"
+                size="md"
+                shadow={false}
+                onClick={handleActive}
+              />
             </div>
             <Navlink text="Regístrate" href="/registrate" onClick={handleActive} color="#ffffff" />
           </div>
@@ -141,7 +158,7 @@ const Navigation: React.FC = () => {
           <Navlink text="Acerca" href="/acerca" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Proyectos" href="/proyectos" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Contribuidores" href="/contribuidores" color="rgba(29, 29, 29, 0.38)" />
-          <Button text="Ingresar" variant="outline" color="secondary" size="md" />
+          <Button text="Ingresar" variant="outline" color="secondary" size="md" shadow={false} />
           <Navlink text="Regístrate" href="/registrate" color="rgba(29, 29, 29, 0.38)" />
         </div>
       </StyledNavigation>

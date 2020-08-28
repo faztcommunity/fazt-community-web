@@ -7,13 +7,14 @@ type ButtonProps = {
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
   size?: 'xs' | 'sm' | 'md' | 'rl' | 'lg';
+  shadow?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
 const StyledButton = styled.button<ButtonProps>`
   font-family: ${({ theme }) => theme.fontFamily.body};
   background-color: ${({ theme, variant, color }) =>
-    color && variant !== 'outline' ? theme.light.color[color] : 'transparent'};
+    color && variant !== 'outline' ? theme.dark.color.secondary : 'transparent'};
   padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
   font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
   border-radius: ${({ theme }) => theme.button.borderRadius};
@@ -22,12 +23,11 @@ const StyledButton = styled.button<ButtonProps>`
   position: relative;
   font-weight: bold;
   transition: all 0.3s ease-out;
-  border: 1px solid ${({ theme, color }) => color && theme.light.color[color]};
+  border: 1px solid ${({ theme, color }) => color && theme.dark.color.secondary};
   margin: 1rem;
   outline: none;
-  box-shadow: ${(
-    { theme, variant, color } // #color + 80 = color with 50% opacity
-  ) => (color && variant !== 'outline' ? `0px 10px 15px ${theme.light.color[color]}80` : 'transparent')};
+  box-shadow: ${({ theme, color, variant }) =>
+    color && variant !== 'outline' ? `0px 10px 15px ${theme.light.color[color]}80` : 'transparent'};
   color: ${({ theme, color, variant }) =>
     variant !== 'fill' && color ? theme.light.color[color] : theme.light.background};
 
@@ -64,8 +64,8 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ color, variant, text, size, onClick }) => (
-  <StyledButton size={size} color={color} variant={variant} onClick={onClick}>
+const Button: React.FC<ButtonProps> = ({ color, variant, text, size, shadow, onClick }) => (
+  <StyledButton color={color} variant={variant} size={size} shadow={shadow} onClick={onClick}>
     {text}
   </StyledButton>
 );
@@ -74,14 +74,16 @@ Button.propTypes = {
   text: PropTypes.string,
   variant: PropTypes.oneOf(['fill', 'outline']),
   color: PropTypes.oneOf(['primary', 'secondary']),
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'rl', 'lg'])
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'rl', 'lg']),
+  shadow: PropTypes.bool
 };
 
 Button.defaultProps = {
   text: 'some text',
   color: 'primary',
   variant: 'fill',
-  size: 'rl'
+  size: 'rl',
+  shadow: true
 };
 
 export default Button;

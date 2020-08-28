@@ -123,6 +123,8 @@ const theme: Theme = {
   }
 };
 
+export const index = (num: 0 | 10 | 20 | 30 | 40 | 50) => `z-index: ${num};`;
+
 export const screen: MediaQuery = (bp) => `@media screen and (min-width: ${breakpoint[bp]}px)`;
 
 export default theme;
