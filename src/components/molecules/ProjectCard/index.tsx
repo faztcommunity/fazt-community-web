@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import Title from '@Atoms/Title';
+import Subtitle from '@Atoms/Subtitle';
 import Icon from '@Atoms/Icon';
 import Description from '@Atoms/Description';
 import PropTypes from 'prop-types';
@@ -51,13 +51,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altBG 
     <StyledHead>
       <Icon size="sm" icon={icon} dark />
       <StyledTitle>
-        <Title as="h3" size="sm">
+        <Subtitle as="h4" size="sub3">
           {title}
-        </Title>
+        </Subtitle>
       </StyledTitle>
     </StyledHead>
 
-    <Description align="forceLeft">{children}</Description>
+    <Description align="forceLeft" size="md">{children}</Description>
   </StyledCard>
 );
 

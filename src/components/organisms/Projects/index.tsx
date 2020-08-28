@@ -7,7 +7,7 @@ import Imagen1 from '@Assets/images/CircuitoLeft.svg';
 import Imagen2 from '@Assets/images/CircuitoRight.svg';
 import { screen } from '@Styles/theme';
 
-const StyleProjects = styled.div`
+const StyleProjects = styled.section`
   width: 100%;
   min-height: calc(100vh - 90px);
   height: max-content;
@@ -16,25 +16,19 @@ const StyleProjects = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.light.color.secondary};
   .backgroundImages {
-    ${screen('xl')} {
-      display: flex;
-    }
     z-index: 0;
     position: absolute;
     width: 100vw;
     display: none;
     justify-content: space-between;
+
+    ${screen('xl')} {
+      display: flex;
+    }
   }
   .descripcion {
     z-index: 1;
     margin: 50px 0px 50px 0px;
-
-    h1 {
-      margin-bottom: 16px;
-    }
-    p {
-      margin-bottom: 40px;
-    }
     width: 500px;
   }
 `;

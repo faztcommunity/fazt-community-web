@@ -6,8 +6,8 @@ import { StyledDescription } from '@Atoms/Description';
 
 type UserImageProps = {
   direction?: 'left' | 'right';
-  ImageUrl?: string;
-  CubeColor?: 'orange' | 'blue';
+  cubeColor?: 'orange' | 'blue';
+  imageUrl?: string;
 };
 const StyledUserImage = styled.div`
   display: grid;
@@ -36,8 +36,8 @@ const BigDiv = styled.div<UserImageProps>`
   }
 `;
 const StyledCube = styled.div<UserImageProps>`
-  background-color: ${({ CubeColor, theme }) =>
-    CubeColor === 'orange' ? theme.light.accent.active : theme.light.color.secondary};
+  background-color: ${({ cubeColor, theme }) =>
+    cubeColor === 'orange' ? theme.light.accent.active : theme.light.color.secondary};
   opacity: 0.5;
   width: 123px;
   height: 106px;
@@ -89,6 +89,7 @@ const NewStyledImage = styled(StyledImage)<UserImageProps>`
 const NewDescription = styled(StyledDescription)<UserImageProps>`
   display: flex;
   align-items: center;
+  padding-bottom: 1rem;
   @media (max-width: 1024px) {
     font-size: 1.2rem;
     ${({ direction }) => (direction === 'left' ? `margin-left: 40px;` : `margin-right: 40px;`)};
@@ -109,13 +110,13 @@ const NewDescription = styled(StyledDescription)<UserImageProps>`
     margin: auto;
   }
 `;
-const UserImage: React.FC<UserImageProps> = ({ direction, ImageUrl, CubeColor }) => (
+const UserImage: React.FC<UserImageProps> = ({ direction, imageUrl, cubeColor }) => (
   <>
     {direction === 'left' ? (
       <StyledUserImage>
         <BigDiv direction={direction}>
-          <StyledCube direction={direction} CubeColor={CubeColor} />
-          <NewStyledImage width="507px" height="290px" direction={direction} image={ImageUrl} />
+          <StyledCube direction={direction} cubeColor={cubeColor} />
+          <NewStyledImage width="507px" height="290px" direction={direction} image={imageUrl} />
         </BigDiv>
         <NewDescription size="xl" direction={direction}>
           Fazt Community es un espacio donde podrás crecer como profesional, participando en equipos y con
@@ -129,8 +130,8 @@ const UserImage: React.FC<UserImageProps> = ({ direction, ImageUrl, CubeColor })
           recibir ayuda y vas a conocer gente que comparten la misma pasión que tú.
         </NewDescription>
         <BigDiv direction={direction}>
-          <StyledCube direction={direction} CubeColor={CubeColor} />
-          <NewStyledImage width="508px" height="290px" direction={direction} image={ImageUrl} />
+          <StyledCube direction={direction} cubeColor={cubeColor} />
+          <NewStyledImage width="508px" height="290px" direction={direction} image={imageUrl} />
         </BigDiv>
       </StyledUserImage>
     )}
@@ -138,14 +139,14 @@ const UserImage: React.FC<UserImageProps> = ({ direction, ImageUrl, CubeColor })
 );
 
 UserImage.propTypes = {
-  CubeColor: PropTypes.oneOf(['orange', 'blue']),
+  cubeColor: PropTypes.oneOf(['orange', 'blue']),
   direction: PropTypes.oneOf(['left', 'right']),
-  ImageUrl: PropTypes.string
+  imageUrl: PropTypes.string
 };
 
 UserImage.defaultProps = {
-  CubeColor: 'blue',
+  cubeColor: 'blue',
   direction: 'left',
-  ImageUrl: 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'
+  imageUrl: 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'
 };
 export default UserImage;
