@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import Title from '@Atoms/Title';
+import Subtitle from '@Atoms/Subtitle';
 import Button from '@Atoms/Button';
 import Description from '@Atoms/Description';
 import MapGridUsers from '@Organisms/MapGridUsers';
@@ -55,9 +55,9 @@ const StyleContributors = styled.div`
 
 const Contributors: React.FC<ContributorsProps> = ({ title, description }) => (
   <StyleContributors>
-    <Title size="sub1" as="h2">
+    <Subtitle size="sub1" as="h2">
       {title}
-    </Title>
+    </Subtitle>
     <div className="contributors">
       <MapGridUsers />
     </div>
