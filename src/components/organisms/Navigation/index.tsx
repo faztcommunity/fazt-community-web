@@ -6,6 +6,7 @@ import Image from '@Atoms/Image';
 import { screen } from '@Styles/theme';
 
 const StyledNavigation = styled.nav`
+  z-index: 2;
   background-color: #ffffff;
   position: fixed;
   top: 0;
