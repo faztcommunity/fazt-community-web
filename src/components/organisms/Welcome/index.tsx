@@ -3,39 +3,40 @@ import styled from '@Styles/styled';
 import Title from '@Atoms/Title';
 import Description from '@Atoms/Description';
 import Button from '@Atoms/Button';
-import { screen } from '@Styles/theme';
+import { screen, index } from '@Styles/theme';
 
 const StyledSection = styled.section`
+  background: ${({ theme }) => theme.neutrale.gray[100]};
   display: grid;
-  place-items: center;
-  position: relative;
-  height: 100vh;
-  width: 100%;
+  height: calc(100vh - 90px);
+  margin-top: 90px;
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  background: ${({ theme }) => theme.neutrale.gray[100]};
+  place-items: center;
+  position: relative;
+  width: 100%;
 
   img {
+    height: 70%;
+    opacity: 25%;
     position: absolute;
-    height: 60%;
     right: 0;
-    top: 10%;
-    opacity: 30%;
+    top: 5%;
     z-index: 1;
   }
 
   ${screen('sm')} {
     img {
       height: 80%;
+      opacity: 35%;
     }
   }
 
   ${screen('lg')} {
     img {
-      top: 0%;
-      height: 100%;
-      opacity: 50%;
+      height: 90%;
+      opacity: 45%;
     }
   }
 `;
@@ -46,7 +47,7 @@ const WelcomeContent = styled.div`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  z-index: 10;
+  ${index(10)}
 
   .fix-margin {
     margin-bottom: 1rem;
