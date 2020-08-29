@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
-import { index } from '@Styles/theme'
+import { index } from '@Styles/theme';
 
 const DEFAULT_IMG = '/default-image.jpg';
 

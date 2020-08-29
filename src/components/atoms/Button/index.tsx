@@ -15,7 +15,7 @@ const StyledButton = styled.button<ButtonProps>`
   font-family: ${({ theme }) => theme.fontFamily.body};
   background-color: ${({ theme, variant, color }) =>
     color && variant !== 'outline' ? theme.dark.color.secondary : 'transparent'};
-  padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
+  padding: 0px 16px 0px 16px;
   font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
   border-radius: ${({ theme }) => theme.button.borderRadius};
   line-height: ${({ theme }) => theme.button.lineHeight};
@@ -24,6 +24,7 @@ const StyledButton = styled.button<ButtonProps>`
   font-weight: bold;
   transition: all 0.3s ease-out;
   border: 1px solid ${({ theme, color }) => color && theme.dark.color.secondary};
+  height: 52px;
   margin: 1rem;
   outline: none;
   box-shadow: ${({ theme, color, variant }) =>

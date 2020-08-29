@@ -2,22 +2,25 @@ import React, { useState, useEffect } from 'react';
 import styled from '@Styles/styled';
 import axios from 'axios';
 import Image from '@Atoms/Image';
-import { screen } from '@Styles/theme';
 
 type MapGridUsersProps = {
   width?: string;
 };
 const StyledContainer = styled.div<MapGridUsersProps>`
-  width: 340px;
-  height: 200px;
+  width: 490px;
+  height: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
 
-  ${screen('md')} {
-    width: 260px;
-    height: 150px;
+  @media (max-width: 1140px) {
+    width: 470px;
+    height: 320px;
+  }
+  @media (max-width: 720px) {
+    width: 340px;
+    height: 230px;
   }
 `;
 
@@ -33,8 +36,16 @@ const StyledMapGridUsers = styled.div<MapGridUsersProps>`
   grid-auto-rows: auto;
   padding: 7% 0% 8% 7%;
   div {
-    width: 50%;
-    height: 65%;
+    width: 55px;
+    height: 55px;
+    @media (max-width: 1140px) {
+      width: 50px;
+      height: 50px;
+    }
+    @media (max-width: 720px) {
+      width: 35px;
+      height: 35px;
+    }
     margin: 0px;
     &:nth-of-type(-2n + 4) {
       transform: translateY(20px);

@@ -114,6 +114,7 @@ const Toggle = styled.button`
   display: block;
   font-size: 1.875rem;
   outline: none;
+  padding-right: 35px;
 
   ${screen('lg')} {
     display: none;

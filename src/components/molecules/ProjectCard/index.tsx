@@ -13,7 +13,7 @@ type ProjectCardProps = {
 };
 
 const StyledCard = styled.div<ProjectCardProps>`
-  padding: 2rem 1rem;
+  padding: 24px 16px 24px 16px;
   width: 332px;
   background: #fff;
   border-radius: 8px;
@@ -34,30 +34,33 @@ const StyledCard = styled.div<ProjectCardProps>`
   ${screen('md')} {
     width: 350px;
   }
+  h4 {
+    margin-left: 1rem;
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
 `;
 
 const StyledHead = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-`;
-
-const StyledTitle = styled.div`
-  margin-left: 1rem;
+  margin-bottom: 16px;
 `;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altBG }) => (
   <StyledCard altBG={altBG}>
     <StyledHead>
       <Icon size="sm" icon={icon} dark />
-      <StyledTitle>
-        <Subtitle as="h4" size="sub3">
-          {title}
-        </Subtitle>
-      </StyledTitle>
+      <Subtitle as="h4" size="sub3">
+        {title}
+      </Subtitle>
     </StyledHead>
 
-    <Description align="forceLeft" size="md">{children}</Description>
+    <Description align="forceLeft" size="md">
+      {children}
+    </Description>
   </StyledCard>
 );
 

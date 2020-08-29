@@ -7,15 +7,13 @@ import { screen, index } from '@Styles/theme';
 
 const StyledSection = styled.section`
   background: ${({ theme }) => theme.neutrale.gray[100]};
-  display: grid;
+  display: flex;
+  align-items: center;
   height: calc(100vh - 90px);
-  margin-top: 90px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  place-items: center;
   position: relative;
   width: 100%;
+  padding-bottom: 20px;
+  border-bottom: solid #d9d9d9 1px;
 
   img {
     height: 70%;
@@ -35,7 +33,7 @@ const StyledSection = styled.section`
 
   ${screen('lg')} {
     img {
-      height: 90%;
+      height: 80%;
       opacity: 45%;
     }
   }
@@ -45,8 +43,7 @@ const WelcomeContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   ${index(10)}
 
   .fix-margin {
@@ -67,12 +64,12 @@ const WelcomeContent = styled.div`
 
     .fix-margin {
       margin-left: 1rem;
+      p {
+        width: 80%;
+      }
     }
     span {
       display: inline;
-    }
-    .desc {
-      width: 80%;
     }
   }
 
@@ -80,7 +77,9 @@ const WelcomeContent = styled.div`
     max-width: 960px;
 
     .desc {
-      width: 75%;
+      p {
+        width: 75%;
+      }
     }
   }
 
@@ -88,7 +87,9 @@ const WelcomeContent = styled.div`
     max-width: 1140px;
 
     .desc {
-      width: 65%;
+      p {
+        width: 65%;
+      }
     }
   }
 `;
@@ -97,18 +98,18 @@ const Welcome: React.FC = () => (
   <StyledSection>
     <WelcomeContent>
       <div className="fix-margin">
-        <Title as="h1" size="lg">
+        <Title as="h1" size="md">
           Somos <span>Fazt Community</span>
         </Title>
       </div>
-      <Description>
-        <div className="fix-margin desc">
+      <div className="fix-margin desc">
+        <Description size="xl">
           Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open
           source.
-        </div>
-      </Description>
-      <Button text="Unirme a la comunidad" size="rl" />
-      <Button text="Ver proyectos" size="rl" color="secondary" variant="outline" />
+        </Description>
+      </div>
+      <Button text="Unirme a la comunidad" size="md" />
+      <Button text="Ver proyectos" size="md" color="secondary" variant="outline" />
     </WelcomeContent>
     <img src="./images/circuit.svg" alt="Circuit" />
   </StyledSection>
