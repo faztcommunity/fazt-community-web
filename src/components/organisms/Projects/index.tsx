@@ -3,8 +3,6 @@ import styled from '@Styles/styled';
 import CardGroupProjects from '@Organisms/CardGroupProjects';
 import Subtitle from '@Atoms/Subtitle';
 import Description from '@Atoms/Description';
-import Imagen1 from '@Assets/images/CircuitoLeft.svg';
-import Imagen2 from '@Assets/images/CircuitoRight.svg';
 import { screen } from '@Styles/theme';
 
 const StyleProjects = styled.section`
@@ -64,8 +62,8 @@ const StyleProjects = styled.section`
 const Projects: React.FC = () => (
   <StyleProjects>
     <div className="backgroundImages">
-      <Imagen1 />
-      <Imagen2 />
+      <img src="/images/CircuitoLeft.svg" alt="" />
+      <img src="/images/CircuitoRight.svg" alt="" />
     </div>
     <div className="descripcion">
       <div className="descripcion-ContainerTitle">

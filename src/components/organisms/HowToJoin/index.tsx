@@ -3,8 +3,6 @@ import styled from '@Styles/styled';
 import Description from '@Atoms/Description';
 import Button from '@Atoms/Button';
 import Subtitle from '@Atoms/Subtitle';
-import Imagen1 from '@Assets/images/CircuitoLeft.svg';
-import Imagen2 from '@Assets/images/CircuitoRight.svg';
 
 const StyledHowToJoinContainer = styled.div`
   display: flex;
@@ -139,7 +137,7 @@ const StyledHowToJoin = styled.div`
 const HowToJoin: React.FC = () => {
   return (
     <StyledHowToJoin>
-      <Imagen1 />
+      <img src="/images/CircuitoLeft.svg" alt="" />
       <StyledHowToJoinContainer>
         <Subtitle size="sub2" as="h3" white={false} align="center">
           ¿Que esperas para unirte?
@@ -178,7 +176,7 @@ const HowToJoin: React.FC = () => {
           <Button text="Unirme a la comunidad" size="md" />
         </a>
       </StyledHowToJoinContainer>
-      <Imagen2 />
+      <img src="/images/CircuitoRight.svg" alt="" />
     </StyledHowToJoin>
   );
 };
