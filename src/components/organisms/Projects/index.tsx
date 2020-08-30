@@ -16,7 +16,7 @@ const StyleProjects = styled.section`
   .backgroundImages {
     z-index: 0;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     display: none;
     justify-content: space-between;
 

@@ -51,7 +51,7 @@ const StyledHowToJoin = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
-  @media (max-width: 1024px) {
+  @media (max-width: 1440px) {
     img {
       display: none;
     }
