@@ -7,7 +7,13 @@ const StyledMeetOurCommunity = styled.div`
   width: 100%;
 `;
 const StyledMeetOurCommunityContainer = styled.div`
-  width: 85%;
+  width: max-content;
+  p {
+    max-width: 400px;
+    @media (min-width: 1440px) {
+      max-width: 600px;
+    }
+  }
   h2 {
     margin: 100px 0px 60px 0px;
     @media (max-width: 720px) {

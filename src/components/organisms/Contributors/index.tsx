@@ -19,7 +19,6 @@ const StyleContributors = styled.div`
   padding: 100px 0px 48px 0px;
   border-bottom: solid #d9d9d9 1px;
   h2 {
-    margin-top: -90px;
     @media (max-width: 1140px) {
       margin-top: 0px;
       margin-bottom: 48px;
@@ -28,7 +27,8 @@ const StyleContributors = styled.div`
     }
   }
   p {
-    margin-top: -60px;
+    max-width: 600px;
+    justify-self: flex-start;
     @media (max-width: 1140px) {
       margin-top: 0px;
     }
@@ -55,7 +55,6 @@ const StyleContributors = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
     p {
       text-align: center;
       width: 50%;
