@@ -27,7 +27,7 @@ const BigDiv = styled.div<UserImageProps>`
 `;
 const StyledCube = styled.div<UserImageProps>`
   background-color: ${({ cubeColor, theme }) =>
-    cubeColor === 'orange' ? theme.light.accent.active : theme.light.color.secondary};
+    cubeColor === 'orange' ? theme.color.accent.activeLight : theme.color.secondary.light};
   opacity: 0.5;
 
   width: 123px;

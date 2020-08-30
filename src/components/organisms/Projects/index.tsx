@@ -12,7 +12,7 @@ const StyleProjects = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.light.color.secondary};
+  background-color: ${({ theme }) => theme.color.secondary.light};
   .backgroundImages {
     z-index: 0;
     position: absolute;

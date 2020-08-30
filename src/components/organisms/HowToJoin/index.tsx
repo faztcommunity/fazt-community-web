@@ -20,7 +20,7 @@ const StyledHowToJoinContainer = styled.div`
   }
   margin: auto;
   .descriptionClassName {
-    color: ${({ theme }) => theme.neutrale.gray[600]};
+    color: ${({ theme }) => theme.color.gray[600]};
     text-align: center;
     font-family: ${({ theme }) => theme.fontFamily.body};
     font-size: 24px;
@@ -65,7 +65,7 @@ const StyledHowToJoin = styled.div`
         font-size: 18px;
         line-height: 20px;
       }
-      color: ${({ theme }) => theme.neutrale.gray[600]};
+      color: ${({ theme }) => theme.color.gray[600]};
     }
     &-Image {
       display: flex;
@@ -139,15 +139,15 @@ const HowToJoin: React.FC = () => {
     <StyledHowToJoin>
       <img src="/images/CircuitoLeft.svg" alt="" />
       <StyledHowToJoinContainer>
-        <Subtitle size="sub2" as="h3" white={false} align="center">
-          ¿Que esperas para unirte?
+        <Subtitle size="sub2" as="h3" align="center">
+          ¿Qué esperas para unirte?
         </Subtitle>
         <span className="descriptionClassName">
           En Fazt Community somos más de 15,000 personas. Donde aprendemos juntos, trabajamos en equipo y a
           cambio obtienes experiencias y conocimientos en proyectos.
         </span>
         <div className="containerPasos">
-          <Subtitle size="sub1" as="h3" white={false} align="center">
+          <Subtitle size="sub1" as="h3" align="center">
             Crece como profesional en 3 pasos
           </Subtitle>
           <div className="containerPasos-Image">
@@ -155,7 +155,7 @@ const HowToJoin: React.FC = () => {
               <div className="containerPasos-Image-container-circulo">
                 <span>1</span>
               </div>
-              <Description>Unete</Description>
+              <Description>Únete</Description>
             </div>
             <span className="containerPasos-Image-Line" />
             <div className="containerPasos-Image-container">

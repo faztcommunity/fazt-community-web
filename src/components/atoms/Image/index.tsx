@@ -16,7 +16,7 @@ export const StyledImage = styled.div<ImageProps>`
   position: relative;
   margin: 1rem;
   background: url(${({ image }) => image || DEFAULT_IMG}) center/cover no-repeat;
-  background-color: ${({ theme }) => theme.neutrale.gray[300]};
+  background-color: ${({ theme }) => theme.color.gray[300]};
   width: ${({ width }) => width || '100%'};
   height: ${({ height }) => height || '100%'};
   border-radius: ${({ variant }) => (variant === 'round' ? '50%' : '8px')};

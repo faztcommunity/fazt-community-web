@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  background: ${({ theme }) => theme.neutrale.gray[800]};
+  background: ${({ theme }) => theme.color.gray[800]};
 `;
 
 const FooterContent = styled.section`

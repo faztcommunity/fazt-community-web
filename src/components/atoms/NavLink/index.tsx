@@ -18,7 +18,7 @@ const StyledNavlink = styled.a<NavlinkProps>`
   line-height: 21px;
   text-decoration: none;
   color: ${({ theme, router, href, color }) =>
-    router?.pathname === href ? theme.normal.color.secondary : color} !important;
+    router?.pathname === href ? theme.color.secondary.dark : color} !important;
   -webkit-tap-highlight-color: transparent;
 `;
 

@@ -6,7 +6,7 @@ import Button from '@Atoms/Button';
 import { screen, index } from '@Styles/theme';
 
 const StyledSection = styled.section`
-  background: ${({ theme }) => theme.neutrale.gray[100]};
+  background: ${({ theme }) => theme.color.gray[100]};
   display: flex;
   align-items: center;
   height: calc(100vh - 90px);
@@ -108,8 +108,8 @@ const Welcome: React.FC = () => (
           source.
         </Description>
       </div>
-      <Button text="Unirme a la comunidad" size="md" />
-      <Button text="Ver proyectos" size="md" color="secondary" variant="outline" />
+      <Button text="Unirme a la comunidad" size="rl" />
+      <Button text="Ver proyectos" size="rl" color="secondary" variant="outline" />
     </WelcomeContent>
     <img src="./images/circuit.svg" alt="Circuit" />
   </StyledSection>

@@ -12,55 +12,55 @@ type ButtonProps = {
 };
 
 const StyledButton = styled.button<ButtonProps>`
-  font-family: ${({ theme }) => theme.fontFamily.body};
   background-color: ${({ theme, variant, color }) =>
-    color && variant !== 'outline' ? theme.dark.color.secondary : 'transparent'};
-  padding: 0px 16px 0px 16px;
-  font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
-  border-radius: ${({ theme }) => theme.button.borderRadius};
-  line-height: ${({ theme }) => theme.button.lineHeight};
+    variant !== 'outline' ? theme.color[color || 'primary'].dark : 'transparent'};
+  border-radius: 8px;
+  border: 1px solid
+    ${({ theme, variant, color }) =>
+      variant === 'fill' ? theme.color[color || 'primary'].dark : theme.color[color || 'primary'].light};
+  box-shadow: ${({ variant, shadow }) =>
+    shadow && variant !== 'outline' ? '0px 5px 15px rgba(255, 41, 95, 0.5)' : 'none'};
+  color: ${({ theme, variant }) => (variant === 'fill' ? theme.color.white : theme.color.secondary.light)};
   cursor: pointer;
-  position: relative;
+  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
   font-weight: bold;
-  transition: all 0.3s ease-out;
-  border: 1px solid ${({ theme, color }) => color && theme.dark.color.secondary};
-  height: 52px;
+  line-height: ${({ theme }) => theme.button.lineHeight};
   margin: 1rem;
   outline: none;
-  box-shadow: ${({ theme, color, variant }) =>
-    color && variant !== 'outline' ? `0px 10px 15px ${theme.light.color[color]}80` : 'transparent'};
-  color: ${({ theme, color, variant }) =>
-    variant !== 'fill' && color ? theme.light.color[color] : theme.light.background};
+  padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
+  position: relative;
+  transition: all 0.3s ease-out;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
-    background-color: ${({ theme, variant, color = 'primary' }) =>
-      variant !== 'outline' ? theme.normal.color[color] : theme.light.color[color]};
-    color: ${({ variant, theme }) => variant === 'outline' && theme.light.background};
-    box-shadow: ${(
-      { theme, variant, color } // #color + 80 = color with 50% opacity
-    ) => (color && variant ? `0px 10px 15px ${theme.light.color[color]}80` : 'transparent')};
+    background-color: ${({ theme, color }) =>
+      color === 'primary' ? theme.color.primary.light : theme.color.secondary.light};
+    border: 1px solid
+      ${({ theme, color }) => (color === 'primary' ? theme.color.primary.light : theme.color.secondary.light)};
+    color: ${({ theme }) => theme.color.white};
   }
 
   &::after {
-    content: '';
-    left: 0;
-    top: 0;
-    display: block;
-    right: 0;
-    bottom: 0;
-    width: 100%;
     border-radius: 8px;
-    box-shadow: inset 0px 6px 3px rgba(15, 79, 125, 0.5);
-    position: absolute;
-    transition: opacity 0.2s ease-in-out;
+    bottom: 0;
+    box-shadow: inset 0px 6px 3px
+      ${({ theme, color }) => (color === 'primary' ? theme.color.primary.dark : theme.color.secondary.dark)};
+    display: block;
+    left: 0;
     opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s ease-in-out;
   }
 
   &:active:after {
     opacity: 1;
   }
 
-  :active {
+  &:active {
     box-shadow: unset;
   }
 `;

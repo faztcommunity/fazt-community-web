@@ -45,7 +45,7 @@ const StyledNavigation = styled.nav`
 `;
 
 const StyledSidebar = styled.aside`
-  background-color: ${({ theme }) => theme.neutrale.gray[900]};
+  background-color: ${({ theme }) => theme.color.black};
   display: flex;
   height: 100vh;
   position: fixed;
@@ -98,7 +98,7 @@ const Out = styled.button`
   background: none;
   border: none;
   box-shadow: none;
-  color: white;
+  color: ${({ theme }) => theme.color.white};
   font-size: 1.25rem;
   margin: 0rem !important;
   outline: none;
@@ -159,7 +159,7 @@ const Navigation: React.FC = () => {
           <Navlink text="Acerca" href="/acerca" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Proyectos" href="/proyectos" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Contribuidores" href="/contribuidores" color="rgba(29, 29, 29, 0.38)" />
-          <Button text="Ingresar" variant="outline" color="secondary" size="md" shadow={false} />
+          <Button text="Ingresar" variant="outline" color="secondary" size="md" />
           <Navlink text="Regístrate" href="/registrate" color="rgba(29, 29, 29, 0.38)" />
         </div>
       </StyledNavigation>

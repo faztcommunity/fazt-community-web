@@ -18,16 +18,16 @@ const StyledCard = styled.div<ProjectCardProps>`
   background: #fff;
   border-radius: 8px;
 
-  border: 1px solid ${({ theme }) => (theme ? `${theme.neutrale.gray['300']}` : '#d9d9d9')};
+  border: 1px solid ${({ theme }) => (theme ? `${theme.color.gray['300']}` : '#d9d9d9')};
   box-shadow: 0px 8px 10px /* #color + 80 = color with 50% opacity */
-    ${({ altBG, theme }) => (altBG ? `${theme.neutrale.gray['500']}80` : `${theme.neutrale.gray['300']}80`)};
+    ${({ altBG, theme }) => (altBG ? `${theme.color.gray['500']}80` : `${theme.color.gray['300']}80`)};
 
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0px 16px 16px /* #color + 80 = color with 50% opacity */
-      ${({ altBG, theme }) => (altBG ? `${theme.neutrale.gray['500']}80` : `${theme.neutrale.gray['300']}80`)};
+      ${({ altBG, theme }) => (altBG ? `${theme.color.gray['500']}80` : `${theme.color.gray['300']}80`)};
   }
 
   /* desktop */
