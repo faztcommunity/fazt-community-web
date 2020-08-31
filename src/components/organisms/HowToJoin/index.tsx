@@ -20,7 +20,7 @@ const StyledHowToJoinContainer = styled.div`
   }
   margin: auto;
   .descriptionClassName {
-    color: ${({ theme }) => theme.neutrale.gray[600]};
+    color: ${({ theme }) => theme.color.gray[600]};
     text-align: center;
     font-family: ${({ theme }) => theme.fontFamily.body};
     font-size: 24px;
@@ -38,14 +38,21 @@ const StyledHowToJoinContainer = styled.div`
 `;
 
 const StyledHowToJoin = styled.div`
-  background: #ffffff;
+  background: transparent;
   width: 100%;
-  height: 80vh;
+  height: max-content;
+  padding: 100px 0px 200px 0px;
+  @media (max-width: 1140px) {
+    padding: 64px 0px 90px 0px;
+  }
+  @media (max-width: 720px) {
+    padding: 64px 0px 64px 0px;
+  }
   justify-content: space-between;
   display: flex;
   align-items: center;
-  @media (max-width: 1024px) {
-    svg {
+  @media (max-width: 1440px) {
+    img {
       display: none;
     }
   }
@@ -58,7 +65,7 @@ const StyledHowToJoin = styled.div`
         font-size: 18px;
         line-height: 20px;
       }
-      color: ${({ theme }) => theme.neutrale.gray[600]};
+      color: ${({ theme }) => theme.color.gray[600]};
     }
     &-Image {
       display: flex;
@@ -82,10 +89,10 @@ const StyledHowToJoin = styled.div`
         height: 2.5px;
         background-color: #d9d9d9;
         position: absolute;
-        transform: translate(-5px, -15px);
+        transform: translate(-5px, -30px);
         z-index: 1;
         @media (max-width: 536px) {
-          width: 250px;
+          width: 290px;
         }
       }
       &-container {
@@ -94,9 +101,13 @@ const StyledHowToJoin = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        p {
+          font-size: 19px;
+          line-height: 18px;
+        }
         @media (max-width: 536px) {
           p {
-            font-size: 13px;
+            font-size: 19px;
             line-height: 18px;
           }
         }
@@ -128,15 +139,15 @@ const HowToJoin: React.FC = () => {
     <StyledHowToJoin>
       <img src="/images/CircuitoLeft.svg" alt="" />
       <StyledHowToJoinContainer>
-        <Subtitle size="sub1" as="h2" white={false} align="center">
-          ¿Que esperas para unirte?
+        <Subtitle size="sub2" as="h3" align="center">
+          ¿Qué esperas para unirte?
         </Subtitle>
         <span className="descriptionClassName">
           En Fazt Community somos más de 15,000 personas. Donde aprendemos juntos, trabajamos en equipo y a
           cambio obtienes experiencias y conocimientos en proyectos.
         </span>
         <div className="containerPasos">
-          <Subtitle size="sub1" as="h3" white={false} align="center">
+          <Subtitle size="sub1" as="h3" align="center">
             Crece como profesional en 3 pasos
           </Subtitle>
           <div className="containerPasos-Image">
@@ -144,7 +155,7 @@ const HowToJoin: React.FC = () => {
               <div className="containerPasos-Image-container-circulo">
                 <span>1</span>
               </div>
-              <Description>Unete</Description>
+              <Description>Únete</Description>
             </div>
             <span className="containerPasos-Image-Line" />
             <div className="containerPasos-Image-container">

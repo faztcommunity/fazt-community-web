@@ -15,7 +15,7 @@ const StyledSubtitle = styled.h2<SubtitleProps>`
   text-align: center;
   font-size: ${({ theme }) => theme.subtitle.sub3.fontSize};
   line-height: ${({ theme }) => theme.subtitle.sub3.lineHeight};
-  color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[900])};
+  color: ${({ theme, white }) => (white ? theme.color.white : theme.color.black)};
 
   ${screen('md')} {
     text-align: ${({ align }) => (align ? `${align}` : 'left')};

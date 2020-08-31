@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import Title from '@Atoms/Title';
+import Subtitle from '@Atoms/Subtitle';
 import Icon from '@Atoms/Icon';
 import Description from '@Atoms/Description';
 import PropTypes from 'prop-types';
@@ -13,51 +13,54 @@ type ProjectCardProps = {
 };
 
 const StyledCard = styled.div<ProjectCardProps>`
-  padding: 2rem 1rem;
+  padding: 24px 16px 24px 16px;
   width: 332px;
   background: #fff;
   border-radius: 8px;
 
-  border: 1px solid ${({ theme }) => (theme ? `${theme.neutrale.gray['300']}` : '#d9d9d9')};
+  border: 1px solid ${({ theme }) => (theme ? `${theme.color.gray['300']}` : '#d9d9d9')};
   box-shadow: 0px 8px 10px /* #color + 80 = color with 50% opacity */
-    ${({ altBG, theme }) => (altBG ? `${theme.neutrale.gray['500']}80` : `${theme.neutrale.gray['300']}80`)};
+    ${({ altBG, theme }) => (altBG ? `${theme.color.gray['500']}80` : `${theme.color.gray['300']}80`)};
 
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0px 16px 16px /* #color + 80 = color with 50% opacity */
-      ${({ altBG, theme }) => (altBG ? `${theme.neutrale.gray['500']}80` : `${theme.neutrale.gray['300']}80`)};
+      ${({ altBG, theme }) => (altBG ? `${theme.color.gray['500']}80` : `${theme.color.gray['300']}80`)};
   }
 
   /* desktop */
   ${screen('md')} {
     width: 350px;
   }
+  h4 {
+    margin-left: 1rem;
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
 `;
 
 const StyledHead = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-`;
-
-const StyledTitle = styled.div`
-  margin-left: 1rem;
+  margin-bottom: 16px;
 `;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altBG }) => (
   <StyledCard altBG={altBG}>
     <StyledHead>
       <Icon size="sm" icon={icon} dark />
-      <StyledTitle>
-        <Title as="h3" size="sm">
-          {title}
-        </Title>
-      </StyledTitle>
+      <Subtitle as="h4" size="sub3">
+        {title}
+      </Subtitle>
     </StyledHead>
 
-    <Description align="forceLeft">{children}</Description>
+    <Description align="forceLeft" size="md">
+      {children}
+    </Description>
   </StyledCard>
 );
 

@@ -6,116 +6,77 @@ import { StyledDescription } from '@Atoms/Description';
 
 type UserImageProps = {
   direction?: 'left' | 'right';
-  ImageUrl?: string;
-  CubeColor?: 'orange' | 'blue';
+  cubeColor?: 'orange' | 'blue';
+  imageUrl?: string;
 };
-const StyledUserImage = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0 10%;
-  margin-bottom: 160px;
-
-  @media (max-width: 976px) {
-    margin-bottom: 100px;
-    margin-left: 36px;
-    margin-right: 36px;
+const StyledUserImage = styled.div<UserImageProps>`
+  display: flex;
+  margin-bottom: 140px;
+  @media (max-width: 1140px) {
+    margin-bottom: 70px;
   }
-  @media (max-width: 696px) {
-    display: flex;
-    flex-direction: column;
+  @media (max-width: 720px) {
+    margin-bottom: 32px;
     align-items: center;
-    margin-bottom: 62px;
-    margin: 0px;
+    ${({ direction }) =>
+      direction === 'left' ? `flex-direction: column;` : `flex-direction: column-reverse;`};
   }
 `;
 const BigDiv = styled.div<UserImageProps>`
-  position: relative;
-  ${({ direction }) => (direction === 'left' ? `margin-right: 25px;` : `margin-left: 25px;`)}
-  @media (max-width: 815px) {
-    ${({ direction }) => (direction === 'left' ? `margin-right: 0px;` : `margin-left: 0px;`)}
-  }
+  width: max-content;
 `;
 const StyledCube = styled.div<UserImageProps>`
-  background-color: ${({ CubeColor, theme }) =>
-    CubeColor === 'orange' ? theme.light.accent.active : theme.light.color.secondary};
+  background-color: ${({ cubeColor, theme }) =>
+    cubeColor === 'orange' ? theme.color.accent.activeLight : theme.color.secondary.light};
   opacity: 0.5;
+
   width: 123px;
   height: 106px;
   border-radius: 8px;
   position: absolute;
-  top: 225px;
-  ${({ direction }) => (direction === 'left' ? `left: 0;` : `right: 0;`)}
-  ${({ direction }) =>
-    direction === 'left' ? `left: 425px;` : `right: 425px;`}
-  @media (max-width: 1024px) {
-    width: 86px;
-    height: 76px;
-    top: 185px;
-    ${({ direction }) => (direction === 'left' ? `left: 360px;` : `right: 360px;`)}
-  }
-  @media (max-width: 815px) {
-    width: 76px;
+  margin: ${({ direction }) => (direction === 'left' ? `290px 0px 0px 508px` : `290px 0px 0px 0px`)};
+  transform: ${({ direction }) => (direction === 'left' ? `translate(-80%, -75%)` : `translate(-25%, -75%)`)};
+  @media (max-width: 1140px) {
+    width: 77px;
     height: 66px;
-    top: 150px;
-    ${({ direction }) => (direction === 'left' ? `left: 275px;` : `right: 275px;`)};
-  }
-  @media (max-width: 350px) {
-    width: 56px;
-    height: 46px;
-    top: 135px;
-    ${({ direction }) => (direction === 'left' ? `left: 260px;` : `right: 260px;`)};
+    margin: ${({ direction }) => (direction === 'left' ? `180px 0px 0px 313px` : `180px 0px 0px 0px`)};
   }
 `;
 
 const NewStyledImage = styled(StyledImage)<UserImageProps>`
-  ${({ direction }) => (direction === 'left' ? `` : `right: 0;`)}
-  @media (max-width: 1024px) {
-    width: 408px;
-    height: 220px;
-  }
-  @media (max-width: 815px) {
-    width: 314px;
+  width: 508px;
+  height: 290px;
+  @media (max-width: 1140px) {
+    width: 313px;
     height: 180px;
   }
-  @media (max-width: 696px) {
-    margin-bottom: 35px;
-  }
-  @media (max-width: 350px) {
-    width: 284px;
-    height: 150px;
-  }
+  margin: 0px;
+  padding: 0px;
+  ${({ direction }) => (direction === 'left' ? `` : `right: 0;`)}
 `;
 
 const NewDescription = styled(StyledDescription)<UserImageProps>`
   display: flex;
   align-items: center;
-  @media (max-width: 1024px) {
-    font-size: 1.2rem;
-    ${({ direction }) => (direction === 'left' ? `margin-left: 40px;` : `margin-right: 40px;`)};
+
+  ${({ direction }) => (direction === 'left' ? `margin-left: 70px;` : `margin-right: 70px;`)};
+
+  @media (max-width: 1140px) {
+    ${({ direction }) => (direction === 'left' ? `margin-left: 50px;` : `margin-right: 50px;`)};
   }
-  @media (max-width: 976px) {
-    font-size: 1rem;
-    margin: auto;
-    line-height: 23px;
-    ${({ direction }) => (direction === 'left' ? `margin-left: 40px;` : `margin-right: 40px;`)};
-  }
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    line-height: 23px;
-  }
-  @media (max-width: 696px) {
-    text-align: center;
-    order: 2;
-    margin: auto;
+  @media (max-width: 720px) {
+    margin-left: 0px;
+    margin-top: 35px;
+    width: 313px;
   }
 `;
-const UserImage: React.FC<UserImageProps> = ({ direction, ImageUrl, CubeColor }) => (
+const UserImage: React.FC<UserImageProps> = ({ direction, imageUrl, cubeColor }) => (
   <>
     {direction === 'left' ? (
-      <StyledUserImage>
+      <StyledUserImage direction={direction}>
         <BigDiv direction={direction}>
-          <StyledCube direction={direction} CubeColor={CubeColor} />
-          <NewStyledImage width="507px" height="290px" direction={direction} image={ImageUrl} />
+          <StyledCube direction={direction} cubeColor={cubeColor} />
+          <NewStyledImage direction={direction} image={imageUrl} />
         </BigDiv>
         <NewDescription size="xl" direction={direction}>
           Fazt Community es un espacio donde podrás crecer como profesional, participando en equipos y con
@@ -124,13 +85,13 @@ const UserImage: React.FC<UserImageProps> = ({ direction, ImageUrl, CubeColor })
       </StyledUserImage>
     ) : (
       <StyledUserImage>
-        <NewDescription size="xl">
-          No importa tu nivel, podrás encontrar un área donde unirte, aportar de tu conocimiento con otros,
-          recibir ayuda y vas a conocer gente que comparten la misma pasión que tú.
+        <NewDescription size="xl" direction={direction}>
+          Fazt Community es un espacio donde podrás crecer como profesional, participando en equipos y con
+          personas de todo el mundo hispano hablante.
         </NewDescription>
         <BigDiv direction={direction}>
-          <StyledCube direction={direction} CubeColor={CubeColor} />
-          <NewStyledImage width="508px" height="290px" direction={direction} image={ImageUrl} />
+          <StyledCube direction={direction} cubeColor={cubeColor} />
+          <NewStyledImage direction={direction} image={imageUrl} />
         </BigDiv>
       </StyledUserImage>
     )}
@@ -138,14 +99,14 @@ const UserImage: React.FC<UserImageProps> = ({ direction, ImageUrl, CubeColor })
 );
 
 UserImage.propTypes = {
-  CubeColor: PropTypes.oneOf(['orange', 'blue']),
+  cubeColor: PropTypes.oneOf(['orange', 'blue']),
   direction: PropTypes.oneOf(['left', 'right']),
-  ImageUrl: PropTypes.string
+  imageUrl: PropTypes.string
 };
 
 UserImage.defaultProps = {
-  CubeColor: 'blue',
+  cubeColor: 'blue',
   direction: 'left',
-  ImageUrl: 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'
+  imageUrl: 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'
 };
 export default UserImage;

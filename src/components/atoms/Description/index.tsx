@@ -14,7 +14,9 @@ export const StyledDescription = styled.p<DescriptionProps>`
   text-align: ${({ align }) => (align === 'forceLeft' ? 'left' : 'center')};
   font-size: ${({ theme, size }) => (size === 'md' ? theme.body.md.fontSize : theme.body.lg.fontSize)};
   line-height: ${({ theme, size }) => (size === 'md' ? theme.body.md.lineHeight : theme.body.lg.lineHeight)};
-  color: ${({ theme, white }) => (white ? theme.neutrale.gray[100] : theme.neutrale.gray[500])};
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: ${({ theme, white }) => (white ? theme.color.white : theme.color.gray[500])};
 
   ${screen('md')} {
     text-align: ${({ align }) => (align ? `${align}` : 'left')};

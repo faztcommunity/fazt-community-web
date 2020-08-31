@@ -7,6 +7,13 @@ const StyledCardGroupProjectsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 155px;
+  @media (max-width: 1140px) {
+    margin-bottom: 64px;
+  }
+  @media (max-width: 720px) {
+    margin-bottom: 0px;
+  }
 `;
 
 const StyledCardGroupProjects = styled.div`
