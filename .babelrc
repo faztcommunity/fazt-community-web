@@ -1,0 +1,19 @@
+{
+  "presets": ["next/babel"],
+  "env": {
+    "production": {
+      "plugins": ["emotion"]
+    },
+    "development": {
+      "plugins": [["emotion", { "sourceMap": true }]]
+    },
+    "test": {
+      "plugins": [
+        [
+          "emotion",
+          { "sourceMap": true, "autoLabel": true, "labelFormat": "⚡[local]" }
+        ]
+      ]
+    }
+  }
+}
