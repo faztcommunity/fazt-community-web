@@ -6,7 +6,7 @@ import theme from '@Styles/theme';
 
 type IconProps = {
   size?: 'sm' | 'rl';
-  icon?: 'api' | 'bot' | 'database' | 'discord' | 'github' | 'web';
+  icon?: string;
   dark?: boolean;
 };
 
@@ -44,7 +44,7 @@ const Icon: React.FC<IconProps> = ({ icon, size, dark }) => {
 };
 
 Icon.propTypes = {
-  icon: PropTypes.oneOf(['api', 'web', 'bot', 'discord', 'github', 'database']),
+  icon: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'rl']),
   dark: PropTypes.bool
 };
