@@ -97,7 +97,7 @@ const StyledInputForm = styled.input<InputFormProps>`
       :hover {
         outline-offset: 0px;
         outline: none;
-        border: 2px solid ${({ id, formik }) => getColorFocus({ id, formik })};
+        border: 1px solid ${({ id, formik }) => getColorFocus({ id, formik })};
         cursor: pointer;
         background-color: ${({ id, formik }) => `${getColorFocus({ id, formik })}66`};
         transition: background-color 0.5s ease;
@@ -124,12 +124,24 @@ const StyledInputForm = styled.input<InputFormProps>`
   }
   & ~ button {
     background-color: ${({ id, formik }) => `${getColor({ id, formik })}26`};
+    :focus {
+      outline-offset: 0px;
+      outline: none;
+      border: 1px solid black;
+    }
     :hover {
       outline-offset: 0px;
       outline: none;
-      border: 2px solid ${({ id, formik }) => getColorFocus({ id, formik })};
+      border: 1px solid ${({ id, formik }) => getColorFocus({ id, formik })};
       cursor: pointer;
       background-color: ${({ id, formik }) => `${getColor({ id, formik })}66`};
+      svg {
+        width: 15px;
+        height: 15px;
+        path {
+          fill: ${({ id, formik }) => getColor({ id, formik })};
+        }
+      }
       transition: background-color 0.5s ease;
     }
     svg {

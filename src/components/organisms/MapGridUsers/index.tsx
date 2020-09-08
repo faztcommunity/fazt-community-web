@@ -27,8 +27,7 @@ const StyledContainer = styled.div<MapGridUsersProps>`
 const StyledMapGridUsers = styled.div<MapGridUsersProps>`
   width: 100%;
   height: 100%;
-  background: url('https://svgshare.com/i/PN1.svg')
-    center/cover no-repeat;
+  background: url('https://svgshare.com/i/PN1.svg') center/cover no-repeat;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
