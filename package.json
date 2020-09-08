@@ -27,13 +27,16 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@types/yup": "^0.29.6",
     "axios": "^0.19.2",
     "emotion-theming": "^10.0.27",
+    "formik": "^2.1.5",
     "next": "^9.5.1",
     "next-react-svg": "^1.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
