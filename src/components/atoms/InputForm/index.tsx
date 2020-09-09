@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from '@Styles/styled';
 import Icon from '@Atoms/Icon';
 import PropTypes from 'prop-types';
+import { screen } from '@Styles/theme';
 
 type InputFormPropsType = 'password' | 'email' | 'text';
 
@@ -32,7 +33,12 @@ const StyledInputFormContainer = styled.div`
   flex-direction: column;
   width: max-content;
   height: max-content;
-  padding-bottom: 20px;
+  padding-bottom: 22px;
+  margin: 2px 0px 2px 0px;
+  ${screen('md')} {
+    margin: 2px 15px 2px 15px;
+  }
+  transition: all 0.5s ease;
 `;
 const StyledInputFormContainerIcon = styled.div<InputFormProps>`
   display: flex;
