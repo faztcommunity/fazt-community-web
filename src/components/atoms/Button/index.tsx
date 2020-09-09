@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 type ButtonProps = {
   text?: string;
@@ -9,6 +10,7 @@ type ButtonProps = {
   size?: 'xs' | 'sm' | 'md' | 'rl' | 'lg';
   shadow?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  href?: string;
 };
 
 const StyledButton = styled.button<ButtonProps>`
@@ -65,11 +67,22 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ color, variant, text, size, shadow, onClick }) => (
-  <StyledButton color={color} variant={variant} size={size} shadow={shadow} onClick={onClick}>
-    {text}
-  </StyledButton>
-);
+const Button: React.FC<ButtonProps> = ({ color, variant, text, size, shadow, onClick, href }) => {
+  if (href) {
+    return (
+      <Link href={href}>
+        <StyledButton color={color} variant={variant} size={size} shadow={shadow} onClick={onClick}>
+          {text}
+        </StyledButton>
+      </Link>
+    );
+  }
+  return (
+    <StyledButton color={color} variant={variant} size={size} shadow={shadow} onClick={onClick}>
+      {text}
+    </StyledButton>
+  );
+};
 
 Button.propTypes = {
   text: PropTypes.string,
