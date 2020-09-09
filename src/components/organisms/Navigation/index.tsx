@@ -156,11 +156,11 @@ const Navigation: React.FC = () => {
         <Image image="/favicon.png" width="3.125rem" height="3.125rem" variant="round" />
         <Toggle onClick={handleActive}>&#9776;</Toggle>
         <div className="navlinks">
-          <Navlink text="Acerca" href="/acerca" color="rgba(29, 29, 29, 0.38)" />
-          <Navlink text="Proyectos" href="/proyectos" color="rgba(29, 29, 29, 0.38)" />
-          <Navlink text="Contribuidores" href="/contribuidores" color="rgba(29, 29, 29, 0.38)" />
-          <Button text="Ingresar" variant="outline" color="secondary" size="md" />
-          <Navlink text="Regístrate" href="/registrate" color="rgba(29, 29, 29, 0.38)" />
+          <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />
+          <Navlink text="Proyectos" href="/projects" color="rgba(29, 29, 29, 0.38)" />
+          <Navlink text="Contribuidores" href="/contributors" color="rgba(29, 29, 29, 0.38)" />
+          <Button text="Ingresar" href="/login" variant="outline" color="secondary" size="md" />
+          <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
         </div>
       </StyledNavigation>
     </>
