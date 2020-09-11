@@ -153,7 +153,9 @@ const Navigation: React.FC = () => {
         </StyledSidebar>
       </Styledleft>
       <StyledNavigation>
-        <Image image="/favicon.png" width="3.125rem" height="3.125rem" variant="round" />
+        <a href="/">
+          <Image image="/favicon.png" width="3.125rem" height="3.125rem" variant="round" />
+        </a>
         <Toggle onClick={handleActive}>&#9776;</Toggle>
         <div className="navlinks">
           <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />

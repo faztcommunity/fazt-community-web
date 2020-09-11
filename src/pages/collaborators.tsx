@@ -5,9 +5,10 @@ import MainPage from '@Templates/MainPage';
 import styled from '@Styles/styled';
 import Head from '@Molecules/Head';
 
+import Loading from '@Atoms/Loading';
+
 // despues hay que separar bien el código asi no esta todo junto en este archivo. (eso para el final)
 // CollaboratorTag seria un componente tonto xd es para despues pasarlo mas facil a prod  x d
-// lo mismo que loading
 
 type ConllaboratorTagProps = {
   id?: number;
@@ -79,16 +80,6 @@ const ConllaboratorTag = (props: ConllaboratorTagProps) => {
     </StyledConllaboratorTag>
   );
 };
-const Stylediv = styled.p`
-  //aqui dentro todo el css que quieran
-`;
-const Loading = () => {
-  return (
-    <div className="">
-      <h2>Cargando...</h2>
-    </div>
-  );
-};
 
 const collaborators = (props: ConllaboratorTagProps) => {
   const [items, setItems] = useState([]);
@@ -98,7 +89,7 @@ const collaborators = (props: ConllaboratorTagProps) => {
     const getData = async () => {
       const result = await axios
         .get('https://api.faztcommunity.dev/collaborators')
-        .catch((e) => console.log(e)); // URL endpoint espero que funcione sino no la pongo esta noche
+        .catch((e) => console.log(e));
       setItems(get(result, 'data', []));
       setLoading(false);
     };
