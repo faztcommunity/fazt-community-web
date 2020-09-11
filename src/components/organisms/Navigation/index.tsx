@@ -136,7 +136,7 @@ const Navigation: React.FC = () => {
             <Out onClick={handleActive}>&#9587;</Out>
             <Navlink text="Acerca" href="/acerca" onClick={handleActive} color="#ffffff" />
             <Navlink text="Proyectos" href="/proyectos" onClick={handleActive} color="#ffffff" />
-            <Navlink text="Contribuidores" href="/contribuidores" onClick={handleActive} color="#ffffff" />
+            <Navlink text="Contribuidores" href="/collaborators" onClick={handleActive} color="#ffffff" />
             <hr className="line" />
             <div>
               <Button
@@ -158,7 +158,7 @@ const Navigation: React.FC = () => {
         <div className="navlinks">
           <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Proyectos" href="/projects" color="rgba(29, 29, 29, 0.38)" />
-          <Navlink text="Contribuidores" href="/contributors" color="rgba(29, 29, 29, 0.38)" />
+          <Navlink text="Contribuidores" href="/collaborators" color="rgba(29, 29, 29, 0.38)" />
           <Button text="Ingresar" href="/login" variant="outline" color="secondary" size="md" />
           <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
         </div>
