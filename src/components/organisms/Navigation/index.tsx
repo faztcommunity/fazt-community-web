@@ -161,7 +161,7 @@ const Navigation: React.FC = () => {
           <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Proyectos" href="/projects" color="rgba(29, 29, 29, 0.38)" />
           <Navlink text="Contribuidores" href="/collaborators" color="rgba(29, 29, 29, 0.38)" />
-          <Button text="Ingresar" href="/login" variant="outline" color="secondary" size="md" />
+          <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="md" />
           <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
         </div>
       </StyledNavigation>
