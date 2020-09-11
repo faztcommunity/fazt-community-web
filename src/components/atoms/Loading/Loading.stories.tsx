@@ -15,5 +15,5 @@ const Template: Story = (args) => <Loading {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: 'Loading',
+  text: 'Loading'
 };
