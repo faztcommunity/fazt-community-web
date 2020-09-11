@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from '@Styles/styled';
+import PropTypes from 'prop-types';
 import { screen } from '@Styles/theme';
 
 type FormProps = {
-  formik: any;
+  formik?: any;
   title?: string;
   buttonText?: string;
+  vertical?: boolean;
+  buttonBlock?: boolean;
 };
+
 const StyledFormContainer = styled.div`
   display: flex;
   width: 100%;
@@ -32,15 +36,20 @@ const StyledFormContainer = styled.div`
   }
 `;
 
-const StyledForm = styled.form`
+const StyledForm = styled.form<FormProps>`
   display: flex;
+  flex-direction: column;
   max-width: 684px;
   height: max-content;
   flex-wrap: wrap;
   justify-content: center;
+
+  ${screen('md')} {
+    flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
+  }
 `;
 
-const StyledButton = styled.input`
+const StyledButton = styled.input<FormProps>`
   background-color: ${({ theme }) => theme.color.secondary.light};
   width: 100%;
   border: none;
@@ -54,12 +63,17 @@ const StyledButton = styled.input`
   font-weight: bold;
   line-height: ${({ theme }) => theme.button.lineHeight};
   letter-spacing: 1.5px;
-  margin: 15px 15px 0px 15px;
+  margin: 0;
   outline: none;
   padding: 16px 0px 15px 0px;
   position: relative;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+
+  ${screen('md')} {
+    width: ${({ buttonBlock }) => (buttonBlock ? '100%' : 'auto')};
+    margin: 0 15px;
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.color.secondary.dark};
@@ -74,16 +88,30 @@ const StyledButton = styled.input`
   transition: all 0.3s ease-out;
 `;
 
-const Form: React.FC<FormProps> = ({ formik, children, title, buttonText }) => {
+const Form: React.FC<FormProps> = ({ formik, children, title, buttonText, vertical, buttonBlock }) => {
   return (
     <StyledFormContainer>
       <h2>{title}</h2>
-      <StyledForm onSubmit={formik.handleSubmit}>
+      <StyledForm onSubmit={formik.handleSubmit} vertical={vertical}>
         {children}
-        <StyledButton type="submit" value={buttonText} />
+        <StyledButton type="submit" value={buttonText} buttonBlock={buttonBlock} />
       </StyledForm>
     </StyledFormContainer>
   );
+};
+
+Form.propTypes = {
+  vertical: PropTypes.bool,
+  title: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonBlock: PropTypes.bool
+};
+
+Form.defaultProps = {
+  vertical: false,
+  buttonBlock: true,
+  title: 'default title',
+  buttonText: 'example text'
 };
 
 export default Form;

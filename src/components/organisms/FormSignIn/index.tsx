@@ -6,11 +6,11 @@ import Form from '@Molecules/Form';
 import { screen } from '@Styles/theme';
 import Link from 'next/link';
 
-type FormSignUpProps = {
+type FormSignInProps = {
   formik: any;
 };
 
-const StyledFormSignUpContainer = styled.div`
+const StyledFormSignInContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: max-content;
@@ -22,7 +22,7 @@ const StyledFormSignUpContainer = styled.div`
     margin: 106px 0px 106px 0px;
   }
 `;
-const StyledFormSignUpSpace = styled.div`
+const StyledFormSignInSpace = styled.div`
   width: 347px;
   border: 1px solid #d9d9d9;
   margin-top: 32px;
@@ -33,7 +33,7 @@ const StyledFormFooter = styled.div`
   text-align: center;
 `;
 
-const StyledFormSignUpText = styled.span`
+const StyledFormSignInText = styled.span`
   display: block;
   width: 347px;
   margin: 16px auto;
@@ -44,7 +44,7 @@ const StyledFormSignUpText = styled.span`
   font-size: ${({ theme }) => theme.body.sm};
   line-height: ${({ theme }) => theme.subtitle.sub2.lineHeight};
 `;
-const StyledFormSignUpTextLink = styled.a`
+const StyledFormSignInTextLink = styled.a`
   width: 347px;
   margin-top: 32px;
   font-family: ${({ theme }) => theme.fontFamily.body};
@@ -60,35 +60,30 @@ const StyledFormSignUpTextLink = styled.a`
   cursor: pointer;
 `;
 
-const FormSignUp: React.FC<FormSignUpProps> = ({ formik }) => {
+const FormSignIn: React.FC<FormSignInProps> = ({ formik }) => {
   return (
-    <StyledFormSignUpContainer>
-      <Form
-        formik={formik}
-        title="¡Comienza a aplicar tus conocimientos!"
-        buttonText="Registrarme"
-        buttonBlock
-      >
-        <InputForm id="name" placeholder="Ingrese su Nombre" formik={formik} />
+    <StyledFormSignInContainer>
+      <Form formik={formik} title="Inicia Sesión" buttonText="Ingresar" vertical buttonBlock={false}>
         <InputForm id="email" type="email" placeholder="Ingrese su correo" formik={formik} />
         <InputForm id="password" type="password" placeholder="Ingrese su contraseña" formik={formik} />
-        <InputForm
-          id="passwordConfirm"
-          type="password"
-          placeholder="Verifique su constraseña"
-          formik={formik}
-        />
       </Form>
-      <StyledFormSignUpSpace />
+
+      <StyledFormSignInSpace />
+
       <StyledFormFooter>
-        <Link href="/signin">
-          <StyledFormSignUpText>
-            ¿Ya tienes una cuenta? <StyledFormSignUpTextLink>Ingresa</StyledFormSignUpTextLink>
-          </StyledFormSignUpText>
+        <Link href="/signup">
+          <StyledFormSignInText>
+            ¿Aún no tienes cuenta? <StyledFormSignInTextLink>Regístrate</StyledFormSignInTextLink>
+          </StyledFormSignInText>
+        </Link>
+        <Link href="/recover">
+          <StyledFormSignInText>
+            ¿Olvidaste tu contraseña? <StyledFormSignInTextLink>Recupérala</StyledFormSignInTextLink>
+          </StyledFormSignInText>
         </Link>
       </StyledFormFooter>
-    </StyledFormSignUpContainer>
+    </StyledFormSignInContainer>
   );
 };
 
-export default FormSignUp;
+export default FormSignIn;
