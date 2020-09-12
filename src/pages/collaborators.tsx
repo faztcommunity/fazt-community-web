@@ -85,9 +85,7 @@ const collaborators = (props: ConllaboratorTagProps) => {
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios
-        .get('/collaborators')
-        .catch((e) => console.log(e));
+      const result = await axios.get('/collaborators').catch((e) => console.log(e));
       setItems(get(result, 'data', []));
       setLoading(false);
     };
