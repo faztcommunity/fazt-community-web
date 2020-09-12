@@ -5,6 +5,7 @@ type LoadingProps = {
   text?: string;
   mensaje?: Array<string>;
 };
+
 const mensaje = [
   'Hey coders la data esta cargando',
   'Cargando jQuery... jaja tranquilo es broma',
@@ -14,6 +15,7 @@ const mensaje = [
   'No compila y no se porque',
   'Si no carga no es un Bug, es un Feature'
 ];
+
 const random = Math.floor(Math.random() * mensaje.length);
 
 const LoadingStyle = styled.div<LoadingProps>`
@@ -22,6 +24,10 @@ const LoadingStyle = styled.div<LoadingProps>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const Mensaje = styled.div`
+  padding: 30px;
 `;
 
 const Animacion = styled.div`
@@ -47,8 +53,10 @@ const Animacion = styled.div`
 const Loading: React.FC<LoadingProps> = () => {
   return (
     <LoadingStyle>
-      <h2>{mensaje[random]}</h2>
       <Animacion />
+      <Mensaje>
+        <h2>{mensaje[random]}</h2>
+      </Mensaje>
     </LoadingStyle>
   );
 };

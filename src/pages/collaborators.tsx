@@ -96,7 +96,7 @@ const collaborators = (props: ConllaboratorTagProps) => {
     getData();
   }, []);
 
-  if (!loading) {
+  if (loading) {
     return <Loading />;
   }
   return (
