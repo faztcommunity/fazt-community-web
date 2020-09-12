@@ -46,7 +46,7 @@ const theme: Theme = {
     },
     md: {
       fontSize: '1rem',
-      padding: '0.5rem 1.5rem'
+      padding: '0.82rem 1.48rem'
     },
     sm: {
       fontSize: '0.875rem',
