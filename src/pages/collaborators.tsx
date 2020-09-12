@@ -79,7 +79,7 @@ const ConllaboratorTag = (props: ConllaboratorTagProps) => {
   );
 };
 
-const collaborators = (props: ConllaboratorTagProps) => {
+const collaborators = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 

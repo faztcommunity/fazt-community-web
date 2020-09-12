@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
@@ -14,47 +15,84 @@ type ButtonProps = {
 };
 
 const StyledButton = styled.button<ButtonProps>`
+
+  position: relative;
+
   background-color: ${({ theme, variant, color }) =>
     variant !== 'outline' ? theme.color[color || 'primary'].dark : 'transparent'};
-  border-radius: 8px;
-  border: 1px solid
-    ${({ theme, variant, color }) =>
-      variant === 'fill' ? theme.color[color || 'primary'].dark : theme.color[color || 'primary'].light};
-  box-shadow: ${({ variant, shadow }) =>
-    shadow && variant !== 'outline' ? '0px 5px 15px rgba(255, 41, 95, 0.5)' : 'none'};
   color: ${({ theme, variant }) => (variant === 'fill' ? theme.color.white : theme.color.secondary.light)};
-  cursor: pointer;
+
+  margin: 1rem;
+  padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
+
   font-family: ${({ theme }) => theme.fontFamily.body};
   font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
   font-weight: bold;
   line-height: ${({ theme }) => theme.button.lineHeight};
-  margin: 1rem;
+
+  border-radius: 8px;
+  border: 1px solid
+    ${({ theme, variant, color }) =>
+      variant === 'fill' ? theme.color[color || 'primary'].dark : theme.color[color || 'primary'].light};
+
+  box-shadow: ${(
+    { theme, variant, color, shadow } // #color + 80 = color with 50% opacity
+  ) =>
+    !shadow
+      ? 'none'
+      : color && variant !== 'outline'
+      ? color === 'primary'
+        ? `0px 10px 15px ${theme.color.primary.dark}80`
+        : `0px 10px 15px ${theme.color.secondary.dark}80`
+      : 'transparent'};
+
+  cursor: pointer;
   outline: none;
-  padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
-  position: relative;
+
   transition: all 0.3s ease-out;
+
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
-    background-color: ${({ theme, color }) =>
-      color === 'primary' ? theme.color.primary.light : theme.color.secondary.light};
-    border: 1px solid
-      ${({ theme, color }) => (color === 'primary' ? theme.color.primary.light : theme.color.secondary.light)};
-    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme, variant, color }) =>
+      variant === 'outline'
+        ? color === 'primary'
+          ? `${theme.color.primary.light}`
+          : `${theme.color.secondary.light}`
+        : color === 'primary'
+        ? `${theme.color.primary.light}`
+        : `${theme.color.secondary.light}`};
+
+    color: ${({ theme, variant }) => (variant === 'outline' ? theme.color.white : null)};
+
+    box-shadow: ${(
+      { theme, variant, color, shadow } // #color + 80 = color with 50% opacity
+    ) =>
+      !shadow
+        ? 'none'
+        : color && variant
+        ? color === 'primary'
+          ? `0px 10px 15px ${theme.color.primary.light}80`
+          : `0px 10px 15px ${theme.color.secondary.light}80`
+        : 'transparent'};
   }
 
   &::after {
-    border-radius: 8px;
-    bottom: 0;
-    box-shadow: inset 0px 6px 3px
-      ${({ theme, color }) => (color === 'primary' ? theme.color.primary.dark : theme.color.secondary.dark)};
     display: block;
-    left: 0;
-    opacity: 0;
     position: absolute;
+
     right: 0;
     top: 0;
+    left: 0;
+    bottom: 0;
+
+    border-radius: 8px;
+    box-shadow: inset 0px 6px 3px
+      ${({ theme, color }) => (color === 'primary' ? theme.color.primary.dark : theme.color.secondary.dark)};
+
+    opacity: 0;
+
     transition: opacity 0.2s ease-in-out;
   }
 

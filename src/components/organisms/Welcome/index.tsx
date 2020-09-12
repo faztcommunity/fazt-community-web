@@ -10,40 +10,17 @@ const StyledSection = styled.section`
   display: flex;
   align-items: center;
   height: calc(100vh - 90px);
-  position: relative;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   padding-bottom: 20px;
   border-bottom: solid #d9d9d9 1px;
-
-  img {
-    height: 70%;
-    opacity: 25%;
-    position: absolute;
-    right: 0;
-    top: 5%;
-    z-index: 1;
-  }
-
-  ${screen('sm')} {
-    img {
-      height: 80%;
-      opacity: 35%;
-    }
-  }
-
-  ${screen('lg')} {
-    img {
-      height: 80%;
-      opacity: 45%;
-    }
-  }
 `;
 
 const WelcomeContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: auto;
+  margin: auto 0;
   ${index(10)}
 
   .fix-margin {
@@ -94,6 +71,29 @@ const WelcomeContent = styled.div`
   }
 `;
 
+const StyledCircuit = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 300px;
+  opacity: 0.3;
+  background: url('./images/circuit.svg') no-repeat center center;
+
+  img {
+    width: auto;
+  }
+
+  ${screen('md')} {
+    opacity: 0.8;
+    height: 600px;
+    top: unset;
+    bottom: 0;
+    right: 0;
+  }
+`;
+
 const Welcome: React.FC = () => (
   <StyledSection>
     <WelcomeContent>
@@ -111,7 +111,8 @@ const Welcome: React.FC = () => (
       <Button text="Unirme a la comunidad" size="rl" />
       <Button text="Ver proyectos" size="rl" color="secondary" variant="outline" />
     </WelcomeContent>
-    <img src="./images/circuit.svg" alt="Circuit" />
+
+    <StyledCircuit>{/* <img src="./images/circuit.svg" alt="Circuit" /> */}</StyledCircuit>
   </StyledSection>
 );
 

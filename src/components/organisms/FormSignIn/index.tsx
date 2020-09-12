@@ -3,7 +3,6 @@ import React from 'react';
 import styled from '@Styles/styled';
 import InputForm from '@Atoms/InputForm';
 import Form from '@Molecules/Form';
-import { screen } from '@Styles/theme';
 import Link from 'next/link';
 
 type FormSignInProps = {
@@ -17,10 +16,6 @@ const StyledFormSignInContainer = styled.div`
   height: max-content;
   align-items: center;
   justify-content: center;
-  margin: 83px 0px 83px 0px;
-  ${screen('md')} {
-    margin: 106px 0px 106px 0px;
-  }
 `;
 const StyledFormSignInSpace = styled.div`
   width: 347px;

@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
 import { screen } from '@Styles/theme';
+import Subtitle from '@Atoms/Subtitle';
 
 type FormProps = {
   formik?: any;
@@ -23,16 +24,7 @@ const StyledFormContainer = styled.div`
   h2 {
     width: 100%;
     margin-bottom: 32px;
-    font-family: ${({ theme }) => theme.fontFamily.title};
-    font-weight: 700;
     text-align: center;
-    font-size: ${({ theme }) => theme.subtitle.sub2.fontSize};
-    line-height: ${({ theme }) => theme.subtitle.sub2.lineHeight};
-
-    ${screen('md')} {
-      font-size: ${({ theme }) => theme.subtitle.sub1.fontSize};
-      line-height: ${({ theme }) => theme.subtitle.sub1.fontSize};
-    }
   }
 `;
 
@@ -91,7 +83,9 @@ const StyledButton = styled.input<FormProps>`
 const Form: React.FC<FormProps> = ({ formik, children, title, buttonText, vertical, buttonBlock }) => {
   return (
     <StyledFormContainer>
-      <h2>{title}</h2>
+      <Subtitle as="h2" size="sub1">
+        {title}
+      </Subtitle>
       <StyledForm onSubmit={formik.handleSubmit} vertical={vertical}>
         {children}
         <StyledButton type="submit" value={buttonText} buttonBlock={buttonBlock} />
