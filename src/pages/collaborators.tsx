@@ -96,8 +96,8 @@ const collaborators = (props: ConllaboratorTagProps) => {
     getData();
   }, []);
 
-  if (loading) {
-    return <Loading text="Loading" />;
+  if (!loading) {
+    return <Loading />;
   }
   return (
     <MainPage>
