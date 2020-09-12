@@ -6,15 +6,14 @@ import Image from '@Atoms/Image';
 import { screen, index } from '@Styles/theme';
 
 const StyledNavigation = styled.nav`
-  align-items: center;
   background-color: #ffffff;
   box-shadow: 0px 1px 2px rgba(120, 120, 120, 0.15);
-  display: flex;
+
   height: 90px;
-  justify-content: space-between;
-  padding: 0rem 0.875rem;
-  position: fixed;
   width: 100vw;
+
+  position: fixed;
+
   ${index(40)}
 
   .toggle {
@@ -32,8 +31,6 @@ const StyledNavigation = styled.nav`
   }
 
   ${screen('lg')} {
-    justify-content: space-evenly;
-
     .navlinks {
       display: block;
     }
@@ -42,6 +39,16 @@ const StyledNavigation = styled.nav`
       display: none;
     }
   }
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
 `;
 
 const StyledSidebar = styled.aside`
@@ -133,7 +140,7 @@ const Navigation: React.FC = () => {
       <Styledleft>
         <StyledSidebar className={active ? 'active' : ''}>
           <div className="sidebarNavlinks">
-            <Out onClick={handleActive}>&#9587;</Out>
+            <Out onClick={handleActive}>&#10060;</Out>
             <Navlink text="Acerca" href="/acerca" onClick={handleActive} color="#ffffff" />
             <Navlink text="Proyectos" href="/proyectos" onClick={handleActive} color="#ffffff" />
             <Navlink text="Contribuidores" href="/collaborators" onClick={handleActive} color="#ffffff" />
@@ -141,11 +148,11 @@ const Navigation: React.FC = () => {
             <div>
               <Button
                 text="Ingresar"
+                href="/signin"
                 variant="fill"
+                shadow={false}
                 color="secondary"
                 size="md"
-                shadow={false}
-                onClick={handleActive}
               />
             </div>
             <Navlink text="Regístrate" href="/registrate" onClick={handleActive} color="#ffffff" />
@@ -153,17 +160,19 @@ const Navigation: React.FC = () => {
         </StyledSidebar>
       </Styledleft>
       <StyledNavigation>
-        <a href="/">
-          <Image image="/favicon.png" width="3.125rem" height="3.125rem" variant="round" />
-        </a>
-        <Toggle onClick={handleActive}>&#9776;</Toggle>
-        <div className="navlinks">
-          <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />
-          <Navlink text="Proyectos" href="/projects" color="rgba(29, 29, 29, 0.38)" />
-          <Navlink text="Contribuidores" href="/collaborators" color="rgba(29, 29, 29, 0.38)" />
-          <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="md" />
-          <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
-        </div>
+        <StyledContainer>
+          <a href="/">
+            <Image image="/favicon.png" width="3.125rem" height="3.125rem" variant="round" />
+          </a>
+          <Toggle onClick={handleActive}>&#9776;</Toggle>
+          <div className="navlinks">
+            <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />
+            <Navlink text="Proyectos" href="/projects" color="rgba(29, 29, 29, 0.38)" />
+            <Navlink text="Contribuidores" href="/collaborators" color="rgba(29, 29, 29, 0.38)" />
+            <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="md" />
+            <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
+          </div>
+        </StyledContainer>
       </StyledNavigation>
     </>
   );

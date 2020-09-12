@@ -17,6 +17,7 @@ const GlobalStyles = () => (
 
       body {
         background-color: #fafafa;
+        overflow-x: hidden;
       }
 
       blockquote,
