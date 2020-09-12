@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import get from 'lodash/get';
+
+import axios from '@Assets/hooks/axios';
 import MainPage from '@Templates/MainPage';
 import styled from '@Styles/styled';
 import Head from '@Molecules/Head';
 
 import Loading from '@Atoms/Loading';
-
-// despues hay que separar bien el código asi no esta todo junto en este archivo. (eso para el final)
-// CollaboratorTag seria un componente tonto xd es para despues pasarlo mas facil a prod  x d
 
 type ConllaboratorTagProps = {
   id?: number;
@@ -88,7 +86,7 @@ const collaborators = (props: ConllaboratorTagProps) => {
   useEffect(() => {
     const getData = async () => {
       const result = await axios
-        .get('https://api.faztcommunity.dev/collaborators')
+        .get('/collaborators')
         .catch((e) => console.log(e));
       setItems(get(result, 'data', []));
       setLoading(false);
