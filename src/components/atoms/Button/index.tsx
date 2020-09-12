@@ -15,7 +15,6 @@ type ButtonProps = {
 };
 
 const StyledButton = styled.button<ButtonProps>`
-
   position: relative;
 
   background-color: ${({ theme, variant, color }) =>
