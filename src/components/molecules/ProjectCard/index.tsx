@@ -10,9 +10,15 @@ type ProjectCardProps = {
   title?: string;
   icon?: 'api' | 'bot' | 'database' | 'web' | 'discord' | 'github';
   altShadow?: string;
+  href?: string;
 };
 
+const LinkCard = styled.a`
+  text-decoration: none;
+`;
+
 const StyledCard = styled.div<ProjectCardProps>`
+  cursor: pointer;
   padding: 16px 24px;
   width: 332px;
   background: #fff;
@@ -41,6 +47,9 @@ const StyledCard = styled.div<ProjectCardProps>`
     margin: 0px;
     padding: 0px;
   }
+  a {
+        text-decoration: none;
+  }
 `;
 
 const StyledHead = styled.div`
@@ -49,20 +58,22 @@ const StyledHead = styled.div`
   margin-bottom: 16px;
 `;
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altShadow }) => (
-  <StyledCard altShadow={altShadow}>
-    <StyledHead>
-      <Icon size="sm" icon={icon} dark />
-      <Subtitle as="h4" size="sub3">
-        {title}
-      </Subtitle>
-    </StyledHead>
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altShadow, href }) => (
+      <LinkCard href={href} target="_blank">
+        <StyledCard altShadow={altShadow}>
+          <StyledHead>
+            <Icon size="sm" icon={icon} dark />
+            <Subtitle as="h4" size="sub3">
+              {title}
+            </Subtitle>
+          </StyledHead>
 
-    <Description align="forceLeft" size="md">
-      {children}
-    </Description>
-  </StyledCard>
-);
+          <Description align="forceLeft" size="md">
+            {children}
+          </Description>
+        </StyledCard>
+      </LinkCard>
+    );
 
 ProjectCard.defaultProps = {
   icon: 'web',
