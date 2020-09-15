@@ -35,19 +35,19 @@ const StyledCardGroupProjects = styled.div`
 const CardGroupProjects: React.FC = () => (
   <StyledCardGroupProjectsContainer>
     <StyledCardGroupProjects>
-      <ProjectCard title="Fazt Web" icon="web" altShadow={theme.color.secondary.dark}>
+      <ProjectCard title="Fazt Web" icon="web" altShadow={theme.color.secondary.dark} href="https://github.com/faztcommunity/fazt-oficial-web">
         Es la web oficial de Fazt Community donde se colocan los proyectos y aportes de los integrandes de la
         comunidad.
       </ProjectCard>
-      <ProjectCard title="Fazt Api" icon="api" altShadow={theme.color.secondary.dark}>
+      <ProjectCard title="Fazt Api" icon="api" altShadow={theme.color.secondary.dark} href="https://github.com/faztcommunity/fazt-api">
         Es el núcleo de los proyectos principales, este proyecto se encargará de unificar la base de datos con
         los demás proyectos.
       </ProjectCard>
-      <ProjectCard title="Fazt Bots" icon="bot" altShadow={theme.color.secondary.dark}>
+      <ProjectCard title="Fazt Bots" icon="bot" altShadow={theme.color.secondary.dark} href="https://github.com/faztcommunity/fazt-bot">
         Un bot para Discord multipropósito capaz de realizar distintas actividades como saludos, reproducir
         música y mucho más.
       </ProjectCard>
-      <ProjectCard title="Fazt Database" icon="database" altShadow={theme.color.secondary.dark}>
+      <ProjectCard title="Fazt Database" icon="database" altShadow={theme.color.secondary.dark} href="https://github.com/faztcommunity/fazt-methodology-core">
         Analizamos distintos ámbitos de los proyectos comunitarios, para poder guardar todos los registros y/o
         datos.
       </ProjectCard>
