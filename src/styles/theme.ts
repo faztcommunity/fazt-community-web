@@ -93,7 +93,7 @@ const theme: Theme = {
     sub5: {
       fontSize: '1rem',
       lineHeight: '21px'
-    },
+    }
   },
   body: {
     xl: {
