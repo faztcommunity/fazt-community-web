@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { screen } from '@Styles/theme';
 
 type SubtitleProps = {
-  size?: 'sub1' | 'sub2' | 'sub3';
+  size?: 'sub1' | 'sub2' | 'sub3' | 'sub4' | 'sub5';
   as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   align?: 'left' | 'center' | 'right';
   white?: boolean;

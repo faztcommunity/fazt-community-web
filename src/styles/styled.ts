@@ -67,6 +67,7 @@ interface ISubtitle {
   sub2: TextProps;
   sub3: TextProps;
   sub4: TextProps;
+  sub5: TextProps;
 }
 
 interface IBody {

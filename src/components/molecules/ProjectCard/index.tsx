@@ -63,7 +63,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altSha
     <StyledCard altShadow={altShadow}>
       <StyledHead>
         <Icon size="sm" icon={icon} dark />
-        <Subtitle as="h4" size="sub3">
+        <Subtitle as="h4" size="sub4">
           {title}
         </Subtitle>
       </StyledHead>

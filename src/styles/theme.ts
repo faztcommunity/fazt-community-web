@@ -87,6 +87,10 @@ const theme: Theme = {
       lineHeight: '30px'
     },
     sub4: {
+      fontSize: '1.125rem',
+      lineHeight: '21px'
+    },
+    sub5: {
       fontSize: '1rem',
       lineHeight: '21px'
     }

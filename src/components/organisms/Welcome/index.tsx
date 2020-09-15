@@ -87,7 +87,6 @@ const StyledCircuit = styled.div`
 
   ${screen('md')} {
     opacity: 0.8;
-    height: 600px;
     top: unset;
     bottom: 0;
     right: 0;
