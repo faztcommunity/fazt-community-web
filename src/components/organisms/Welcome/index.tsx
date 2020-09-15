@@ -73,7 +73,7 @@ const WelcomeContent = styled.div`
 
 const StyledCircuit = styled.div`
   position: absolute;
-  top: 0;
+  top: 0 ;
   bottom: 0;
   right: 0;
   height: 100vh;
@@ -87,7 +87,6 @@ const StyledCircuit = styled.div`
 
   ${screen('md')} {
     opacity: 0.8;
-    height: 600px;
     top: unset;
     bottom: 0;
     right: 0;
