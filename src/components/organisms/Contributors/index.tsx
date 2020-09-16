@@ -103,7 +103,7 @@ const Contributors: React.FC<ContributorsProps> = ({ title, description }) => (
     </div>
     <div className="invitacion">
       <Description size="lg">{description}</Description>
-      <Button text="Conócelos a todos" size="md" href="/colaborators"/>
+      <Button text="Conócelos a todos" size="md" href="/collaborators" />
     </div>
   </StyleContributors>
 );

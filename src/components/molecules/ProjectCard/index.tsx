@@ -48,7 +48,7 @@ const StyledCard = styled.div<ProjectCardProps>`
     padding: 0px;
   }
   a {
-        text-decoration: none;
+    text-decoration: none;
   }
 `;
 
@@ -59,21 +59,21 @@ const StyledHead = styled.div`
 `;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altShadow, href }) => (
-      <LinkCard href={href} target="_blank">
-        <StyledCard altShadow={altShadow}>
-          <StyledHead>
-            <Icon size="sm" icon={icon} dark />
-            <Subtitle as="h4" size="sub3">
-              {title}
-            </Subtitle>
-          </StyledHead>
+  <LinkCard href={href} target="_blank">
+    <StyledCard altShadow={altShadow}>
+      <StyledHead>
+        <Icon size="sm" icon={icon} dark />
+        <Subtitle as="h4" size="sub4">
+          {title}
+        </Subtitle>
+      </StyledHead>
 
-          <Description align="forceLeft" size="md">
-            {children}
-          </Description>
-        </StyledCard>
-      </LinkCard>
-    );
+      <Description align="forceLeft" size="md">
+        {children}
+      </Description>
+    </StyledCard>
+  </LinkCard>
+);
 
 ProjectCard.defaultProps = {
   icon: 'web',
