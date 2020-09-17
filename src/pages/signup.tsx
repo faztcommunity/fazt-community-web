@@ -4,9 +4,12 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthPage from '@Templates/AuthPage';
 import FormSignUp from '@Organisms/FormSignUp';
+import Axios from 'axios';
+import { useRouter } from 'next/router';
 
 interface FormValues {
   email: string;
+  username: string;
   password: string;
   name: string;
   passwordConfirm: string;
@@ -14,16 +17,19 @@ interface FormValues {
 
 const initialValues: FormValues = {
   name: '',
+  username: '',
   email: '',
   password: '',
   passwordConfirm: ''
 };
 
 const Index: React.FC = () => {
+  const router = useRouter();
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
       name: Yup.string().required('Por favor, ingrese su nombre.'),
+      username: Yup.string().required('Por favor un Username'),
       email: Yup.string().email('Debe ingresar un correo válido.').required('Por favor, ingrese un correo.'),
       password: Yup.string()
         .required('La contraseña es obligatoria.')
@@ -39,7 +45,14 @@ const Index: React.FC = () => {
         .required('Verifique su contraseña.')
     }),
     onSubmit: async (valores) => {
-      console.log(valores);
+      const token = localStorage.getItem('token');
+      const result = await Axios.post('https://api.faztcommunity.dev/users', valores, {
+        headers: { Authorization: 'Bearer ' && token }
+      }).catch(() => null);
+      if (result?.status === 200) {
+        localStorage.setItem('Token', result.data.data);
+        router.push('/');
+      }
     }
   });
   return (

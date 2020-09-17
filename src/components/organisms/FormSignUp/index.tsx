@@ -67,6 +67,7 @@ const FormSignUp: React.FC<FormSignUpProps> = ({ formik }) => {
         buttonBlock
       >
         <InputForm id="name" placeholder="Ingrese su Nombre" formik={formik} />
+        <InputForm id="username" placeholder="Ingrese su username" formik={formik} />
         <InputForm id="email" type="email" placeholder="Ingrese su correo" formik={formik} />
         <InputForm id="password" type="password" placeholder="Ingrese su contraseña" formik={formik} />
         <InputForm

@@ -55,7 +55,7 @@ const Loading: React.FC<LoadingProps> = () => {
     <LoadingStyle>
       <Animacion />
       <Mensaje>
-        <h2>{mensaje[random]}</h2>
+        <h2>{`${mensaje[random]}`}</h2>
       </Mensaje>
     </LoadingStyle>
   );

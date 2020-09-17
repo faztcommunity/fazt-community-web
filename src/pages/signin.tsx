@@ -4,6 +4,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthPage from '@Templates/AuthPage';
 import FormSignIn from '@Organisms/FormSignIn';
+import Axios from 'axios';
+import { useRouter } from 'next/router';
 
 interface FormValues {
   email: string;
@@ -16,6 +18,7 @@ const initialValues: FormValues = {
 };
 
 const Index: React.FC = () => {
+  const router = useRouter();
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
@@ -31,7 +34,14 @@ const Index: React.FC = () => {
         .min(8, 'Debe ingresar una contraseña de 8 caracteres.')
     }),
     onSubmit: async (valores) => {
-      console.log(valores);
+      const token = localStorage.getItem('token');
+      const result = await Axios.post('https://api.faztcommunity.dev/users/login', valores, {
+        headers: { Authorization: 'Bearer ' && token }
+      }).catch(() => null);
+      if (result?.status === 200) {
+        localStorage.setItem('Token', result.data.data);
+        router.push('/');
+      }
     }
   });
   return (

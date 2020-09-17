@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import get from 'lodash/get';
 
-import axios from '@Assets/hooks/axios';
+import axios from 'axios';
 import MainPage from '@Templates/MainPage';
 import styled from '@Styles/styled';
 import Head from '@Molecules/Head';
@@ -85,7 +85,12 @@ const collaborators = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const result = await axios.get('/collaborators').catch((e) => console.log(e));
+      const token = localStorage.getItem('token');
+      const result = await axios
+        .get('https://api.faztcommunity.dev/collaborators', {
+          headers: { Authorization: 'Bearer ' && token }
+        })
+        .catch(() => null);
       setItems(get(result, 'data', []));
       setLoading(false);
     };
