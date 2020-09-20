@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
-import { screen } from '@Styles/theme';
 
 type DescriptionProps = {
   size?: 'xl' | 'lg' | 'md';
@@ -10,21 +9,22 @@ type DescriptionProps = {
 };
 
 export const StyledDescription = styled.p<DescriptionProps>`
-  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   text-align: ${({ align }) => (align === 'forceLeft' ? 'left' : 'center')};
-  font-size: ${({ theme, size }) => (size === 'md' ? theme.body.md.fontSize : theme.body.lg.fontSize)};
-  line-height: ${({ theme, size }) => (size === 'md' ? theme.body.md.lineHeight : theme.body.lg.lineHeight)};
+  font-size: ${({ theme, size }) =>
+    size === 'md' ? theme.texts.size.MBody.FontSize : theme.texts.size.LBody.FontSize};
+  line-height: ${({ theme, size }) =>
+    size === 'md' ? theme.texts.size.MBody.LineHeight : theme.texts.size.LBody.LineHeight};
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: ${({ theme, white }) => (white ? theme.color.white : theme.color.gray[500])};
+  color: ${({ theme, white }) => (white ? theme.colors.white : theme.colors.gray[500])};
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     text-align: ${({ align }) => (align ? `${align}` : 'left')};
   }
-
-  ${screen('lg')} {
-    font-size: ${({ theme, size }) => theme.body[size || 'xl'].fontSize};
-    line-height: ${({ theme, size }) => theme.body[size || 'xl'].lineHeight};
+  ${({ theme }) => theme.mediaquery.large} {
+    font-size: ${({ theme }) => theme.texts.size.XLBody.FontSize};
+    line-height: ${({ theme }) => theme.texts.size.XLBody.LineHeight};
   }
 `;
 

@@ -4,7 +4,6 @@ import Subtitle from '@Atoms/Subtitle';
 import Icon from '@Atoms/Icon';
 import Description from '@Atoms/Description';
 import PropTypes from 'prop-types';
-import { screen } from '@Styles/theme';
 
 type ProjectCardProps = {
   title?: string;
@@ -24,20 +23,20 @@ const StyledCard = styled.div<ProjectCardProps>`
   background: #fff;
   border-radius: 8px;
 
-  border: 1px solid ${({ theme }) => (theme ? `${theme.color.gray['300']}` : '#d9d9d9')};
+  border: 1px solid ${({ theme }) => (theme ? `${theme.colors.gray['300']}` : '#d9d9d9')};
   box-shadow: 0px 8px 10px /* #color + E6 = color with 90% opacity */
-    ${({ altShadow, theme }) => (altShadow ? `${altShadow}E6` : `${theme.color.gray['300']}80`)};
+    ${({ altShadow, theme }) => (altShadow ? `${altShadow}E6` : `${theme.colors.gray['300']}80`)};
 
   transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0px 16px 16px /* #color + 80 = color with 50% opacity */
-      ${({ altShadow, theme }) => (altShadow ? `${altShadow}E6` : `${theme.color.gray['300']}80`)};
+      ${({ altShadow, theme }) => (altShadow ? `${altShadow}E6` : `${theme.colors.gray['300']}80`)};
   }
 
   /* desktop */
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     width: 350px;
   }
   h4 {
@@ -63,7 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altSha
     <StyledCard altShadow={altShadow}>
       <StyledHead>
         <Icon size="sm" icon={icon} dark />
-        <Subtitle as="h4" size="sub4">
+        <Subtitle as="h4" size="Sub4">
           {title}
         </Subtitle>
       </StyledHead>

@@ -35,7 +35,7 @@ const StyledConllaboratorTag = styled.div`
   filter: drop-shadow(0px 8px 10px rgba(120, 120, 120, 0.15));
   border-radius: 8px;
   h1 {
-    font-family: ${({ theme }) => theme.fontFamily.title};
+    font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
@@ -43,7 +43,7 @@ const StyledConllaboratorTag = styled.div`
     margin-bottom: 10px;
   }
   span {
-    font-family: ${({ theme }) => theme.fontFamily.body};
+    font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

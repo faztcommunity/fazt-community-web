@@ -95,7 +95,7 @@ const StyleContributors = styled.div`
 
 const Contributors: React.FC<ContributorsProps> = ({ title, description }) => (
   <StyleContributors>
-    <Subtitle size="sub1" as="h2">
+    <Subtitle size="Sub1" as="h2">
       {title}
     </Subtitle>
     <div className="contributors">
@@ -103,7 +103,7 @@ const Contributors: React.FC<ContributorsProps> = ({ title, description }) => (
     </div>
     <div className="invitacion">
       <Description size="lg">{description}</Description>
-      <Button text="Conócelos a todos" size="md" href="/collaborators" />
+      <Button text="Conócelos a todos" size="m" href="/collaborators" />
     </div>
   </StyleContributors>
 );

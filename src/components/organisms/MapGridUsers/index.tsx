@@ -34,7 +34,7 @@ const StyledMapGridUsers = styled.div<MapGridUsersProps>`
   grid-gap: 0px;
   grid-auto-rows: auto;
   padding: 7% 0% 8% 7%;
-  div {
+  a {
     width: 55px;
     height: 55px;
     @media (max-width: 1140px) {
@@ -75,16 +75,12 @@ const MapGridUsers: React.FC<MapGridUsersProps> = () => {
 
   const [listUsers, setListUsers] = useState(initialState);
   useEffect(() => {
-    axios
-      .get(`https://api/getusers`)
-      .then((res) => {
-        const persons = res.data;
-        setListUsers(persons);
-      })
-      .catch(() => {
-        setListUsers(initialState);
-      });
-  });
+    const getData = async () => {
+      const result = await axios.get('https://api.faztcommunity.dev/collaborators').catch(() => null);
+      setListUsers(result?.data);
+    };
+    getData();
+  }, []);
 
   return (
     <StyledContainer>
@@ -93,8 +89,10 @@ const MapGridUsers: React.FC<MapGridUsersProps> = () => {
           <Image
             key={user.id}
             variant="round"
+            alt={user.username}
+            href={`https://github.com/${user.username}`}
             image={
-              user.imagePath === ''
+              !user.imagePath
                 ? 'https://res.cloudinary.com/design-code-mx/image/upload/v1596616586/ReadMeFaztCommunity/faztcommunity_xbhnox.svg'
                 : user.imagePath
             }

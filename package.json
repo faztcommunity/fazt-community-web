@@ -30,6 +30,7 @@
     "@types/yup": "^0.29.6",
     "axios": "^0.19.2",
     "axios-hooks": "^2.1.0",
+    "emotion-flex-grid": "^1.4.4",
     "emotion-theming": "^10.0.27",
     "formik": "^2.1.5",
     "js-cookie": "^2.2.1",

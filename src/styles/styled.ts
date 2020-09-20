@@ -1,16 +1,27 @@
 import styled, { CreateStyled } from '@emotion/styled';
 
-interface IColor {
+interface IPrimary {
+  base: string;
   dark: string;
   light: string;
 }
-
+interface ISecondary {
+  base: string;
+  dark: string;
+  light: string;
+}
 interface IAccent {
   active: string;
   activeLight: string;
   success: string;
   successLight: string;
   info: string;
+}
+
+interface ITheme {
+  primary: IPrimary;
+  secondary: ISecondary;
+  accent: IAccent;
 }
 
 interface IGray {
@@ -22,70 +33,99 @@ interface IGray {
   100: string;
 }
 
-interface IPalette {
-  primary: IColor;
-  secondary: IColor;
-  accent: IAccent;
+interface IColors {
+  themes: ITheme[];
   gray: IGray;
   white: string;
   black: string;
 }
 
-type ButtonProps = {
-  fontSize: string;
-  padding: string;
-};
-
-type TextProps = {
-  fontSize: string;
-  lineHeight: string;
-};
-
 interface IFontFamily {
-  title: string;
-  body: string;
+  OpenSans: string;
+  Roboto: string;
+}
+interface ISizeTextProperties {
+  FontSize: string;
+  LineHeight: string;
+}
+interface ISizeText {
+  LTitle: ISizeTextProperties;
+  MTitle: ISizeTextProperties;
+  STitle: ISizeTextProperties;
+  Sub1: ISizeTextProperties;
+  Sub2: ISizeTextProperties;
+  Sub3: ISizeTextProperties;
+  Sub4: ISizeTextProperties;
+  XLBody: ISizeTextProperties;
+  LBody: ISizeTextProperties;
+  MBody: ISizeTextProperties;
+  SBody: ISizeTextProperties;
+  Button: ISizeTextProperties;
+  Overlay: ISizeTextProperties;
 }
 
-interface IButton {
-  lg: ButtonProps;
-  rl: ButtonProps;
-  md: ButtonProps;
-  sm: ButtonProps;
-  xs: ButtonProps;
-  lineHeight: number;
-  borderRadius: string;
+interface IText {
+  fontFamily: IFontFamily;
+  size: ISizeText;
 }
 
-interface ITitle {
-  lg: TextProps;
-  md: TextProps;
-  sm: TextProps;
+interface IShadows {
+  level1: string;
+  level2: string;
+  level3: string;
+  level4: string;
+  level5: string;
+  level6: string;
 }
 
-interface ISubtitle {
-  sub1: TextProps;
-  sub2: TextProps;
-  sub3: TextProps;
-  sub4: TextProps;
-  sub5: TextProps;
+interface ISpace {
+  xxl: string;
+  xl: string;
+  l: string;
+  m: string;
+  s: string;
+  xs: string;
 }
 
-interface IBody {
-  xl: TextProps;
-  lg: TextProps;
-  md: TextProps;
-  sm: TextProps;
+interface IZindex {
+  zBack: string;
+  zNormal: string;
+  zTooltip: string;
+  zFixed: string;
+  zModal: string;
+}
+
+interface IMediaQuery {
+  small: string;
+  medium: string;
+  large: string;
+  extralarge: string;
 }
 
 export type Theme = {
-  color: IPalette;
-  fontFamily: IFontFamily;
-  button: IButton;
-  title: ITitle;
-  subtitle: ISubtitle;
-  body: IBody;
+  colors: IColors;
+  texts: IText;
+  shadows: IShadows;
+  spaces: ISpace;
+  borders: string;
+  zindex: IZindex;
+  mediaquery: IMediaQuery;
+  breakpoints: {
+    xs: number;
+    s: number;
+    m: number;
+    l: number;
+    xl: number;
+    xxl: number;
+  };
+  spacings: {
+    xs: number;
+    s: number;
+    m: number;
+    l: number;
+    xl: number;
+    xxl: number;
+  };
 };
-
-export type MediaQuery = (bp: 'sm' | 'md' | 'lg' | 'xl') => string;
 
 export default styled as CreateStyled<Theme>;

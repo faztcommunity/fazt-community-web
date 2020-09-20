@@ -3,10 +3,9 @@ import styled from '@Styles/styled';
 import Title from '@Atoms/Title';
 import Description from '@Atoms/Description';
 import Button from '@Atoms/Button';
-import { screen, index } from '@Styles/theme';
 
 const StyledSection = styled.section`
-  background: ${({ theme }) => theme.color.gray[100]};
+  background: ${({ theme }) => theme.colors.gray[100]};
   display: flex;
   align-items: center;
   height: calc(100vh - 90px);
@@ -21,7 +20,7 @@ const WelcomeContent = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin: auto 0;
-  ${index(10)}
+  z-index: ${({ theme }) => theme.zindex.zNormal};
 
   .fix-margin {
     margin-bottom: 1rem;
@@ -31,11 +30,11 @@ const WelcomeContent = styled.div`
     display: block;
   }
 
-  ${screen('sm')} {
+  ${({ theme }) => theme.mediaquery.small} {
     max-width: 540px;
   }
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     justify-content: left;
     max-width: 720px;
 
@@ -49,8 +48,7 @@ const WelcomeContent = styled.div`
       display: inline;
     }
   }
-
-  ${screen('lg')} {
+  ${({ theme }) => theme.mediaquery.large} {
     max-width: 960px;
 
     .desc {
@@ -60,7 +58,7 @@ const WelcomeContent = styled.div`
     }
   }
 
-  ${screen('xl')} {
+  ${({ theme }) => theme.mediaquery.extralarge} {
     max-width: 1140px;
 
     .desc {
@@ -85,7 +83,7 @@ const StyledCircuit = styled.div`
     width: auto;
   }
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.small} {
     opacity: 0.8;
     top: unset;
     bottom: 0;
@@ -97,7 +95,7 @@ const Welcome: React.FC = () => (
   <StyledSection>
     <WelcomeContent>
       <div className="fix-margin">
-        <Title as="h1" size="md">
+        <Title as="h1" size="MTitle">
           Somos <span>Fazt Community</span>
         </Title>
       </div>
@@ -107,8 +105,8 @@ const Welcome: React.FC = () => (
           source.
         </Description>
       </div>
-      <Button text="Unirme a la comunidad" size="rl" />
-      <Button text="Ver proyectos" size="rl" color="secondary" variant="outline" />
+      <Button text="Unirme a la comunidad" size="m" />
+      <Button text="Ver proyectos" size="m" color="secondary" variant="outline" />
     </WelcomeContent>
 
     <StyledCircuit>{/* <img src="./images/circuit.svg" alt="Circuit" /> */}</StyledCircuit>

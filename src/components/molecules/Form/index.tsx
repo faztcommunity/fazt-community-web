@@ -2,7 +2,6 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
-import { screen } from '@Styles/theme';
 import Subtitle from '@Atoms/Subtitle';
 
 type FormProps = {
@@ -36,24 +35,24 @@ const StyledForm = styled.form<FormProps>`
   flex-wrap: wrap;
   justify-content: center;
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
   }
 `;
 
 const StyledButton = styled.input<FormProps>`
-  background-color: ${({ theme }) => theme.color.secondary.light};
+  background-color: ${({ theme }) => theme.colors.themes[0].secondary.light};
   width: 100%;
   border: none;
   border-radius: 8px;
-  box-shadow: inset 0px 8px 3px ${({ theme }) => `${theme.color.gray[800]}00`},
-    0px 10px 15px ${({ theme }) => `${theme.color.secondary.light}80`};
-  color: ${({ theme }) => theme.color.white};
+  box-shadow: inset 0px 8px 3px ${({ theme }) => `${theme.colors.gray[800]}00`},
+    0px 10px 15px ${({ theme }) => `${theme.colors.themes[0].secondary.light}80`};
+  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
-  font-family: ${({ theme }) => theme.fontFamily.body};
-  font-size: ${({ theme }) => theme.button.rl.fontSize};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
+  font-size: ${({ theme }) => theme.texts.size.Button.FontSize};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.button.lineHeight};
+  line-height: ${({ theme }) => theme.texts.size.Button.LineHeight};
   letter-spacing: 1.5px;
   margin: 0;
   outline: none;
@@ -62,20 +61,20 @@ const StyledButton = styled.input<FormProps>`
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     width: ${({ buttonBlock }) => (buttonBlock ? '100%' : 'auto')};
     margin: 0 15px;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.secondary.dark};
-    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.colors.themes[0].secondary.dark};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   &:active {
     box-shadow: unset;
-    box-shadow: inset 0px 8px 3px ${({ theme }) => `${theme.color.gray[800]}80`},
-      0px 10px 15px ${({ theme }) => `${theme.color.secondary.light}00`};
+    box-shadow: inset 0px 8px 3px ${({ theme }) => `${theme.colors.gray[800]}80`},
+      0px 10px 15px ${({ theme }) => `${theme.colors.themes[0].secondary.light}00`};
   }
   transition: all 0.3s ease-out;
 `;
@@ -83,7 +82,7 @@ const StyledButton = styled.input<FormProps>`
 const Form: React.FC<FormProps> = ({ formik, children, title, buttonText, vertical, buttonBlock }) => {
   return (
     <StyledFormContainer>
-      <Subtitle as="h2" size="sub1">
+      <Subtitle as="h2" size="Sub1">
         {title}
       </Subtitle>
       <StyledForm onSubmit={formik.handleSubmit} vertical={vertical}>

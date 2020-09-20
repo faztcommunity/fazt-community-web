@@ -10,7 +10,7 @@ type IconProps = {
   dark?: boolean;
 };
 
-const getColor = (toggle?: boolean) => (toggle ? theme.color.gray[800] : 'white');
+const getColor = (toggle?: boolean) => (toggle ? theme.colors.gray[800] : 'white');
 
 const IconWrapper = styled.div<IconProps>`
   display: inline-block;

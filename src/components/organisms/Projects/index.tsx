@@ -3,7 +3,6 @@ import styled from '@Styles/styled';
 import CardGroupProjects from '@Organisms/CardGroupProjects';
 import Subtitle from '@Atoms/Subtitle';
 import Description from '@Atoms/Description';
-import { screen } from '@Styles/theme';
 
 const StyleProjects = styled.section`
   width: 100%;
@@ -12,7 +11,7 @@ const StyleProjects = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.color.secondary.light};
+  background-color: ${({ theme }) => theme.colors.themes[0].secondary.light};
   .backgroundImages {
     z-index: 0;
     position: absolute;
@@ -20,7 +19,7 @@ const StyleProjects = styled.section`
     display: none;
     justify-content: space-between;
 
-    ${screen('xl')} {
+    ${({ theme }) => theme.mediaquery.extralarge} {
       display: flex;
     }
   }
@@ -67,7 +66,7 @@ const Projects: React.FC = () => (
     </div>
     <div className="descripcion">
       <div className="descripcion-ContainerTitle">
-        <Subtitle align="center" white size="sub1">
+        <Subtitle align="center" white size="Sub1">
           Proyectos de la comunidad
         </Subtitle>
         <Description size="xl" align="center" white>

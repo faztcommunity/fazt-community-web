@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import styled from '@Styles/styled';
 import Icon from '@Atoms/Icon';
 import PropTypes from 'prop-types';
-import { screen } from '@Styles/theme';
 
 type InputFormPropsType = 'password' | 'email' | 'text';
 
@@ -35,7 +34,7 @@ const StyledInputFormContainer = styled.div`
   height: max-content;
   padding-bottom: 22px;
   margin: 2px 0px 2px 0px;
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     margin: 2px 15px 2px 15px;
   }
   transition: all 0.5s ease;
@@ -74,7 +73,7 @@ const StyledInputFormContainerIconButton = styled.button`
 const StyledInputForm = styled.input<InputFormProps>`
   width: 312px;
   height: 51px;
-  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
   background: #ffffff;
   font-style: normal;
   font-weight: normal;
@@ -167,7 +166,7 @@ const StyledInputForm = styled.input<InputFormProps>`
 
 const StyledInputError = styled.span`
   margin-top: 10px;
-  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
   max-width: 312px;
   height: max-content;
   font-style: normal;

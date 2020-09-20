@@ -1,31 +1,30 @@
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
-import { screen } from '@Styles/theme';
 
 type TitleProps = {
-  size?: 'lg' | 'md' | 'sm';
+  size?: 'LTitle' | 'MTitle' | 'STitle';
   as?: 'h1' | 'h2' | 'h3';
   align?: 'left' | 'center' | 'right';
   white?: boolean;
 };
 
 const StyledTitle = styled.h1<TitleProps>`
-  font-family: ${({ theme }) => theme.fontFamily.title};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
   font-weight: 700;
   text-align: center;
-  font-size: ${({ theme }) => theme.subtitle.sub1.fontSize};
-  line-height: ${({ theme }) => theme.subtitle.sub1.lineHeight};
-  color: ${({ theme, white }) => (white ? theme.color.white : theme.color.black)};
+  font-size: ${({ theme }) => theme.texts.size.STitle.FontSize};
+  line-height: ${({ theme }) => theme.texts.size.STitle.LineHeight};
+  color: ${({ theme, white }) => (white ? theme.colors.white : theme.colors.black)};
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     text-align: ${({ align }) => (align ? `${align}` : 'left')};
-    font-size: ${({ theme, size }) => (size !== 'sm' ? theme.title.md.fontSize : null)};
-    line-height: ${({ theme, size }) => (size !== 'sm' ? theme.title.md.lineHeight : null)};
+    font-size: ${({ theme, size }) => (size !== 'STitle' ? theme.texts.size.MTitle.FontSize : null)};
+    line-height: ${({ theme, size }) => (size !== 'STitle' ? theme.texts.size.MTitle.LineHeight : null)};
   }
 
-  ${screen('lg')} {
-    font-size: ${({ theme, size }) => theme.title[size || 'lg'].fontSize};
-    line-height: ${({ theme, size }) => theme.title[size || 'lg'].lineHeight};
+  ${({ theme }) => theme.mediaquery.large} {
+    font-size: ${({ theme, size }) => theme.texts.size[size || 'LTitle'].FontSize};
+    line-height: ${({ theme, size }) => theme.texts.size[size || 'LTitle'].LineHeight};
   }
 `;
 
@@ -36,14 +35,12 @@ const Title: React.FC<TitleProps> = ({ children, size, as, white, align }) => (
 );
 
 Title.propTypes = {
-  size: PropTypes.oneOf(['lg', 'md', 'sm']),
   as: PropTypes.oneOf(['h1', 'h2', 'h3']),
   align: PropTypes.oneOf(['left', 'center', 'right']),
   white: PropTypes.bool
 };
 
 Title.defaultProps = {
-  size: 'lg',
   as: 'h1',
   white: false,
   align: 'left'

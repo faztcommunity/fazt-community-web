@@ -1,178 +1,225 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navlink from '@Atoms/NavLink';
 import Button from '@Atoms/Button';
 import styled from '@Styles/styled';
-import Image from '@Atoms/Image';
-import { screen, index } from '@Styles/theme';
+import { GridRow, GridColumn } from 'emotion-flex-grid';
+import Link from 'next/link';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const StyledNavigation = styled.nav`
   background-color: #ffffff;
+  display: flex;
   box-shadow: 0px 1px 2px rgba(120, 120, 120, 0.15);
-
+  position: fixed;
+  top: 0;
   height: 90px;
-  width: 100vw;
-
-  position: fixed;
-
-  ${index(40)}
-
-  .toggle {
-    font-size: 1.25rem;
-    display: block;
-    background: none;
-    box-shadow: none;
-    border: none;
-    outline: none;
-    font-size: 1.875rem;
-  }
-
-  .navlinks {
-    display: none;
-  }
-
-  ${screen('lg')} {
-    .navlinks {
-      display: block;
-    }
-
-    .toggle {
-      display: none;
-    }
-  }
+  width: 100%;
+  z-index: ${({ theme }) => theme.zindex.zFixed};
 `;
 
-const StyledContainer = styled.div`
+const ImgLogoContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 90%;
   height: 100%;
-  margin: 0 auto;
+  width: 100%;
+  align-items: center;
 `;
-
-const StyledSidebar = styled.aside`
-  background-color: ${({ theme }) => theme.color.black};
+const ImgLogo = styled.img`
   display: flex;
-  height: 100vh;
-  position: fixed;
-  right: -75vw;
-  transition: 0.4s all;
-  width: 75vw;
-  ${index(50)}
-
-  &.active {
-    right: 0;
-  }
-
-  .sidebarNavlinks {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0rem;
-    transition: 0.4s all;
-    width: 100%;
-  }
-
-  .sidebarNavlinks a,
-  .sidebarNavlinks button {
-    margin: 0.5rem 0rem 1.938rem 2.5rem;
-  }
-
-  .line {
-    border: 1px solid #272727;
-    display: block;
-    margin: 0rem;
-    margin: 2.5rem 0rem;
-    width: 100%;
-  }
-
-  ${screen('sm')} {
-    width: 50vw;
-  }
-
-  ${screen('lg')} {
-    display: none;
-  }
+  width: 3.125rem;
+  height: 3.125rem;
+  cursor: pointer;
 `;
-
-const Styledleft = styled.div`
-  display: flex;
+const NavLinkContainer = styled.div`
+  display: none;
+  height: 100%;
+  width: 100%;
+  align-items: center;
   justify-content: flex-end;
+  ${({ theme }) => theme.mediaquery.large} {
+    display: flex;
+  }
 `;
-
-const Out = styled.button`
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: ${({ theme }) => theme.color.white};
-  font-size: 1.25rem;
-  margin: 0rem !important;
-  outline: none;
-  position: absolute;
-  right: 32px;
-  top: 32px;
+const ButtonContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  ${({ theme }) => theme.mediaquery.large} {
+    display: flex;
+  }
 `;
-
 const Toggle = styled.button`
+  display: flex;
   background: none;
   border: none;
   box-shadow: none;
-  display: block;
   font-size: 1.875rem;
   outline: none;
-  padding-right: 35px;
-
-  ${screen('lg')} {
+  align-self: center;
+  justify-self: flex-end;
+  cursor: pointer;
+  ${({ theme }) => theme.mediaquery.large} {
     display: none;
+  }
+`;
+
+const SidebarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.gray[900]};
+  height: 100%;
+  width: 278px;
+  ${({ theme }) => theme.mediaquery.large} {
+    display: none;
+  }
+  z-index: ${({ theme }) => theme.zindex.zModal};
+`;
+const StyledNavigationToggleContainer = styled.div`
+  display: flex;
+  height: 90px;
+  width: 100%;
+`;
+const ToggleClose = styled.button`
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 1.875rem;
+  outline: none;
+  cursor: pointer;
+`;
+const SidebarOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  height: calc(100% - 90px);
+`;
+const SidebarOptionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 120px;
+  a {
+    margin: ${({ theme }) => `15px ${theme.spaces.xxl}`};
+  }
+  hr {
+    border: 1px solid ${({ theme }) => theme.colors.gray[800]};
+    margin: 15px 0px;
+  }
+  button {
+    margin: ${({ theme }) => `15px ${theme.spaces.xxl}`};
+    width: max-content;
   }
 `;
 
 const Navigation: React.FC = () => {
+  const router = useRouter();
   const [active, setactive] = useState(false);
+  const [user, setUser] = useState(null);
 
   const handleActive = () => {
     setactive(!active);
   };
 
+  const logout = () => {
+    localStorage.removeItem('Token');
+    router.reload();
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      const token = localStorage.getItem('Token');
+      const result = await axios
+        .get('https://api.faztcommunity.dev/users/get_details', {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        .catch(() => null);
+      setUser(result?.data);
+    };
+    getData();
+  }, []);
+
   return (
     <>
-      <Styledleft>
-        <StyledSidebar className={active ? 'active' : ''}>
-          <div className="sidebarNavlinks">
-            <Out onClick={handleActive}>&#10060;</Out>
-            <Navlink text="Acerca" href="/acerca" onClick={handleActive} color="#ffffff" />
-            <Navlink text="Proyectos" href="/proyectos" onClick={handleActive} color="#ffffff" />
-            <Navlink text="Contribuidores" href="/collaborators" onClick={handleActive} color="#ffffff" />
-            <hr className="line" />
-            <div>
-              <Button
-                text="Ingresar"
-                href="/signin"
-                variant="fill"
-                shadow={false}
-                color="secondary"
-                size="md"
-              />
-            </div>
-            <Navlink text="Regístrate" href="/registrate" onClick={handleActive} color="#ffffff" />
-          </div>
-        </StyledSidebar>
-      </Styledleft>
+      {active ? (
+        <SidebarContainer>
+          <StyledNavigationToggleContainer>
+            <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+              <ButtonContainer>
+                <ToggleClose onClick={handleActive}>&#9587;</ToggleClose>
+              </ButtonContainer>
+            </GridColumn>
+          </StyledNavigationToggleContainer>
+          <SidebarOptions>
+            <SidebarOptionsContainer>
+              <Navlink text="Acerca" href="/#ref1" onClick={handleActive} color="#ffffff" />
+              <Navlink text="Proyectos" href="/#ref2" onClick={handleActive} color="#ffffff" />
+              <Navlink text="Contribuidores" href="/#ref3" onClick={handleActive} color="#ffffff" />
+              <hr />
+              {user ? (
+                <Button
+                  text="Log Out"
+                  onClick={logout}
+                  variant="fill"
+                  colorvariant="dark"
+                  shadow={false}
+                  color="secondary"
+                  size="s"
+                />
+              ) : (
+                <>
+                  <Button
+                    text="Iniciar sesión"
+                    href="/signin"
+                    variant="fill"
+                    colorvariant="dark"
+                    shadow={false}
+                    color="secondary"
+                    size="s"
+                  />
+                  <Navlink text="Regístrate" href="/registrate" onClick={handleActive} color="#ffffff" />
+                </>
+              )}
+            </SidebarOptionsContainer>
+          </SidebarOptions>
+        </SidebarContainer>
+      ) : null}
       <StyledNavigation>
-        <StyledContainer>
-          <a href="/">
-            <Image image="/favicon.png" width="3.125rem" height="3.125rem" variant="round" />
-          </a>
-          <Toggle onClick={handleActive}>&#9776;</Toggle>
-          <div className="navlinks">
-            <Navlink text="Acerca" href="/about" color="rgba(29, 29, 29, 0.38)" />
-            <Navlink text="Proyectos" href="/projects" color="rgba(29, 29, 29, 0.38)" />
-            <Navlink text="Contribuidores" href="/collaborators" color="rgba(29, 29, 29, 0.38)" />
-            <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="md" />
-            <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
-          </div>
-        </StyledContainer>
+        <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+          <GridRow>
+            <GridColumn width={[12, 2, 2]}>
+              <ImgLogoContainer>
+                <Link href="/" scroll>
+                  <ImgLogo src="/favicon.png" alt="Home" />
+                </Link>
+              </ImgLogoContainer>
+            </GridColumn>
+            <GridColumn width={[12, 10, 10]}>
+              <NavLinkContainer>
+                <Navlink text="Acerca" href="/#ref1" color="rgba(29, 29, 29, 0.38)" />
+                <Navlink text="Proyectos" href="/#ref2" color="rgba(29, 29, 29, 0.38)" />
+                <Navlink text="Contribuidores" href="/#ref3" color="rgba(29, 29, 29, 0.38)" />
+                {user ? (
+                  <Button onClick={logout} text="Log Out" variant="outline" color="secondary" size="s" />
+                ) : (
+                  <>
+                    <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="s" />
+                    <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
+                  </>
+                )}
+              </NavLinkContainer>
+              <ButtonContainer>
+                <Toggle onClick={handleActive}>&#9776;</Toggle>
+              </ButtonContainer>
+            </GridColumn>
+          </GridRow>
+        </GridColumn>
       </StyledNavigation>
     </>
   );

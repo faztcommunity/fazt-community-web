@@ -34,25 +34,25 @@ const StyledFormSignUpText = styled.span`
   display: block;
   width: 347px;
   margin: 16px auto;
-  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  font-size: ${({ theme }) => theme.body.sm};
-  line-height: ${({ theme }) => theme.subtitle.sub2.lineHeight};
+  font-size: ${({ theme }) => theme.texts.size.SBody.FontSize};
+  line-height: ${({ theme }) => theme.texts.size.SBody.LineHeight};
 `;
 const StyledFormSignUpTextLink = styled.a`
   width: 347px;
   margin-top: 32px;
-  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  font-size: ${({ theme }) => theme.body.sm};
-  line-height: ${({ theme }) => theme.subtitle.sub2.lineHeight};
-  color: ${({ theme }) => theme.color.secondary.light};
+  font-size: ${({ theme }) => theme.texts.size.SBody.FontSize};
+  line-height: ${({ theme }) => theme.texts.size.SBody.LineHeight};
+  color: ${({ theme }) => theme.colors.themes[0].secondary.light};
   :hover {
-    color: ${({ theme }) => theme.color.secondary.dark};
+    color: ${({ theme }) => theme.colors.themes[0].secondary.dark};
   }
   cursor: pointer;
 `;
@@ -66,8 +66,8 @@ const FormSignUp: React.FC<FormSignUpProps> = ({ formik }) => {
         buttonText="Registrarme"
         buttonBlock
       >
-        <InputForm id="name" placeholder="Ingrese su Nombre" formik={formik} />
-        <InputForm id="username" placeholder="Ingrese su username" formik={formik} />
+        <InputForm id="name" placeholder="Ingrese su nombre" formik={formik} />
+        <InputForm id="username" placeholder="Ingrese su Usuario de Github" formik={formik} />
         <InputForm id="email" type="email" placeholder="Ingrese su correo" formik={formik} />
         <InputForm id="password" type="password" placeholder="Ingrese su contraseña" formik={formik} />
         <InputForm

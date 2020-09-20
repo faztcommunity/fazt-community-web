@@ -14,8 +14,11 @@ const Index: React.FC = () => {
       <MainPage>
         <Head title="Home" />
         <Welcome />
+        <br id="ref1" />
         <MeetOurCommunity />
+        <br id="ref2" />
         <Projects />
+        <br id="ref3" />
         <Contributors />
         <HowToJoin />
       </MainPage>

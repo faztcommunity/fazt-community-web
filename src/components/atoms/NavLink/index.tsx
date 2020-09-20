@@ -9,25 +9,26 @@ type NavlinkProps = {
   router?: NextRouter;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   color?: string;
+  id?: string;
 };
 
 const StyledNavlink = styled.a<NavlinkProps>`
-  font-family: ${({ theme }) => theme.fontFamily.body};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   margin: 1rem;
-  font-size: 1rem;
-  line-height: 21px;
+  font-size: ${({ theme }) => theme.texts.size.MBody.FontSize};
+  line-height: ${({ theme }) => theme.texts.size.MBody.LineHeight};
   text-decoration: none;
   color: ${({ theme, router, href, color }) =>
-    router?.pathname === href ? theme.color.secondary.dark : color} !important;
+    router?.pathname === href ? theme.colors.themes[0].secondary.dark : color} !important;
   -webkit-tap-highlight-color: transparent;
 `;
 
-const Navlink: React.FC<NavlinkProps> = ({ text, href, onClick, color }) => {
+const Navlink: React.FC<NavlinkProps> = ({ text, href, onClick, color, id }) => {
   const router = useRouter();
 
   return (
     <Link href={href}>
-      <StyledNavlink href={href} router={router} onClick={onClick} color={color}>
+      <StyledNavlink id={id} href={href} router={router} onClick={onClick} color={color}>
         {text}
       </StyledNavlink>
     </Link>

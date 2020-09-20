@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import { screen } from '@Styles/theme';
 import Description from '@Atoms/Description';
 import Icon from '@Atoms/Icon';
 
@@ -13,7 +12,7 @@ const StyledFooter = styled.footer`
   text-align: center;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  background: ${({ theme }) => theme.color.gray[800]};
+  background: ${({ theme }) => theme.colors.gray[800]};
 `;
 
 const FooterContent = styled.section`
@@ -31,7 +30,7 @@ const FooterContent = styled.section`
     margin-right: 0.5rem;
   }
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-row-gap: 0;

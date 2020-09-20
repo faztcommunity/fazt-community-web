@@ -1,140 +1,121 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import styled from '@Styles/styled';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 type ButtonProps = {
   text?: string;
   variant?: 'fill' | 'outline';
   color?: 'primary' | 'secondary';
-  size?: 'xs' | 'sm' | 'md' | 'rl' | 'lg';
+  colorvariant?: 'base' | 'light' | 'dark';
+  size?: 'xxl' | 'xl' | 'l' | 'm' | 's' | 'xs';
   shadow?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   href?: string;
 };
 
 const StyledButton = styled.button<ButtonProps>`
-  position: relative;
-
   background-color: ${({ theme, variant, color }) =>
-    variant !== 'outline' ? theme.color[color || 'primary'].dark : 'transparent'};
-  color: ${({ theme, variant }) => (variant === 'fill' ? theme.color.white : theme.color.secondary.light)};
-
-  margin: 1rem;
-  padding: ${({ theme, size }) => theme.button[size || 'rl'].padding};
-
-  font-family: ${({ theme }) => theme.fontFamily.body};
-  font-size: ${({ theme, size }) => theme.button[size || 'rl'].fontSize};
-  font-weight: bold;
-  line-height: ${({ theme }) => theme.button.lineHeight};
-
-  border-radius: 8px;
-  border: 1px solid
-    ${({ theme, variant, color }) =>
-      variant === 'fill' ? theme.color[color || 'primary'].dark : theme.color[color || 'primary'].light};
-
-  box-shadow: ${(
-    { theme, variant, color, shadow } // #color + 80 = color with 50% opacity
-  ) =>
-    !shadow
-      ? 'none'
-      : color && variant !== 'outline'
-      ? color === 'primary'
-        ? `0px 10px 15px ${theme.color.primary.dark}80`
-        : `0px 10px 15px ${theme.color.secondary.dark}80`
-      : 'transparent'};
-
-  cursor: pointer;
+    variant !== 'outline' ? theme.colors.themes[0][color || 'primary'].base : 'transparent'};
+  ${({ theme, colorvariant, color }) =>
+    colorvariant === 'dark' ? `background-color: ${theme.colors.themes[0][color || 'primary'].dark}` : ''};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
+  font-size: ${({ theme }) => theme.texts.size.Button.FontSize};
+  font-style: normal;
+  font-weight: 500;
+  line-height: ${({ theme }) => theme.texts.size.Button.LineHeight};
+  color: ${({ theme, variant, color }) =>
+    variant !== 'outline' ? theme.colors.white : theme.colors.themes[0][color || 'primary'].light};
+  padding: ${({ theme, size }) =>
+    size ? `${theme.spaces[size]} ${theme.spaces.m} ` : `${theme.spaces.m} ${theme.spaces.m}`};
+  ${({ theme, variant, color }) =>
+    variant !== 'outline'
+      ? `border: 0px solid`
+      : `border: 1px solid ${theme.colors.themes[0][color || 'primary'].base}`};
   outline: none;
-
-  transition: all 0.3s ease-out;
-
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-
-  &:hover {
+  border-radius: ${({ theme }) => theme.borders};
+  ${({ theme, variant, color, colorvariant }) =>
+    variant !== 'outline' && colorvariant !== 'dark'
+      ? `box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0), 0px 7px 15px ${
+          theme.colors.themes[0][color || 'primary'].base
+        }66`
+      : ''};
+  :active {
+    ${({ theme, variant, color, colorvariant }) =>
+      variant !== 'outline' && colorvariant !== 'dark'
+        ? `box-shadow: inset 0px 8px 3px rgba(29, 29, 29, 0.5), 0px 7px 15px ${
+            theme.colors.themes[0][color || 'primary'].base
+          }66`
+        : `box-shadow: inset 0px 8px 3px rgba(29, 29, 29, 0.5), 0px 0px 0px rgba(0, 0, 0, 0)`};
+    background-color: ${({ theme, variant, color, colorvariant }) =>
+      variant === 'outline' && colorvariant !== 'dark'
+        ? theme.colors.themes[0][color || 'primary'].base
+        : ''};
+    color: ${({ theme }) => theme.colors.white};
+    ${({ theme, variant, color }) =>
+      variant !== 'outline'
+        ? `border: 0px solid`
+        : `border: 1px solid ${theme.colors.themes[0][color || 'primary'].base}`};
+  }
+  :hover {
     background-color: ${({ theme, variant, color }) =>
-      variant === 'outline'
-        ? color === 'primary'
-          ? `${theme.color.primary.light}`
-          : `${theme.color.secondary.light}`
-        : color === 'primary'
-        ? `${theme.color.primary.light}`
-        : `${theme.color.secondary.light}`};
-
-    color: ${({ theme, variant }) => (variant === 'outline' ? theme.color.white : null)};
-
-    box-shadow: ${(
-      { theme, variant, color, shadow } // #color + 80 = color with 50% opacity
-    ) =>
-      !shadow
-        ? 'none'
-        : color && variant
-        ? color === 'primary'
-          ? `0px 10px 15px ${theme.color.primary.light}80`
-          : `0px 10px 15px ${theme.color.secondary.light}80`
-        : 'transparent'};
+      variant === 'outline' ? theme.colors.themes[0][color || 'primary'].base : ''};
+    color: ${({ theme }) => theme.colors.white};
+    ${({ theme, variant, color }) =>
+      variant !== 'outline'
+        ? `border: 0px solid`
+        : `border: 1px solid ${theme.colors.themes[0][color || 'primary'].base}`};
   }
-
-  &::after {
-    display: block;
-    position: absolute;
-
-    right: 0;
-    top: 0;
-    left: 0;
-    bottom: 0;
-
-    border-radius: 8px;
-    box-shadow: inset 0px 6px 3px
-      ${({ theme, color }) => (color === 'primary' ? theme.color.primary.dark : theme.color.secondary.dark)};
-
-    opacity: 0;
-
-    transition: opacity 0.2s ease-in-out;
+  span {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
-
-  &:active:after {
-    opacity: 1;
-  }
-
-  &:active {
-    box-shadow: unset;
-  }
+  cursor: pointer;
+  transition: all 0.3s ease;
 `;
 
-const Button: React.FC<ButtonProps> = ({ color, variant, text, size, shadow, onClick, href }) => {
+const Button: React.FC<ButtonProps> = ({
+  color,
+  variant,
+  text,
+  size,
+  shadow,
+  onClick,
+  href,
+  colorvariant
+}) => {
   if (href) {
     return (
       <Link href={href}>
-        <StyledButton color={color} variant={variant} size={size} shadow={shadow} onClick={onClick}>
-          {text}
+        <StyledButton
+          colorvariant={colorvariant}
+          color={color}
+          variant={variant}
+          size={size}
+          shadow={shadow}
+          onClick={onClick}
+        >
+          <span>{text}</span>
         </StyledButton>
       </Link>
     );
   }
   return (
-    <StyledButton color={color} variant={variant} size={size} shadow={shadow} onClick={onClick}>
+    <StyledButton
+      colorvariant={colorvariant}
+      color={color}
+      variant={variant}
+      size={size}
+      shadow={shadow}
+      onClick={onClick}
+    >
       {text}
     </StyledButton>
   );
-};
-
-Button.propTypes = {
-  text: PropTypes.string,
-  variant: PropTypes.oneOf(['fill', 'outline']),
-  color: PropTypes.oneOf(['primary', 'secondary']),
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'rl', 'lg']),
-  shadow: PropTypes.bool
-};
-
-Button.defaultProps = {
-  text: 'some text',
-  color: 'primary',
-  variant: 'fill',
-  size: 'rl',
-  shadow: true
 };
 
 export default Button;

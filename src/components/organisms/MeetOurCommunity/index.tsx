@@ -30,7 +30,7 @@ const StyledMeetOurCommunityContainer = styled.div`
 const MeetOurCommunity: React.FC = () => (
   <StyledMeetOurCommunity>
     <StyledMeetOurCommunityContainer>
-      <Subtitle size="sub1">Conoce a nuestra comunidad</Subtitle>
+      <Subtitle size="Sub1">Conoce a nuestra comunidad</Subtitle>
       <UserImage imageUrl="/images/user_image_left.png" direction="left" cubeColor="orange" />
       <UserImage imageUrl="/images/user_image_right.png" direction="right" />
     </StyledMeetOurCommunityContainer>

@@ -27,7 +27,9 @@ const BigDiv = styled.div<UserImageProps>`
 `;
 const StyledCube = styled.div<UserImageProps>`
   background-color: ${({ cubeColor, theme }) =>
-    cubeColor === 'orange' ? theme.color.accent.activeLight : theme.color.secondary.light};
+    cubeColor === 'orange'
+      ? theme.colors.themes[0].accent.activeLight
+      : theme.colors.themes[0].secondary.light};
   opacity: 0.5;
 
   width: 123px;
@@ -76,7 +78,10 @@ const UserImage: React.FC<UserImageProps> = ({ direction, imageUrl, cubeColor })
       <StyledUserImage direction={direction}>
         <BigDiv direction={direction}>
           <StyledCube direction={direction} cubeColor={cubeColor} />
-          <NewStyledImage direction={direction} image={imageUrl} />
+          <NewStyledImage
+            direction={direction}
+            image={imageUrl || 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'}
+          />
         </BigDiv>
         <NewDescription size="xl" direction={direction}>
           Fazt Community es un espacio donde podrás crecer como profesional, participando en equipos y con
@@ -91,7 +96,10 @@ const UserImage: React.FC<UserImageProps> = ({ direction, imageUrl, cubeColor })
         </NewDescription>
         <BigDiv direction={direction}>
           <StyledCube direction={direction} cubeColor={cubeColor} />
-          <NewStyledImage direction={direction} image={imageUrl} />
+          <NewStyledImage
+            direction={direction}
+            image={imageUrl || 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'}
+          />
         </BigDiv>
       </StyledUserImage>
     )}

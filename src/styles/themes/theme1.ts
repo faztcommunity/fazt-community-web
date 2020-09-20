@@ -1,7 +1,8 @@
 const theme1 = {
   primary: {
     base: '#EC0B2B',
-    light: '#FF295F'
+    light: '#FF295F',
+    dark: '#B61D33'
   },
   secondary: {
     base: '#2C9BEB',

@@ -20,9 +20,9 @@ const StyledHowToJoinContainer = styled.div`
   }
   margin: auto;
   .descriptionClassName {
-    color: ${({ theme }) => theme.color.gray[600]};
+    color: ${({ theme }) => theme.colors.gray[600]};
     text-align: center;
-    font-family: ${({ theme }) => theme.fontFamily.body};
+    font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
     font-size: 24px;
     line-height: 37px;
     width: 42vw;
@@ -65,7 +65,7 @@ const StyledHowToJoin = styled.div`
         font-size: 18px;
         line-height: 20px;
       }
-      color: ${({ theme }) => theme.color.gray[600]};
+      color: ${({ theme }) => theme.colors.gray[600]};
     }
     &-Image {
       display: flex;
@@ -139,7 +139,7 @@ const HowToJoin: React.FC = () => {
     <StyledHowToJoin>
       <img src="/images/CircuitoLeft.svg" alt="" />
       <StyledHowToJoinContainer>
-        <Subtitle size="sub2" as="h3" align="center">
+        <Subtitle size="Sub2" as="h3" align="center">
           ¿Qué esperas para unirte?
         </Subtitle>
         <span className="descriptionClassName">
@@ -147,7 +147,7 @@ const HowToJoin: React.FC = () => {
           cambio obtienes experiencias y conocimientos en proyectos.
         </span>
         <div className="containerPasos">
-          <Subtitle size="sub1" as="h3" align="center">
+          <Subtitle size="Sub1" as="h3" align="center">
             Crece como profesional en 3 pasos
           </Subtitle>
           <div className="containerPasos-Image">
@@ -173,7 +173,7 @@ const HowToJoin: React.FC = () => {
           </div>
         </div>
         <a href="https://discord.com/invite/37PHuNw">
-          <Button text="Unirme a la comunidad" size="md" />
+          <Button text="Unirme a la comunidad" size="m" />
         </a>
       </StyledHowToJoinContainer>
       <img src="/images/CircuitoRight.svg" alt="" />

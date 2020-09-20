@@ -1,31 +1,30 @@
 import styled from '@Styles/styled';
 import PropTypes from 'prop-types';
-import { screen } from '@Styles/theme';
 
 type SubtitleProps = {
-  size?: 'sub1' | 'sub2' | 'sub3' | 'sub4' | 'sub5';
+  size?: 'Sub1' | 'Sub2' | 'Sub3' | 'Sub4';
   as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   align?: 'left' | 'center' | 'right';
   white?: boolean;
 };
 
 const StyledSubtitle = styled.h2<SubtitleProps>`
-  font-family: ${({ theme }) => theme.fontFamily.title};
+  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
   font-weight: 700;
   text-align: center;
-  font-size: ${({ theme }) => theme.subtitle.sub3.fontSize};
-  line-height: ${({ theme }) => theme.subtitle.sub3.lineHeight};
-  color: ${({ theme, white }) => (white ? theme.color.white : theme.color.black)};
+  font-size: ${({ theme }) => theme.texts.size.Sub3.FontSize};
+  line-height: ${({ theme }) => theme.texts.size.Sub3.LineHeight};
+  color: ${({ theme, white }) => (white ? theme.colors.white : theme.colors.black)};
 
-  ${screen('md')} {
+  ${({ theme }) => theme.mediaquery.medium} {
     text-align: ${({ align }) => (align ? `${align}` : 'left')};
-    font-size: ${({ theme, size }) => (size !== 'sub3' ? theme.subtitle.sub2.fontSize : null)};
-    line-height: ${({ theme, size }) => (size !== 'sub3' ? theme.subtitle.sub2.lineHeight : null)};
+    font-size: ${({ theme, size }) => (size !== 'Sub3' ? theme.texts.size.Sub2.FontSize : null)};
+    line-height: ${({ theme, size }) => (size !== 'Sub3' ? theme.texts.size.Sub2.LineHeight : null)};
   }
 
-  ${screen('lg')} {
-    font-size: ${({ theme, size }) => theme.subtitle[size || 'sub1'].fontSize};
-    line-height: ${({ theme, size }) => theme.subtitle[size || 'sub1'].lineHeight};
+  ${({ theme }) => theme.mediaquery.large} {
+    font-size: ${({ theme, size }) => theme.texts.size[size || 'Sub1'].FontSize};
+    line-height: ${({ theme, size }) => theme.texts.size[size || 'Sub1'].LineHeight};
   }
 `;
 
@@ -36,14 +35,14 @@ const Subtitle: React.FC<SubtitleProps> = ({ children, size, as, white, align })
 );
 
 Subtitle.propTypes = {
-  size: PropTypes.oneOf(['sub1', 'sub2', 'sub3']),
+  size: PropTypes.oneOf(['Sub1', 'Sub2', 'Sub3', 'Sub4']),
   as: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
   align: PropTypes.oneOf(['left', 'center', 'right']),
   white: PropTypes.bool
 };
 
 Subtitle.defaultProps = {
-  size: 'sub1',
+  size: 'Sub1',
   as: 'h2',
   white: false,
   align: 'left'

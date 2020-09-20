@@ -47,7 +47,7 @@ const Index: React.FC = () => {
     onSubmit: async (valores) => {
       const token = localStorage.getItem('token');
       const result = await Axios.post('https://api.faztcommunity.dev/users', valores, {
-        headers: { Authorization: 'Bearer ' && token }
+        headers: { Authorization: `Bearer ${token}` }
       }).catch(() => null);
       if (result?.status === 200) {
         localStorage.setItem('Token', result.data.data);
