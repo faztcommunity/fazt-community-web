@@ -102,7 +102,7 @@ const Contributors: React.FC<ContributorsProps> = ({ title, description }) => (
       <MapGridUsers />
     </div>
     <div className="invitacion">
-      <Description size="lg">{description}</Description>
+      <Description size="MBody">{description}</Description>
       <Button text="Conócelos a todos" size="m" href="/collaborators" />
     </div>
   </StyleContributors>

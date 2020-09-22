@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altSha
         </Subtitle>
       </StyledHead>
 
-      <Description align="forceLeft" size="md">
+      <Description size="MBody" align="forceLeft">
         {children}
       </Description>
     </StyledCard>

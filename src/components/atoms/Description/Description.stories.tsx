@@ -16,6 +16,6 @@ const Template: Story = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  size: 'xl',
+  size: 'XLBody',
   align: 'center'
 };

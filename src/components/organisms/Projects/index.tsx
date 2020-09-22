@@ -69,7 +69,7 @@ const Projects: React.FC = () => (
         <Subtitle align="center" white size="Sub1">
           Proyectos de la comunidad
         </Subtitle>
-        <Description size="xl" align="center" white>
+        <Description size="XLBody" align="center" white>
           En la comunidad podrás encontrar distintos proyectos para colaborar en diferentes tecnologias.
           Tenemos 4 proyectos principales que son:
         </Description>

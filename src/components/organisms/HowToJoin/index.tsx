@@ -155,20 +155,20 @@ const HowToJoin: React.FC = () => {
               <div className="containerPasos-Image-container-circulo">
                 <span>1</span>
               </div>
-              <Description>Únete</Description>
+              <Description size="MBody">Únete</Description>
             </div>
             <span className="containerPasos-Image-Line" />
             <div className="containerPasos-Image-container">
               <div className="containerPasos-Image-container-circulo">
                 <span>2</span>
               </div>
-              <Description>Encuentra un proyecto</Description>
+              <Description size="MBody">Encuentra un proyecto</Description>
             </div>
             <div className="containerPasos-Image-container containerPasos-Image-Left">
               <div className="containerPasos-Image-container-circulo">
                 <span>3</span>
               </div>
-              <Description>Participa</Description>
+              <Description size="MBody">Participa</Description>
             </div>
           </div>
         </div>

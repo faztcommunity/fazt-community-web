@@ -47,10 +47,10 @@ const FooterContent = styled.section`
 const Footer: React.FC = () => (
   <StyledFooter>
     <FooterContent>
-      <Description size="md" align="center" white>
+      <Description size="MBody" align="center" white>
         All right reserved 2020
       </Description>
-      <Description size="md" align="center" white>
+      <Description size="MBody" align="center" white>
         Fazt Community
       </Description>
       <span>

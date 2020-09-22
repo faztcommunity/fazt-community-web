@@ -3,81 +3,93 @@ import styled from '@Styles/styled';
 import Title from '@Atoms/Title';
 import Description from '@Atoms/Description';
 import Button from '@Atoms/Button';
+import { GridRow, GridColumn } from 'emotion-flex-grid';
 
-const StyledSection = styled.section`
+const StyledSection = styled.div`
   background: ${({ theme }) => theme.colors.gray[100]};
   display: flex;
   align-items: center;
   height: calc(100vh - 90px);
-  width: 90%;
-  margin: 0 auto;
-  padding-bottom: 20px;
-  border-bottom: solid #d9d9d9 1px;
+  width: 100%;
+  border-bottom: solid #1d1d1d26 1px;
+
+  div {
+    z-index: ${({ theme }) => theme.zindex.zTooltip};
+  }
 `;
 
 const WelcomeContent = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  margin: auto 0;
-  z-index: ${({ theme }) => theme.zindex.zNormal};
-
-  .fix-margin {
-    margin-bottom: 1rem;
+  align-items: center;
+  margin-top: -30px;
+  width: 100%;
+  h1 {
+    max-width: 95vw;
+    margin-bottom: ${({ theme }) => theme.spaces.m};
+    font-size: ${({ theme }) => theme.texts.size.Sub1.FontSize};
+    line-height: ${({ theme }) => theme.texts.size.Sub1.LineHeight};
   }
-
-  span {
-    display: block;
-  }
-
-  ${({ theme }) => theme.mediaquery.small} {
-    max-width: 540px;
-  }
-
-  ${({ theme }) => theme.mediaquery.medium} {
-    justify-content: left;
-    max-width: 720px;
-
-    .fix-margin {
-      margin-left: 1rem;
-      p {
-        width: 80%;
-      }
+  p {
+    max-width: 500px;
+    @media (max-width: 520px) {
+      max-width: 90vw;
     }
-    span {
-      display: inline;
+    margin-bottom: ${({ theme }) => theme.spaces.l};
+    text-align: center;
+    font-size: ${({ theme }) => theme.texts.size.LBody.FontSize};
+    line-height: ${({ theme }) => theme.texts.size.LBody.LineHeight};
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+      margin-bottom: ${({ theme }) => theme.spaces.xl};
+      width: max-content;
+    }
+  }
+  ${({ theme }) => theme.mediaquery.small} {
+    h1 {
+      font-size: ${({ theme }) => theme.texts.size.STitle.FontSize};
+      line-height: ${({ theme }) => theme.texts.size.STitle.LineHeight};
+    }
+    p {
+      max-width: 690px;
+    }
+    div {
+      flex-direction: row;
+      button {
+        margin-right: ${({ theme }) => theme.spaces.xl};
+        width: max-content;
+      }
     }
   }
   ${({ theme }) => theme.mediaquery.large} {
-    max-width: 960px;
-
-    .desc {
-      p {
-        width: 75%;
-      }
+    justify-content: center;
+    align-items: flex-start;
+    h1 {
+      font-size: ${({ theme }) => theme.texts.size.LTitle.FontSize};
+      line-height: ${({ theme }) => theme.texts.size.LTitle.LineHeight};
     }
-  }
-
-  ${({ theme }) => theme.mediaquery.extralarge} {
-    max-width: 1140px;
-
-    .desc {
-      p {
-        width: 65%;
-      }
+    p {
+      max-width: 690px;
+      text-align: left;
+      font-size: ${({ theme }) => theme.texts.size.XLBody.FontSize};
+      line-height: ${({ theme }) => theme.texts.size.XLBody.LineHeight};
     }
   }
 `;
 
 const StyledCircuit = styled.div`
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  height: 100vh;
-  width: 300px;
+  height: calc(100vh - 90px);
+  width: 100%;
   opacity: 0.3;
-  background: url('./images/circuit.svg') no-repeat center center;
+  background: url('./images/circuit.svg') no-repeat center right;
+  background-size: auto 90%;
 
   img {
     width: auto;
@@ -93,23 +105,26 @@ const StyledCircuit = styled.div`
 
 const Welcome: React.FC = () => (
   <StyledSection>
-    <WelcomeContent>
-      <div className="fix-margin">
-        <Title as="h1" size="MTitle">
-          Somos <span>Fazt Community</span>
-        </Title>
-      </div>
-      <div className="fix-margin desc">
-        <Description size="xl">
-          Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open
-          source.
-        </Description>
-      </div>
-      <Button text="Unirme a la comunidad" size="m" />
-      <Button text="Ver proyectos" size="m" color="secondary" variant="outline" />
-    </WelcomeContent>
-
-    <StyledCircuit>{/* <img src="./images/circuit.svg" alt="Circuit" /> */}</StyledCircuit>
+    <StyledCircuit />
+    <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+      <GridRow>
+        <GridColumn width={[12, 12, 12]}>
+          <WelcomeContent>
+            <Title as="h1" size="MTitle">
+              Somos <span>Fazt Community</span>
+            </Title>
+            <Description size="XLBody">
+              Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos
+              open source.
+            </Description>
+            <div>
+              <Button text="Unirme a la comunidad" size="m" />
+              <Button text="Ver proyectos" size="m" color="secondary" variant="outline" />
+            </div>
+          </WelcomeContent>
+        </GridColumn>
+      </GridRow>
+    </GridColumn>
   </StyledSection>
 );
 

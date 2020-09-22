@@ -2,38 +2,40 @@ import React from 'react';
 import styled from '@Styles/styled';
 import UserImage from '@Molecules/UserImage';
 import Subtitle from '@Atoms/Subtitle';
+import { GridRow, GridColumn } from 'emotion-flex-grid';
 
 const StyledMeetOurCommunity = styled.div`
   width: 100%;
 `;
 const StyledMeetOurCommunityContainer = styled.div`
-  width: max-content;
-  p {
-    max-width: 400px;
-    @media (min-width: 1440px) {
-      max-width: 600px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
   h2 {
-    margin: 100px 0px 60px 0px;
-    @media (max-width: 720px) {
-      margin: 64px 0px 0px 0px;
+    max-width: max-content;
+    margin-bottom: ${({ theme }) => theme.spaces.xl};
+    ${({ theme }) => theme.mediaquery.large} {
+      align-self: flex-start;
     }
-  }
-  margin: auto;
-  margin-bottom: 145px;
-  @media (max-width: 720px) {
-    margin-bottom: 64px;
   }
 `;
 
 const MeetOurCommunity: React.FC = () => (
   <StyledMeetOurCommunity>
-    <StyledMeetOurCommunityContainer>
-      <Subtitle size="Sub1">Conoce a nuestra comunidad</Subtitle>
-      <UserImage imageUrl="/images/user_image_left.png" direction="left" cubeColor="orange" />
-      <UserImage imageUrl="/images/user_image_right.png" direction="right" />
-    </StyledMeetOurCommunityContainer>
+    <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+      <GridRow>
+        <GridColumn width={[12, 12, 12]}>
+          <StyledMeetOurCommunityContainer>
+            <Subtitle size="Sub2">Conoce a nuestra comunidad</Subtitle>
+            <UserImage imageUrl="/images/user_image_left.png" direction="left" cubeColor="orange" />
+            <UserImage imageUrl="/images/user_image_right.png" direction="right" />
+          </StyledMeetOurCommunityContainer>
+        </GridColumn>
+      </GridRow>
+    </GridColumn>
   </StyledMeetOurCommunity>
 );
 
