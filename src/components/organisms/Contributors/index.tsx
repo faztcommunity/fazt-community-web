@@ -14,8 +14,6 @@ type ContributorsProps = {
 const StyleContributors = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  width: 90%;
-  margin: 0 auto;
   height: max-content;
   padding: 100px 0px 48px 0px;
   border-bottom: solid #d9d9d9 1px;

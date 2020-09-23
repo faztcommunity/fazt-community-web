@@ -19,7 +19,8 @@ const LinkCard = styled.a`
 const StyledCard = styled.div<ProjectCardProps>`
   cursor: pointer;
   padding: 16px 24px;
-  width: 332px;
+  width: 320px;
+  height: 160px;
   background: #fff;
   border-radius: 8px;
 
@@ -55,6 +56,13 @@ const StyledHead = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+  h4 {
+    margin-top: 6px;
+    margin-left: 10px;
+    font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
+    font-size: 18px;
+    line-height: 21px;
+  }
 `;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, children, icon, altShadow, href }) => (

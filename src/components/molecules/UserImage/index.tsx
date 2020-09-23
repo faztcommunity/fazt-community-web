@@ -10,20 +10,22 @@ type UserImageProps = {
 };
 const StyledUserImage = styled.div<UserImageProps>`
   display: flex;
-  align-items: center;
-  ${({ direction }) =>
-    direction === 'left' ? `justify-content: flex-start;` : `justify-content: flex-end;`};
-
   width: 100%;
-  margin-bottom: 140px;
-  @media (max-width: 1140px) {
-    margin-bottom: 70px;
+  margin-bottom: 32px;
+  align-items: center;
+  justify-content: center;
+
+  ${({ direction }) =>
+    direction === 'left' ? `flex-direction: column;` : `flex-direction: column-reverse;`};
+
+  ${({ theme }) => theme.mediaquery.small} {
+    margin-bottom: 56px;
+    ${({ direction }) => (direction === 'left' ? `align-items: left;` : `align-items: right;`)};
+    ${({ direction }) => (direction === 'left' ? `flex-direction: row;` : `flex-direction: row;`)};
   }
-  @media (max-width: 720px) {
-    margin-bottom: 32px;
-    align-items: center;
-    ${({ direction }) =>
-      direction === 'left' ? `flex-direction: column;` : `flex-direction: column-reverse;`};
+  ${({ theme }) => theme.mediaquery.large} {
+    ${({ direction }) => (direction === 'left' ? `align-items: left;` : `align-items: right;`)};
+    margin-bottom: 113px;
   }
 `;
 const BigDiv = styled.div<UserImageProps>`
@@ -36,25 +38,28 @@ const StyledCube = styled.div<UserImageProps>`
       : theme.colors.themes[0].secondary.light};
   opacity: 0.5;
 
+  position: absolute;
   width: 123px;
   height: 106px;
   border-radius: 8px;
-  position: absolute;
-  margin: ${({ direction }) => (direction === 'left' ? `290px 0px 0px 508px` : `290px 0px 0px 0px`)};
+  width: 77px;
+  height: 66px;
+  margin: ${({ direction }) => (direction === 'left' ? `150px 0px 0px 250px` : `150px 0px 0px 0px`)};
   transform: ${({ direction }) => (direction === 'left' ? `translate(-80%, -75%)` : `translate(-25%, -75%)`)};
-  @media (max-width: 1140px) {
-    width: 77px;
-    height: 66px;
-    margin: ${({ direction }) => (direction === 'left' ? `150px 0px 0px 250px` : `150px 0px 0px 0px`)};
+
+  ${({ theme }) => theme.mediaquery.large} {
+    width: 123px;
+    height: 106px;
+    margin: ${({ direction }) => (direction === 'left' ? `290px 0px 0px 508px` : `290px 0px 0px 0px`)};
   }
 `;
 
 const NewStyledImage = styled(StyledImage)<UserImageProps>`
-  width: 508px;
-  height: 290px;
-  @media (max-width: 1140px) {
-    width: 250px;
-    height: 150px;
+  width: 250px;
+  height: 150px;
+  ${({ theme }) => theme.mediaquery.large} {
+    width: 508px;
+    height: 290px;
   }
   margin: 0px;
   padding: 0px;
@@ -70,16 +75,19 @@ const NewDescription = styled(StyledDescription)<UserImageProps>`
   ${({ theme }) => theme.mediaquery.small} {
     font-size: ${({ theme }) => theme.texts.size.LBody.FontSize};
     line-height: ${({ theme }) => theme.texts.size.LBody.LineHeight};
-    width: 400px;
+    width: 380px;
+    margin-top: 0px;
     ${({ direction }) => (direction === 'left' ? `margin-left: 50px;` : `margin-right: 50px;`)};
+    text-align: left;
   }
   ${({ theme }) => theme.mediaquery.large} {
     font-size: ${({ theme }) => theme.texts.size.XLBody.FontSize};
     line-height: ${({ theme }) => theme.texts.size.XLBody.LineHeight};
-    margin-top: 0px;
-    text-align: left;
     ${({ direction }) => (direction === 'left' ? `margin-left: auto;` : `margin-right: auto;`)};
-    width: 560px;
+    min-width: 380px;
+  }
+  ${({ theme }) => theme.mediaquery.extralarge} {
+    min-width: 600px;
   }
 `;
 const UserImage: React.FC<UserImageProps> = ({ direction, imageUrl, cubeColor }) => (

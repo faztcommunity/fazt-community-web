@@ -7,44 +7,46 @@ type MapGridUsersProps = {
   width?: string;
 };
 const StyledContainer = styled.div<MapGridUsersProps>`
-  width: 490px;
-  height: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  width: 320px;
+  height: 220px;
 
-  @media (max-width: 1140px) {
-    width: 470px;
-    height: 320px;
+  ${({ theme }) => theme.mediaquery.small} {
+    width: 471.4px;
+    height: 321px;
   }
-  @media (max-width: 720px) {
-    width: 340px;
-    height: 230px;
+  ${({ theme }) => theme.mediaquery.medium} {
+    width: 487.55px;
+    height: 332px;
   }
 `;
 
 const StyledMapGridUsers = styled.div<MapGridUsersProps>`
   width: 100%;
   height: 100%;
-  background: url('https://svgshare.com/i/PN1.svg') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/design-code-mx/image/upload/v1597433628/Group_cigctd.svg')
+    center/contain no-repeat;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 0px;
   grid-auto-rows: auto;
-  padding: 7% 0% 8% 7%;
+  padding: 7% 7% 8% 7%;
   a {
-    width: 55px;
-    height: 55px;
-    @media (max-width: 1140px) {
+    width: 35px;
+    height: 35px;
+    ${({ theme }) => theme.mediaquery.small} {
       width: 50px;
       height: 50px;
     }
-    @media (max-width: 720px) {
-      width: 35px;
-      height: 35px;
+    ${({ theme }) => theme.mediaquery.medium} {
+      width: 55px;
+      height: 55px;
     }
+
     margin: 0px;
     &:nth-of-type(-2n + 4) {
       transform: translateY(20px);

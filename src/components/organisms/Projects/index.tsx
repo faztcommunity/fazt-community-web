@@ -19,7 +19,7 @@ const StyleProjects = styled.section`
     display: none;
     justify-content: space-between;
 
-    ${({ theme }) => theme.mediaquery.extralarge} {
+    ${({ theme }) => theme.mediaquery.large} {
       display: flex;
     }
   }
@@ -37,22 +37,25 @@ const StyleProjects = styled.section`
       width: max-content;
 
       h2 {
+        width: 320px;
         padding-top: 100px;
-        width: max-content;
-        @media (max-width: 1140px) {
+        padding-top: 0px;
+        ${({ theme }) => theme.mediaquery.small} {
           padding-top: 64px;
+          width: max-content;
         }
-        @media (max-width: 720px) {
-          width: 300px;
-          padding-top: 0px;
+        ${({ theme }) => theme.mediaquery.large} {
+          font-size: ${({ theme }) => theme.texts.size.Sub1.FontSize};
+          line-height: ${({ theme }) => theme.texts.size.Sub1.LineHeight};
         }
       }
       p {
-        width: 650px;
-        @media (max-width: 720px) {
-          width: 300px;
+        width: 300px;
+        padding-top: 16px;
+        padding-bottom: 40px;
+        ${({ theme }) => theme.mediaquery.small} {
+          width: 650px;
         }
-        padding-bottom: 42px;
       }
     }
   }
@@ -66,10 +69,10 @@ const Projects: React.FC = () => (
     </div>
     <div className="descripcion">
       <div className="descripcion-ContainerTitle">
-        <Subtitle align="center" white size="Sub1">
+        <Subtitle align="center" white size="Sub2">
           Proyectos de la comunidad
         </Subtitle>
-        <Description size="XLBody" align="center" white>
+        <Description size="LBody" align="center" white>
           En la comunidad podrás encontrar distintos proyectos para colaborar en diferentes tecnologias.
           Tenemos 4 proyectos principales que son:
         </Description>

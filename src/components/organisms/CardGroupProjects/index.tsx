@@ -7,12 +7,9 @@ const StyledCardGroupProjectsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 155px;
-  @media (max-width: 1140px) {
-    margin-bottom: 64px;
-  }
-  @media (max-width: 720px) {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
+  ${({ theme }) => theme.mediaquery.small} {
+    margin-bottom: 155px;
   }
 `;
 
@@ -27,7 +24,7 @@ const StyledCardGroupProjects = styled.div`
   height: max-content;
   transition: all 0.4s ease;
 
-  ${({ theme }) => theme.mediaquery.medium} {
+  ${({ theme }) => theme.mediaquery.small} {
     grid-template-columns: 1fr 1fr;
   }
 `;

@@ -13,6 +13,7 @@ const StyledMeetOurCommunityContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 50px;
 
   h2 {
     max-width: max-content;
