@@ -49,7 +49,6 @@ const Messages: React.FC<MessageProps> = ({ types, children }) => (
   <StyledMessage>
     <StyledType types={types}>
       <Icon size="sm" icon={getType(types).icon} />
-      {console.log(getType(types))}
     </StyledType>
     <p>{children}</p>
   </StyledMessage>
