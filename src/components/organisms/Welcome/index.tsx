@@ -120,8 +120,8 @@ const Welcome: React.FC = () => {
                   proyectos open source.
                 </Description>
                 <div>
-                  <Button text="Unirme a la comunidad" size="m" />
-                  <Button text="Ver proyectos" size="m" color="secondary" variant="outline" />
+                  <Button text="Unirme a la comunidad" linkTo="https://discord.gg/mFUY4sT" size="m" />
+                  <Button text="Ver proyectos" href="/#ref2" size="m" color="secondary" variant="outline" />
                 </div>
               </WelcomeContent>
             </GridColumn>

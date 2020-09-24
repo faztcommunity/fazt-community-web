@@ -12,6 +12,7 @@ type ButtonProps = {
   shadow?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   href?: string;
+  linkTo?: string;
 };
 
 const StyledButton = styled.button<ButtonProps>`
@@ -86,8 +87,25 @@ const Button: React.FC<ButtonProps> = ({
   shadow,
   onClick,
   href,
-  colorvariant
+  colorvariant,
+  linkTo
 }) => {
+  if (linkTo) {
+    return (
+      <a href={linkTo}>
+        <StyledButton
+          colorvariant={colorvariant}
+          color={color}
+          variant={variant}
+          size={size}
+          shadow={shadow}
+          onClick={onClick}
+        >
+          <span>{text}</span>
+        </StyledButton>
+      </a>
+    );
+  }
   if (href) {
     return (
       <Link href={href}>

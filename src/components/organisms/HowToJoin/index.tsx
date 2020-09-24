@@ -6,7 +6,7 @@ import Subtitle from '@Atoms/Subtitle';
 import { GridColumn } from 'emotion-flex-grid';
 
 const StyledHowToJoinImagesContainer = styled.div`
-  z-index: 0;
+  z-index: -1;
   position: absolute;
   width: 100%;
   img {
@@ -32,6 +32,7 @@ const StyledHowToJoinContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: ${({ theme }) => theme.zindex.zNormal};
   h3 {
     margin-bottom: ${({ theme }) => theme.spaces.m};
   }
@@ -170,9 +171,7 @@ const HowToJoin: React.FC = () => {
               <Description size="SBody">Participa</Description>
             </div>
           </div>
-          <a href="https://discord.com/invite/37PHuNw">
-            <Button text="Unirme a la comunidad" size="m" />
-          </a>
+          <Button linkTo="https://discord.gg/mFUY4sT" text="Unirme a la comunidad" size="m" />
         </StyledHowToJoinContainer>
       </GridColumn>
     </StyledHowToJoin>
