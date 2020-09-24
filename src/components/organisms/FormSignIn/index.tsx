@@ -33,7 +33,7 @@ const StyledFormSignInText = styled.span`
   display: block;
   width: 347px;
   margin: 16px auto;
-  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   font-style: normal;
   font-weight: normal;
   text-align: center;
@@ -43,7 +43,7 @@ const StyledFormSignInText = styled.span`
 const StyledFormSignInTextLink = styled.a`
   width: 347px;
   margin-top: 32px;
-  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   font-style: normal;
   font-weight: normal;
   text-align: center;

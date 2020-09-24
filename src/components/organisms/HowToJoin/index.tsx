@@ -35,10 +35,18 @@ const StyledHowToJoinContainer = styled.div`
   z-index: ${({ theme }) => theme.zindex.zNormal};
   h3 {
     margin-bottom: ${({ theme }) => theme.spaces.m};
+    ${({ theme }) => theme.mediaquery.large} {
+      font-size: ${({ theme }) => theme.texts.size.Sub1.FontSize};
+      line-height: ${({ theme }) => theme.texts.size.Sub1.LineHeight};
+    }
   }
   p {
     margin-bottom: ${({ theme }) => theme.spaces.xl};
-    max-width: 600px;
+    max-width: 650px;
+    ${({ theme }) => theme.mediaquery.large} {
+      font-size: ${({ theme }) => theme.texts.size.XLBody.FontSize};
+      line-height: ${({ theme }) => theme.texts.size.XLBody.LineHeight};
+    }
   }
   h4 {
     margin-bottom: ${({ theme }) => theme.spaces.l};

@@ -62,7 +62,7 @@ const StyledButton = styled.input<FormProps>`
   -webkit-tap-highlight-color: transparent;
 
   ${({ theme }) => theme.mediaquery.medium} {
-    width: ${({ buttonBlock }) => (buttonBlock ? '100%' : 'auto')};
+    width: ${({ buttonBlock }) => (buttonBlock ? '310px' : 'auto')};
     margin: 0 15px;
   }
 

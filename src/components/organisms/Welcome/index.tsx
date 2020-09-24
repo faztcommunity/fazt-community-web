@@ -16,6 +16,10 @@ const StyledSection = styled.div`
   div {
     z-index: ${({ theme }) => theme.zindex.zTooltip};
   }
+  ${({ theme }) => theme.mediaquery.extralarge} {
+    width: 1440px;
+    margin: auto;
+  }
 `;
 
 const WelcomeContent = styled.div`
@@ -105,30 +109,28 @@ const StyledCircuit = styled.div`
 
 const Welcome: React.FC = () => {
   return (
-    <>
-      <StyledSection>
-        <StyledCircuit />
-        <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
-          <GridRow>
-            <GridColumn width={[12, 12, 12]}>
-              <WelcomeContent>
-                <Title as="h1" size="MTitle">
-                  Somos <span>Fazt Community</span>
-                </Title>
-                <Description size="XLBody">
-                  Crece como profesional compartiendo tus conocimientos con los demás y participando en
-                  proyectos open source.
-                </Description>
-                <div>
-                  <Button text="Unirme a la comunidad" linkTo="https://discord.gg/mFUY4sT" size="m" />
-                  <Button text="Ver proyectos" href="/#ref2" size="m" color="secondary" variant="outline" />
-                </div>
-              </WelcomeContent>
-            </GridColumn>
-          </GridRow>
-        </GridColumn>
-      </StyledSection>
-    </>
+    <StyledSection>
+      <StyledCircuit />
+      <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+        <GridRow>
+          <GridColumn width={[12, 12, 12]}>
+            <WelcomeContent>
+              <Title as="h1" size="MTitle">
+                Somos <span>Fazt Community</span>
+              </Title>
+              <Description size="XLBody">
+                Crece como profesional compartiendo tus conocimientos con los demás y participando en
+                proyectos open source.
+              </Description>
+              <div>
+                <Button text="Unirme a la comunidad" linkTo="https://discord.gg/mFUY4sT" size="m" />
+                <Button text="Ver proyectos" href="/#ref2" size="m" color="secondary" variant="outline" />
+              </div>
+            </WelcomeContent>
+          </GridColumn>
+        </GridRow>
+      </GridColumn>
+    </StyledSection>
   );
 };
 

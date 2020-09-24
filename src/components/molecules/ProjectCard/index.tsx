@@ -18,9 +18,9 @@ const LinkCard = styled.a`
 
 const StyledCard = styled.div<ProjectCardProps>`
   cursor: pointer;
-  padding: 16px 24px;
+  padding: 16px 24px 24px 24px;
   width: 320px;
-  height: 160px;
+  height: max-content;
   background: #fff;
   border-radius: 8px;
 

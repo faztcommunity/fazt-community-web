@@ -17,6 +17,15 @@ const StyledNavigation = styled.nav`
   width: 100%;
   z-index: ${({ theme }) => theme.zindex.zFixed};
 `;
+const StyledNavigationContainer = styled.nav`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  ${({ theme }) => theme.mediaquery.extralarge} {
+    width: 1440px;
+    margin: auto;
+  }
+`;
 
 const ImgLogoContainer = styled.div`
   display: flex;
@@ -191,35 +200,37 @@ const Navigation: React.FC = () => {
         </SidebarContainer>
       ) : null}
       <StyledNavigation>
-        <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
-          <GridRow>
-            <GridColumn width={[12, 2, 2]}>
-              <ImgLogoContainer>
-                <Link href="/" scroll>
-                  <ImgLogo src="/favicon.png" alt="Home" />
-                </Link>
-              </ImgLogoContainer>
-            </GridColumn>
-            <GridColumn width={[12, 10, 10]}>
-              <NavLinkContainer>
-                <Navlink text="Acerca" href="/#ref1" color="rgba(29, 29, 29, 0.38)" />
-                <Navlink text="Proyectos" href="/#ref2" color="rgba(29, 29, 29, 0.38)" />
-                <Navlink text="Contribuidores" href="/#ref3" color="rgba(29, 29, 29, 0.38)" />
-                {user ? (
-                  <Button onClick={logout} text="Log Out" variant="outline" color="secondary" size="s" />
-                ) : (
-                  <>
-                    <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="s" />
-                    <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
-                  </>
-                )}
-              </NavLinkContainer>
-              <ButtonContainer>
-                <Toggle onClick={handleActive}>&#9776;</Toggle>
-              </ButtonContainer>
-            </GridColumn>
-          </GridRow>
-        </GridColumn>
+        <StyledNavigationContainer>
+          <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+            <GridRow>
+              <GridColumn width={[12, 2, 2]}>
+                <ImgLogoContainer>
+                  <Link href="/" scroll>
+                    <ImgLogo src="/favicon.png" alt="Home" />
+                  </Link>
+                </ImgLogoContainer>
+              </GridColumn>
+              <GridColumn width={[12, 10, 10]}>
+                <NavLinkContainer>
+                  <Navlink text="Acerca" href="/#ref1" color="rgba(29, 29, 29, 0.38)" />
+                  <Navlink text="Proyectos" href="/#ref2" color="rgba(29, 29, 29, 0.38)" />
+                  <Navlink text="Contribuidores" href="/#ref3" color="rgba(29, 29, 29, 0.38)" />
+                  {user ? (
+                    <Button onClick={logout} text="Log Out" variant="outline" color="secondary" size="s" />
+                  ) : (
+                    <>
+                      <Button text="Ingresar" href="/signin" variant="outline" color="secondary" size="s" />
+                      <Navlink text="Regístrate" href="/signup" color="rgba(29, 29, 29, 0.38)" />
+                    </>
+                  )}
+                </NavLinkContainer>
+                <ButtonContainer>
+                  <Toggle onClick={handleActive}>&#9776;</Toggle>
+                </ButtonContainer>
+              </GridColumn>
+            </GridRow>
+          </GridColumn>
+        </StyledNavigationContainer>
       </StyledNavigation>
     </>
   );

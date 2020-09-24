@@ -17,7 +17,7 @@ const StyledFormSignUpContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 120px;
+  margin-top: 100px;
 `;
 const StyledFormSignUpSpace = styled.div`
   width: 347px;
@@ -34,7 +34,7 @@ const StyledFormSignUpText = styled.span`
   display: block;
   width: 347px;
   margin: 16px auto;
-  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   font-style: normal;
   font-weight: normal;
   text-align: center;
@@ -44,7 +44,7 @@ const StyledFormSignUpText = styled.span`
 const StyledFormSignUpTextLink = styled.a`
   width: 347px;
   margin-top: 32px;
-  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   font-style: normal;
   font-weight: normal;
   text-align: center;
@@ -66,7 +66,6 @@ const FormSignUp: React.FC<FormSignUpProps> = ({ formik }) => {
         buttonText="Registrarme"
         buttonBlock
       >
-        <InputForm id="name" placeholder="Ingrese su nombre" formik={formik} />
         <InputForm id="username" placeholder="Ingrese su Usuario de Github" formik={formik} />
         <InputForm id="email" type="email" placeholder="Ingrese su correo" formik={formik} />
         <InputForm id="password" type="password" placeholder="Ingrese su contraseña" formik={formik} />

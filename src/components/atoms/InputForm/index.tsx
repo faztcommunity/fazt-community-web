@@ -73,7 +73,7 @@ const StyledInputFormContainerIconButton = styled.button`
 const StyledInputForm = styled.input<InputFormProps>`
   width: 312px;
   height: 51px;
-  font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
+  font-family: ${({ theme }) => theme.texts.fontFamily.Roboto};
   background: #ffffff;
   font-style: normal;
   font-weight: normal;

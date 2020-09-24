@@ -12,12 +12,10 @@ interface FormValues {
   email: string;
   username: string;
   password: string;
-  name: string;
   passwordConfirm: string;
 }
 
 const initialValues: FormValues = {
-  name: '',
   username: '',
   email: '',
   password: '',
@@ -30,7 +28,6 @@ const Index: React.FC = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
-      name: Yup.string().required('Por favor, ingrese su nombre.'),
       username: Yup.string().required('Por favor un Username'),
       email: Yup.string().email('Debe ingresar un correo válido.').required('Por favor, ingrese un correo.'),
       password: Yup.string()
