@@ -3,57 +3,50 @@ import styled from '@Styles/styled';
 import Description from '@Atoms/Description';
 import Button from '@Atoms/Button';
 import Subtitle from '@Atoms/Subtitle';
+import { GridColumn } from 'emotion-flex-grid';
 
+const StyledHowToJoinImagesContainer = styled.div`
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  img {
+    width: 300px;
+  }
+  display: none;
+  justify-content: space-between;
+
+  ${({ theme }) => theme.mediaquery.large} {
+    display: flex;
+  }
+`;
+const StyledHowToJoin = styled.div`
+  background: transparent;
+  width: 100%;
+  height: max-content;
+  padding: 64px 0;
+  ${({ theme }) => theme.mediaquery.large} {
+    padding: 120px 0;
+  }
+`;
 const StyledHowToJoinContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   h3 {
-    margin-bottom: 16px;
-    @media (max-width: 536px) {
-      font-size: 32px;
-      line-height: 35px;
-    }
+    margin-bottom: ${({ theme }) => theme.spaces.m};
   }
-  button {
-    margin-top: 32px;
+  p {
+    margin-bottom: ${({ theme }) => theme.spaces.xl};
+    max-width: 600px;
   }
-  margin: auto;
-  .descriptionClassName {
+  h4 {
+    margin-bottom: ${({ theme }) => theme.spaces.l};
+    font-size: ${({ theme }) => theme.texts.size.LBody.FontSize};
+    line-height: ${({ theme }) => theme.texts.size.LBody.LineHeight};
     color: ${({ theme }) => theme.colors.gray[600]};
-    text-align: center;
-    font-family: ${({ theme }) => theme.texts.fontFamily.OpenSans};
-    font-size: 24px;
-    line-height: 37px;
-    width: 42vw;
-    @media (max-width: 1024px) and (min-width: 535px) {
-      width: 68vw;
-    }
-    @media (max-width: 536px) {
-      font-size: 18px;
-      line-height: 24px;
-      width: 90vw;
-    }
-  }
-`;
-
-const StyledHowToJoin = styled.div`
-  background: transparent;
-  width: 100%;
-  height: max-content;
-  padding: 100px 0px 200px 0px;
-  @media (max-width: 1140px) {
-    padding: 64px 0px 90px 0px;
-  }
-  @media (max-width: 720px) {
-    padding: 64px 0px 64px 0px;
-  }
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-  @media (max-width: 1440px) {
-    img {
-      display: none;
+    ${({ theme }) => theme.mediaquery.small} {
+      font-size: ${({ theme }) => theme.texts.size.XLBody.FontSize};
+      line-height: ${({ theme }) => theme.texts.size.XLBody.LineHeight};
     }
   }
   .containerPasos {
@@ -92,15 +85,17 @@ const StyledHowToJoin = styled.div`
         transform: translate(-5px, -30px);
         z-index: 1;
         @media (max-width: 536px) {
-          width: 290px;
+          width: 65%;
+          transform: translate(-5px, -40px);
         }
       }
       &-container {
         z-index: 2;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
+        height: 120px;
         p {
           font-size: 19px;
           line-height: 18px;
@@ -133,50 +128,53 @@ const StyledHowToJoin = styled.div`
     }
   }
 `;
-
 const HowToJoin: React.FC = () => {
   return (
     <StyledHowToJoin>
-      <img src="/images/CircuitoLeft.svg" alt="" />
-      <StyledHowToJoinContainer>
-        <Subtitle size="Sub2" as="h3" align="center">
-          ¿Qué esperas para unirte?
-        </Subtitle>
-        <span className="descriptionClassName">
-          En Fazt Community somos más de 15,000 personas. Donde aprendemos juntos, trabajamos en equipo y a
-          cambio obtienes experiencias y conocimientos en proyectos.
-        </span>
-        <div className="containerPasos">
-          <Subtitle size="Sub1" as="h3" align="center">
+      <StyledHowToJoinImagesContainer>
+        <img src="/images/CircuitoLeft.svg" alt="" />
+        <img src="/images/CircuitoRight.svg" alt="" />
+      </StyledHowToJoinImagesContainer>
+      <GridColumn align="center" mx={['xs', 's', 'm', 'l', 'xl', 'xxl']}>
+        <StyledHowToJoinContainer>
+          <Subtitle size="Sub2" as="h3" align="center">
+            ¿Qué esperas para unirte?
+          </Subtitle>
+          <Description size="LBody">
+            En Fazt Community somos más de 15,000 personas. Donde aprendemos juntos, trabajamos en equipo y a
+            cambio obtienes experiencias y conocimientos en proyectos.
+          </Description>
+
+          <Subtitle size="Sub4" as="h4" align="center">
             Crece como profesional en 3 pasos
           </Subtitle>
+
           <div className="containerPasos-Image">
             <div className="containerPasos-Image-container containerPasos-Image-Right">
               <div className="containerPasos-Image-container-circulo">
                 <span>1</span>
               </div>
-              <Description size="MBody">Únete</Description>
+              <Description size="SBody">Únete</Description>
             </div>
             <span className="containerPasos-Image-Line" />
             <div className="containerPasos-Image-container">
               <div className="containerPasos-Image-container-circulo">
                 <span>2</span>
               </div>
-              <Description size="MBody">Encuentra un proyecto</Description>
+              <Description size="SBody">Encuentra un proyecto</Description>
             </div>
             <div className="containerPasos-Image-container containerPasos-Image-Left">
               <div className="containerPasos-Image-container-circulo">
                 <span>3</span>
               </div>
-              <Description size="MBody">Participa</Description>
+              <Description size="SBody">Participa</Description>
             </div>
           </div>
-        </div>
-        <a href="https://discord.com/invite/37PHuNw">
-          <Button text="Unirme a la comunidad" size="m" />
-        </a>
-      </StyledHowToJoinContainer>
-      <img src="/images/CircuitoRight.svg" alt="" />
+          <a href="https://discord.com/invite/37PHuNw">
+            <Button text="Unirme a la comunidad" size="m" />
+          </a>
+        </StyledHowToJoinContainer>
+      </GridColumn>
     </StyledHowToJoin>
   );
 };

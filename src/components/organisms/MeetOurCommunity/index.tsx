@@ -6,6 +6,9 @@ import { GridRow, GridColumn } from 'emotion-flex-grid';
 
 const StyledMeetOurCommunity = styled.div`
   width: 100%;
+  ${({ theme }) => theme.mediaquery.extralarge} {
+    width: 1440px;
+  }
 `;
 const StyledMeetOurCommunityContainer = styled.div`
   display: flex;

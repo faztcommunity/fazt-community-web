@@ -82,7 +82,7 @@ const StyledButton = styled.input<FormProps>`
 const Form: React.FC<FormProps> = ({ formik, children, title, buttonText, vertical, buttonBlock }) => {
   return (
     <StyledFormContainer>
-      <Subtitle as="h2" size="Sub1">
+      <Subtitle as="h2" size="Sub2">
         {title}
       </Subtitle>
       <StyledForm onSubmit={formik.handleSubmit} vertical={vertical}>

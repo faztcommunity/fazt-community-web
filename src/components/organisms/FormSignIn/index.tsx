@@ -16,6 +16,7 @@ const StyledFormSignInContainer = styled.div`
   height: max-content;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
 `;
 const StyledFormSignInSpace = styled.div`
   width: 347px;
@@ -36,8 +37,8 @@ const StyledFormSignInText = styled.span`
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  font-size: ${({ theme }) => theme.texts.size.MTitle.FontSize};
-  line-height: ${({ theme }) => theme.texts.size.MTitle.LineHeight};
+  font-size: ${({ theme }) => theme.texts.size.SBody.FontSize};
+  line-height: ${({ theme }) => theme.texts.size.SBody.LineHeight};
 `;
 const StyledFormSignInTextLink = styled.a`
   width: 347px;

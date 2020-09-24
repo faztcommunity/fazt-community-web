@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from '@Molecules/Head';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -6,6 +6,7 @@ import AuthPage from '@Templates/AuthPage';
 import FormSignUp from '@Organisms/FormSignUp';
 import Axios from 'axios';
 import { useRouter } from 'next/router';
+import MessageAlert from '@Atoms/messages';
 
 interface FormValues {
   email: string;
@@ -24,6 +25,7 @@ const initialValues: FormValues = {
 };
 
 const Index: React.FC = () => {
+  const [messageAlert, useMessageAlert] = useState({ types: '', text: '', activate: false });
   const router = useRouter();
   const formik = useFormik({
     initialValues,
@@ -53,10 +55,17 @@ const Index: React.FC = () => {
         localStorage.setItem('Token', result.data.data);
         router.push('/');
       }
+      if (result === null) {
+        useMessageAlert({ types: 'error', text: 'error', activate: true });
+        setTimeout(() => {
+          useMessageAlert({ types: '', text: '', activate: false });
+        }, 2000);
+      }
     }
   });
   return (
     <AuthPage>
+      <MessageAlert messageAlert={messageAlert} />
       <Head title="Sign Up" />
       <FormSignUp formik={formik} />
     </AuthPage>
