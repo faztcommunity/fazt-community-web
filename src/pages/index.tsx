@@ -1,4 +1,9 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
+import { QueryCache } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
+
+import { getCollaborators } from '@Api/collaborator';
 import MainPage from '@Templates/MainPage';
 import Head from '@Molecules/Head';
 import Welcome from '@Organisms/Welcome';
@@ -24,6 +29,17 @@ const Index: React.FC = () => {
       </MainPage>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryCache = new QueryCache();
+  await queryCache.prefetchQuery('collaborators', getCollaborators);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryCache)
+    }
+  };
 };
 
 export default Index;

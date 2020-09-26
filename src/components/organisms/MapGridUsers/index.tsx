@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 import styled from '@Styles/styled';
-import axios from 'axios';
 import Image from '@Atoms/Image';
+import { useCollaborators } from '@Hooks/collaborator';
 
 type MapGridUsersProps = {
   width?: string;
@@ -64,30 +65,12 @@ const StyledMapGridUsers = styled.div<MapGridUsersProps>`
 `;
 
 const MapGridUsers: React.FC<MapGridUsersProps> = () => {
-  const initialState = [
-    {
-      id: 0,
-      name: 'Fede',
-      username: 'Fede',
-      email: 'elfedeomg@gmail.com',
-      imagePath: '',
-      userDescription: ''
-    }
-  ];
-
-  const [listUsers, setListUsers] = useState(initialState);
-  useEffect(() => {
-    const getData = async () => {
-      const result = await axios.get('https://api.faztcommunity.dev/collaborators').catch(() => null);
-      setListUsers(result?.data);
-    };
-    getData();
-  }, []);
+  const { data } = useCollaborators();
 
   return (
     <StyledContainer>
       <StyledMapGridUsers>
-        {listUsers.slice(0, 15).map((user) => (
+        {data?.slice(0, 15).map((user) => (
           <Image
             key={user.id}
             variant="round"

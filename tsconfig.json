@@ -8,7 +8,9 @@
       "@Organisms/*": ["src/components/organisms/*"],
       "@Templates/*": ["src/components/templates/*"],
       "@Assets/*": ["src/assets/*"],
-      "@Styles/*": ["src/styles/*"]
+      "@Styles/*": ["src/styles/*"],
+      "@Api/*": ["src/api/*"],
+      "@Hooks/*": ["src/hooks/*"]
     },
 
     "target": "es6",
