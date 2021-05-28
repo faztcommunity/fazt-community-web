@@ -1,7 +1,0 @@
-/node_modules/
-package.json
-/build
-/.next
-
-*.ttf
-*.woff
