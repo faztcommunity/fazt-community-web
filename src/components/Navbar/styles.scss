@@ -1,0 +1,127 @@
+@use 'sass:map';
+@import 'src/styles/utils';
+
+.navbar-modal {
+    display: grid;
+    position: relative;
+    grid-template-rows: fit-content(100%) auto;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background: $black;
+    padding: $size-2xl $size-base;
+    z-index: $z-100;
+
+    &>:nth-child(1) {
+        display: grid;
+        justify-content: right;
+        grid-template-rows: 32px;
+        grid-template-columns: 32px;
+    }
+
+    nav {
+        display: grid;
+        gap: $size-3xl;
+        align-content: center;
+
+        ul {
+            display: grid;
+            gap: $size-3xl;
+            text-align: center;
+            justify-content: center;
+            grid-template-columns: fit-content(100%);
+            grid-template-rows: repeat(3, fit-content(100%));
+
+            li {
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+
+        .auth {
+            display: grid;
+            gap: $size-3xl;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: fit-content(100%);
+            grid-template-rows: repeat(2, fit-content(100%));
+        }
+    }
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    padding-top: $size-xl;
+    padding-bottom: $size-xl;
+    background: white;
+    box-shadow: map.get($shadow-black, lv1);
+    z-index: $z-50;
+
+    .container {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+
+        &>:nth-child(1) {
+            display: grid;
+            grid-template-rows: 40px;
+            grid-template-columns: 40px;
+        }
+
+        &>:nth-child(2) {
+            display: grid;
+            justify-content: right;
+            grid-template-rows: 32px;
+            grid-template-columns: 32px;
+        }
+
+        nav {
+            display: none;
+        }
+    }
+}
+
+@include media(lg) {
+    header {
+        .container {
+            &>:nth-child(1) {
+                grid-template-rows: 50px;
+                grid-template-columns: 50px;
+            }
+    
+            &>:nth-child(2) {
+                display: none
+            }
+
+            nav {
+                display: grid;
+                gap: $size-3xl;
+                align-items: center;
+                justify-content: right;
+                color: map.get($gray, 200);
+                grid-template-columns: repeat(2, fit-content(100%));
+
+                ul {
+                    display: grid;
+                    gap: $size-3xl;
+                    grid-template-columns: repeat(3, fit-content(100%));
+
+                    li {
+                        cursor: pointer;
+                        user-select: none;
+                    }
+                }
+
+                .auth {
+                    display: grid;
+                    gap: $size-3xl;
+                    align-items: center;
+                    grid-template-columns: repeat(2, fit-content(100%));
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 <script>
+    import x from 'assets/icons/x.svg'
     import api from 'assets/icons/api.svg'
     import bot from 'assets/icons/bot.svg'
     import eye from 'assets/icons/eye.svg'
@@ -13,11 +14,13 @@
     import warning from 'assets/icons/warning.svg'
     import database from 'assets/icons/database.svg'
     import eyeclose from 'assets/icons/eyeclose.svg'
+    import hamburguer from 'assets/icons/hamburguer.svg'
 
     export let name
-    export let size = 24
+    export let size
 
     const AVAIBLE_ICONS = {
+        x,
         api,
         bot,
         eye,
@@ -32,14 +35,15 @@
         warning,
         database,
         eyeclose,
+        hamburguer,
     }
+    const ICON_NAME = Object.keys(AVAIBLE_ICONS).includes(name) ? name : 'error'
 </script>
 
-<svelte:component
-    this={AVAIBLE_ICONS[
-        Object.keys(AVAIBLE_ICONS).includes(name) ? name : 'error'
-    ]}
-    width={size}
-    height={size}
-    {...$$restProps}
-    on:click />
+<div class={`${ICON_NAME} icon`} on:click>
+    <svelte:component
+        this={AVAIBLE_ICONS[ICON_NAME]}
+        width={size}
+        height={size}
+        {...$$restProps} />
+</div>

@@ -21,5 +21,3 @@
     on:click>
     <slot />
 </button>
-
-<style global src="styles.scss"></style>

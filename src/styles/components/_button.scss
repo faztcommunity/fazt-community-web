@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import 'src/styles/utils';
+@use '../utils' as *;
 
 .btn {
     user-select: none;

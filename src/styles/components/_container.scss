@@ -8,3 +8,10 @@
     padding-right: $size-base;
     max-width: map.get($breakpoints, xl);
 }
+
+@include media(md) {
+    .container {
+        padding-left: $size-2xl;
+        padding-right: $size-2xl;
+    }
+}

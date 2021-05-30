@@ -50,6 +50,7 @@
     "sapper": "^0.29.1",
     "sass": "^1.34.0",
     "svelte": "^3.38.2",
-    "svelte-preprocess": "^4.7.3"
+    "svelte-preprocess": "^4.7.3",
+    "svelte-scrollto": "^0.2.0"
   }
 }

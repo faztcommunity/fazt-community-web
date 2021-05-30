@@ -1,11 +1,17 @@
+<script>
+    import Navbar from '@components/Navbar'
+</script>
+
+<Navbar />
 <main>
     <slot />
 </main>
 
-<style>
+<style lang="scss">
+    @import 'src/styles/utils';
+
     main {
-        display: grid;
-        min-height: 100vh;
-        place-items: center;
+        background: $white;
+        min-height: calc(100vh - 90px);
     }
 </style>

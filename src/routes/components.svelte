@@ -44,10 +44,14 @@
         <h1 class="title">Somos Fazt Community</h1>
         <h3 class="subtitle">Conoce a nuestra comunidad</h3>
         <p class="text">
-            Fazt Community es un espacio donde podrás crecer como profesional, participando en equipos y con personas de todo el mundo hispano hablante.
+            Fazt Community es un espacio donde podrás crecer como profesional,
+            participando en equipos y con personas de todo el mundo hispano
+            hablante.
         </p>
         <p class="text">
-            No importa tu nivel, podrás encontrar un área donde unirte, aportar de tu conocimiento con otros, recibir ayuda y vas a conocer gente que comparten la misma pasión que tú.
+            No importa tu nivel, podrás encontrar un área donde unirte, aportar
+            de tu conocimiento con otros, recibir ayuda y vas a conocer gente
+            que comparten la misma pasión que tú.
         </p>
     </article>
 </section>

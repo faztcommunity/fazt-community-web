@@ -15,8 +15,10 @@
 <a
     {href}
     class:btn
-    class:primary
     class:fill
+    class:outline={!fill}
+    class:primary
+    class:secondary={!primary}
     class:large
     class:medium
     class:small
