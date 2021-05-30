@@ -7,9 +7,20 @@
     text-align: center;
 }
 
+@include media(md) {
+    .title {
+        font-size: $size-5xl;
+    }
+}
+
 @include media(lg) {
     .title {
-        font-size: $size-7xl;
         text-align: left;
+    }
+}
+
+@include media(xl) {
+    .title {
+        font-size: $size-7xl;
     }
 }

@@ -1,11 +1,5 @@
-<h1>Fazt Community</h1>
+<script>
+    import Hero from './_sections/Hero.svelte'
+</script>
 
-<style lang="scss">
-    @import 'src/styles/utils';
-
-    h1 {
-        color: $color-primary;
-        font-size: $size-5xl;
-        font-weight: bold;
-    }
-</style>
+<Hero />
