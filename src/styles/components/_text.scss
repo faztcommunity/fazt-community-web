@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.text {
+    color: map.get($gray, 300);
+    font-size: $size-lg;
+    text-align: center;
+}
+
+.black {
+    color: $black;
+}
+
+.white {
+    color: white;
+}
+
+@include media(lg) {
+    .text {
+        font-size: $size-2xl;
+        text-align: left;
+    }
+}

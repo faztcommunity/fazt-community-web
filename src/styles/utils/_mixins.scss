@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 @mixin media($media) {
     @if map-has-key($breakpoints, $media) {
         @media screen and (min-width: map-get($breakpoints, $media)) {

@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $size-base;
+    padding-right: $size-base;
+    max-width: map.get($breakpoints, xl);
+}

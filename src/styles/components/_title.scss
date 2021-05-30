@@ -1,0 +1,15 @@
+@use '../utils' as *;
+
+.title {
+    font-weight: 700;
+    font-size: $size-4xl;
+    font-family: $opensans;
+    text-align: center;
+}
+
+@include media(lg) {
+    .title {
+        font-size: $size-7xl;
+        text-align: left;
+    }
+}
