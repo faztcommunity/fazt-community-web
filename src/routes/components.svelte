@@ -1,5 +1,6 @@
 <script>
     import Icon from '@components/Icon'
+    import Image from '@components/Image'
     import Button from '@components/Button'
 </script>
 
@@ -33,6 +34,11 @@
         <Icon name="warning" size="32" />
         <Icon name="database" size="32" />
         <Icon name="eyeclose" size="32" />
+    </article>
+    <article>
+        <Image src="community_left.png" rounded />
+        <Image src="community_right.png" rounded />
+        <Image />
     </article>
 </section>
 
