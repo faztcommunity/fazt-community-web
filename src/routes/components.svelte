@@ -2,6 +2,7 @@
     import Icon from '@components/Icon'
     import Image from '@components/Image'
     import Button from '@components/Button'
+    import CommunityImage from '@components/CommunityImage'
 </script>
 
 <section>
@@ -54,11 +55,21 @@
             que comparten la misma pasión que tú.
         </p>
     </article>
+    <article class="container">
+        <CommunityImage src="community_left.png" blue left />
+        <CommunityImage src="community_right.png" orange right />
+    </article>
 </section>
 
 <style>
     section {
         width: 100%;
         height: 100%;
+    }
+
+    .container {
+        display: grid;
+        gap: 4rem;
+        grid-template-rows: repeat(4, fit-content(100%));
     }
 </style>
