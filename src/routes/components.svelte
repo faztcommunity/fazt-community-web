@@ -2,6 +2,7 @@
     import Icon from '@components/Icon'
     import Image from '@components/Image'
     import Button from '@components/Button'
+    import ProjectCard from '@components/ProjectCard'
     import CommunityImage from '@components/CommunityImage'
 </script>
 
@@ -59,9 +60,29 @@
         <CommunityImage src="community_left.png" blue left />
         <CommunityImage src="community_right.png" orange right />
     </article>
+    <article class="container projects">
+        <ProjectCard
+            icon="web"
+            title="Fazt Web"
+            desc="Es la web oficial de Fazt Community donde se colocan los proyectos y aportes de los integrandes de la comunidad." />
+        <ProjectCard
+            icon="api"
+            title="Fazt Api"
+            desc="Es el núcleo de los proyectos principales, este proyecto se encargará de unificar la base de datos con los demás proyectos." />
+        <ProjectCard
+            icon="bot"
+            title="Fazt Bot"
+            desc="Un bot para Discord multipropósito capaz de realizar distintas actividades como saludos, reproducir música y mucho más." />
+        <ProjectCard
+            icon="database"
+            title="Fazt Database"
+            desc="Analizamos distintos ámbitos de los proyectos comunitarios, para poder guardar todos los registros y/o datos." />
+    </article>
 </section>
 
-<style>
+<style lang="scss">
+    @import 'src/styles/utils';
+
     section {
         width: 100%;
         height: 100%;
@@ -70,6 +91,13 @@
     .container {
         display: grid;
         gap: 4rem;
+        padding-bottom: $size-6xl;
         grid-template-rows: repeat(4, fit-content(100%));
+
+        &.projects {
+            gap: $size-3xl;
+            grid-template-rows: repeat(2, fit-content(100%));
+            grid-template-columns: repeat(2, fit-content(100%));
+        }
     }
 </style>

@@ -1,0 +1,29 @@
+@use 'sass:map';
+@import 'src/styles/utils';
+
+.project-card {
+    width: 332px;
+    display: grid;
+    gap: $size-base;
+    user-select: none;
+    background: white;
+    border-radius: $size-2xs;
+    padding: $size-2xl $size-base;
+    grid-template-rows: repeat(2, fit-content(100%));
+    filter: drop-shadow(map.get($shadow-black, lv4));
+
+    header {
+        display: grid;
+        gap: $size-2xs;
+        font-weight: 700;
+        font-size: $size-lg;
+        align-content: flex-end;
+        align-items: flex-end;
+        grid-template-rows: fit-content(100%);
+        grid-template-columns: fit-content(100%) auto;
+    }
+
+    p {
+        color: map.get($gray, 300);
+    }
+}
