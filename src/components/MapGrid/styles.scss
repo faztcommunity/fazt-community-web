@@ -1,11 +1,12 @@
 @import 'src/styles/utils';
 
 .map-grid {
+    width: 340px;
+    height: 260px;
+
     .map {
-        width: 340px;
-        height: 260px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        height: 100%;
         position: relative;
         background: url('/images/world_map.svg') center/contain no-repeat;
 
@@ -36,10 +37,10 @@
 
 @include media(sm) {
     .map-grid {
-        .map {
-            width: 490px;
-            height: 275px;
+        width: 490px;
+        height: 275px;
 
+        .map {
             img {
                 &.user1 { top: 40px; left: 100px; }
                 &.user2 { top: 90px; left: 80px; }
