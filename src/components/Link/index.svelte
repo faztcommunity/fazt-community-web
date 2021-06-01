@@ -22,6 +22,7 @@
     class:large
     class:medium
     class:small
+    title={label}
     aria-label={label}
     target={external ? '_blank' : null}
     rel={external ? 'external noopener noreferrer' : 'prefetch'}

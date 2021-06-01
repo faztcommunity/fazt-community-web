@@ -2,22 +2,21 @@
 @import 'src/styles/utils';
 
 .project-card {
-    width: 332px;
+    width: 360px;
     display: grid;
     gap: $size-base;
     user-select: none;
+    padding: $size-2xl;
     background: white;
     border-radius: $size-2xs;
-    padding: $size-2xl $size-base;
+    box-shadow: 0px 8px 10px #0776C6E6;
     grid-template-rows: repeat(2, fit-content(100%));
-    filter: drop-shadow(map.get($shadow-black, lv4));
 
     header {
         display: grid;
         gap: $size-2xs;
         font-weight: 700;
         font-size: $size-lg;
-        align-content: flex-end;
         align-items: flex-end;
         grid-template-rows: fit-content(100%);
         grid-template-columns: fit-content(100%) auto;
