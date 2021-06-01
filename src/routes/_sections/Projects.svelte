@@ -1,18 +1,17 @@
 <script>
     import ProjectCard from '@components/ProjectCard'
+    import CircuitBackground from '@components/CircuitBackground'
 </script>
 
 <section class="projects">
-    <div class="circuit-background">
-        <img src="/images/circuito_left.svg" alt="">
-        <img src="/images/circuito_right.svg" alt="">
-    </div>
+    <CircuitBackground />
     <div class="container">
         <article class="message">
             <h2 class="subtitle white">Proyectos de la comunidad</h2>
             <p class="text white">
-                En la comunidad podrás encontrar distintos proyectos para colaborar en diferentes tecnologias.
-                Tenemos 4 proyectos principales que son:
+                En la comunidad podrás encontrar distintos proyectos para
+                colaborar en diferentes tecnologias. Tenemos 4 proyectos
+                principales que son:
             </p>
         </article>
         <article class="grid-projects">
@@ -52,13 +51,6 @@
         padding-bottom: $size-7xl;
         background: $color-secondary-light;
 
-        .circuit-background {
-            width: 100%;
-            display: none;
-            position: absolute;
-            z-index: $z-0;
-        }
-
         .container {
             display: grid;
             position: relative;
@@ -87,14 +79,10 @@
             padding-top: 9.75rem;
             padding-bottom: 9.75rem;
 
-            .circuit-background {
-                display: flex;
-                justify-content: space-between;
-            }
-
             .container {
                 .message {
-                    h2, p {
+                    h2,
+                    p {
                         text-align: center;
                     }
                 }

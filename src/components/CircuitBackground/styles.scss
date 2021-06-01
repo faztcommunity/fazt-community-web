@@ -1,0 +1,15 @@
+@import 'src/styles/utils';
+
+.circuit-background {
+    width: 100%;
+    display: none;
+    position: absolute;
+    z-index: $z-0;
+}
+
+@include media(lg) {
+    .circuit-background {
+        display: flex;
+        justify-content: space-between;
+    }
+}
