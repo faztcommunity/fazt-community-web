@@ -8,6 +8,7 @@ import alias from '@rollup/plugin-alias'
 import sveltePreprocess from 'svelte-preprocess'
 import svelteSVG from 'rollup-plugin-svelte-svg'
 import { terser } from 'rollup-plugin-terser'
+import json from '@rollup/plugin-json'
 import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 
@@ -75,6 +76,7 @@ export default {
             }),
             commonjs(),
             svelteSVG({ dev }),
+            json(),
 
             legacy &&
                 babel({
@@ -152,6 +154,7 @@ export default {
             }),
             commonjs(),
             svelteSVG({ generate: 'ssr', dev }),
+            json(),
         ],
         external: Object.keys(pkg.dependencies).concat(
             require('module').builtinModules,

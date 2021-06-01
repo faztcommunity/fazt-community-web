@@ -2,6 +2,7 @@
     import Icon from '@components/Icon'
     import Image from '@components/Image'
     import Button from '@components/Button'
+    import MapGrid from '@components/MapGrid'
     import ProjectCard from '@components/ProjectCard'
     import CommunityImage from '@components/CommunityImage'
 </script>
@@ -78,6 +79,9 @@
             title="Fazt Database"
             desc="Analizamos distintos ámbitos de los proyectos comunitarios, para poder guardar todos los registros y/o datos." />
     </article>
+    <article>
+        <MapGrid />
+    </article>
 </section>
 
 <style lang="scss">
@@ -96,8 +100,7 @@
 
         &.projects {
             gap: $size-3xl;
-            grid-template-rows: repeat(2, fit-content(100%));
-            grid-template-columns: repeat(2, fit-content(100%));
+            grid-template-columns: fit-content(100%);
         }
     }
 </style>
