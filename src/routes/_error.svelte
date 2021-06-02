@@ -9,14 +9,30 @@
     <title>Error {status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<section class="error">
+    <h1>{status}</h1>
 
-{#if dev && error.stack}
-    <pre>{error.stack}</pre>
-{/if}
+    {#if dev && error.stack}
+        <pre>{error.stack}</pre>
+    {/if}
+</section>
 
-<style>
-    h1 {
-        font-size: 10rem;
+<style lang="scss">
+    @import 'src/styles/utils';
+
+    section {
+        min-height: calc(100vh - 230px);
+        display: grid;
+        place-items: center;
+
+        h1 {
+            font-size: 10rem;
+        }
+    }
+
+    @include media(lg) {
+        section {
+            min-height: calc(100vh - 158px);
+        }
     }
 </style>

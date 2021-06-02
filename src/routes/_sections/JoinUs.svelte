@@ -38,6 +38,8 @@
         .container {
             display: grid;
             gap: $size-3xl;
+            z-index: $z-10;
+            position: relative;
 
             .message {
                 display: grid;

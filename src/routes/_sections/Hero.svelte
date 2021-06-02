@@ -1,5 +1,12 @@
 <script>
+    import { scrollTo as animatedScroll } from 'svelte-scrollto'
+    import { socials } from 'utils/constants'
     import Button from '@components/Button'
+    import Link from '@components/Link'
+
+    function scrollTo(element, duration = 1500, offset = -90) {
+        animatedScroll({ element, duration, offset })
+    }
 </script>
 
 <section id="hero">
@@ -12,8 +19,8 @@
             </p>
         </article>
         <article class="buttons">
-            <Button primary fill large>Unirme a la comunidad</Button>
-            <Button large>Ver proyectos</Button>
+            <Link external to={socials.DISCORD} btn primary fill large>Unirme a la comunidad</Link>
+            <Button large on:click={() => scrollTo('#projects')}>Ver proyectos</Button>
         </article>
     </div>
 </section>
@@ -32,17 +39,19 @@
             bottom: 0;
             left: 0;
             opacity: 0.5;
-            background: url('/images/circuit.svg') no-repeat center right;
             background-size: auto 90%;
+            background: url('/images/circuit.svg') no-repeat center right;
         }
 
         .container {
-            display: grid;
             gap: $size-2xl;
+            display: grid;
+            position: relative;
             padding-bottom: 90px;
             align-content: center;
             height: calc(100vh - 90px);
             grid-template-rows: repeat(2, fit-content(100%));
+            z-index: $z-10;
 
             .message {
                 display: grid;

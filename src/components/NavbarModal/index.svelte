@@ -10,20 +10,16 @@
         else document.body.style = null
     }
 
-    function scrollTo(element, duration = 1500, offset = -90) {
-        animatedScroll({ element, duration, offset })
+    function scrollTo(element, duration = 2000) {
+        toggleModal()
+        animatedScroll({ element, duration })
     }
 </script>
 
-<header id="navbar">
-    <div class="container">
-        <div>
-            <Link>
-                <Icon name="logo" />
-            </Link>
-        </div>
-        <div>
-            <Icon name="hamburguer" on:click={toggleModal} />
+{#if $isModalOpen}
+    <div class="navbar-modal">
+        <div class="container">
+            <Icon name="x" on:click={toggleModal} />
         </div>
         <nav>
             <ul>
@@ -39,6 +35,6 @@
             </div>
         </nav>
     </div>
-</header>
+{/if}
 
-<style src="styles.scss" lang="scss"></style>
+<style src="styles.scss"></style>

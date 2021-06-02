@@ -3,7 +3,7 @@
     import CircuitBackground from '@components/CircuitBackground'
 </script>
 
-<section class="projects">
+<section id="projects">
     <CircuitBackground />
     <div class="container">
         <article class="message">

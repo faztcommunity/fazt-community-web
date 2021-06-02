@@ -20,8 +20,8 @@
     &.fill {
         &.primary {
             color: white;
-            background: $color-primary;
-            border: 1px solid $color-primary;
+            background: $color-primary-light;
+            border: 1px solid $color-primary-light;
             box-shadow: map.get($shadow-inset, none), map.get($shadow-red, lv3);
 
             &:active {

@@ -1,2 +1,18 @@
+@use 'sass:map';
 @use 'base' as *;
+@use 'utils' as *;
 @use 'components' as *;
+
+body::-webkit-scrollbar {
+    width: $size-xs;
+}
+
+body::-webkit-scrollbar-track {
+    background: $white;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: map.get($gray, 100);
+    border-radius: $size-xl;
+    border: 3px solid $white;
+}
