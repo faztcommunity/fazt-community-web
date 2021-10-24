@@ -15,10 +15,10 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm install
-          npm run export
+          npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_TO_DEPLOY }}
           BRANCH: gh-pages
-          FOLDER: __sapper__/export
+          FOLDER: build

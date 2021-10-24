@@ -1,16 +1,16 @@
 @use '../utils' as *;
 
 .subtitle {
-    font-weight: 500;
-    font-size: $size-3xl;
-    font-family: $opensans;
-    text-align: center;
+  font-weight: 500;
+  font-size: $size-3xl;
+  font-family: $opensans;
+  text-align: center;
 }
 
 @include media(lg) {
-    .subtitle {
-        font-size: $size-4xl;
-        font-weight: 700;
-        text-align: left;
-    }
+  .subtitle {
+    font-size: $size-4xl;
+    font-weight: 700;
+    text-align: left;
+  }
 }

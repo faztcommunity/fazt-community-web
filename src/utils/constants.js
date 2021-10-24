@@ -1,4 +1,4 @@
 export const socials = {
-    DISCORD: 'https://discord.gg/hfQsNGNcvQ',
-    GITHUB: 'https://github.com/faztcommunity',
+  DISCORD: 'https://discord.gg/sjxTPvUvt5',
+  GITHUB: 'https://github.com/faztcommunity',
 }

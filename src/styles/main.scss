@@ -4,15 +4,15 @@
 @use 'components' as *;
 
 body::-webkit-scrollbar {
-    width: $size-xs;
+  width: $size-xs;
 }
 
 body::-webkit-scrollbar-track {
-    background: $white;
+  background: $white;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: map.get($gray, 100);
-    border-radius: $size-xl;
-    border: 3px solid $white;
+  background-color: map.get($gray, 100);
+  border-radius: $size-xl;
+  border: 3px solid $white;
 }
