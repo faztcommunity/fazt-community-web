@@ -26,9 +26,9 @@ speed-measure-plugin*.json
 !.vscode/extensions.json
 *.code-workspace
 
-# Sapper
-/__sapper__/
-/src/node_modules/
+# Sveltekit
+/build
+/.svelte-kit
 
 ### CypressIO ###
 

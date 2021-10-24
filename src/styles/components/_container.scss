@@ -2,34 +2,34 @@
 @use '../utils' as *;
 
 .container {
-    padding-left: $size-base;
-    padding-right: $size-base;
+  padding-left: $size-base;
+  padding-right: $size-base;
 }
 
 @include media(sm) {
-    .container {
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .container {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @include media(md) {
-    .container {
-        max-width: 720px;
-    }
+  .container {
+    max-width: 720px;
+  }
 }
 
 @include media(lg) {
-    .container {
-        padding-left: $size-9xl;
-        padding-right: $size-9xl;
-        max-width: 992px;
-    }
+  .container {
+    padding-left: $size-9xl;
+    padding-right: $size-9xl;
+    max-width: 992px;
+  }
 }
 
 @include media(xl) {
-    .container {
-        max-width: map.get($breakpoints, xl);
-    }
+  .container {
+    max-width: map.get($breakpoints, xl);
+  }
 }
