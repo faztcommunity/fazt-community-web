@@ -7,7 +7,7 @@
     <h2 class="subtitle">Conoce nuestra comunidad</h2>
     <div>
       <article class="top">
-        <CommunityImage src="community_left.png" orange right />
+        <CommunityImage src="community_left.webp" orange right />
         <p class="text">
           Fazt Community es un espacio donde podrás crecer como profesional,
           participando en equipos y con personas de todo el mundo hispano
@@ -15,7 +15,7 @@
         </p>
       </article>
       <article class="bottom">
-        <CommunityImage src="community_right.png" blue left />
+        <CommunityImage src="community_right.webp" blue left />
         <p class="text">
           No importa tu nivel, podrás encontrar un área donde unirte, aportar de
           tu conocimiento con otros, recibir ayuda y vas a conocer gente que
