@@ -3,77 +3,77 @@
 *,
 :after,
 :before {
-    box-sizing: border-box;
-    border: 0 solid #5D6970;
+  box-sizing: border-box;
+  border: 0 solid #5D6970;
 }
 
 :root {
-    font-size: $base-size;
+  font-size: $base-size;
 }
 
 html {
-    tab-size: 4;
-    -o-tab-size: 4;
-    -moz-tab-size: 4;
-    font-family: $roboto;
-    line-height: $leading;
-    -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  -o-tab-size: 4;
+  -moz-tab-size: 4;
+  font-family: $roboto;
+  line-height: $leading;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    margin: 0;
-    position: relative;
-    font-family: inherit;
-    line-height: inherit;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  position: relative;
+  font-family: inherit;
+  line-height: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 hr {
-    color: inherit;
-    height: 0;
+  color: inherit;
+  height: 0;
 }
 
 abbr[title] {
-    -webkit-text-decoration: underline dotted;
-    text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 b,
 strong {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 code,
 kbd,
 pre,
 samp {
-    font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-    font-size: 1em;
+  font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 1em;
 }
 
 small {
-    font-size: 80%;
+  font-size: 80%;
 }
 
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-    bottom: -.25em;
+  bottom: -.25em;
 }
 
 sup {
-    top: -.5em;
+  top: -.5em;
 }
 
 table {
-    border-color: inherit;
-    text-indent: 0;
+  border-color: inherit;
+  text-indent: 0;
 }
 
 button,
@@ -81,32 +81,32 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
 }
 
 button,
 select {
-    text-transform: none;
+  text-transform: none;
 }
 
 [type=button],
 button {
-    -webkit-appearance: button;
+  -webkit-appearance: button;
 }
 
 legend {
-    padding: 0;
+  padding: 0;
 }
 
 progress {
-    vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 summary {
-    display: list-item;
+  display: list-item;
 }
 
 blockquote,
@@ -122,67 +122,67 @@ h6,
 hr,
 p,
 pre {
-    margin: 0;
+  margin: 0;
 }
 
 button {
-    background-color: transparent;
-    background-image: none;
+  background-color: transparent;
+  background-image: none;
 }
 
 button:focus {
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 fieldset,
 ol,
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 hr {
-    border-top-width: 1px;
+  border-top-width: 1px;
 }
 
 img {
-    border-style: solid;
+  border-style: solid;
 }
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-    color: #a1a1aa;
-    opacity: 1;
+  color: #a1a1aa;
+  opacity: 1;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-    color: #a1a1aa;
-    opacity: 1;
+  color: #a1a1aa;
+  opacity: 1;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: #a1a1aa;
-    opacity: 1;
+  color: #a1a1aa;
+  opacity: 1;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 h1,
@@ -191,13 +191,13 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: inherit;
-    font-weight: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 button,
@@ -205,16 +205,16 @@ input,
 optgroup,
 select,
 textarea {
-    color: inherit;
-    line-height: inherit;
-    padding: 0
+  color: inherit;
+  line-height: inherit;
+  padding: 0
 }
 
 code,
 kbd,
 pre,
 samp {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 audio,
@@ -225,12 +225,12 @@ img,
 object,
 svg,
 video {
-    display: block;
-    vertical-align: middle;
+  display: block;
+  vertical-align: middle;
 }
 
 img,
 video {
-    height: auto;
-    max-width: 100%;
+  height: auto;
+  max-width: 100%;
 }

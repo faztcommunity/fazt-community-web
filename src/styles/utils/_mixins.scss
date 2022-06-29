@@ -1,14 +1,14 @@
 @use 'sass:map';
-@use 'variables' as *;
+@use 'variables'as *;
 
 @mixin media($media) {
-    @if map-has-key($breakpoints, $media) {
-        @media screen and (min-width: map-get($breakpoints, $media)) {
-            @content;
-        }
+  @if map-has-key($breakpoints, $media) {
+    @media screen and (min-width: map-get($breakpoints, $media)) {
+      @content;
     }
+  }
 
-    @else {
-        @error 'The only sizes allowed are: sm, md, lg, xl, 2xl';
-    }
+  @else {
+    @error 'The only sizes allowed are: sm, md, lg, xl, 2xl';
+  }
 }
