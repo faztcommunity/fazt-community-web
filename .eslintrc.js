@@ -1,22 +1,25 @@
 module.exports = {
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-  },
   env: {
-    es6: true,
-    browser: true,
     node: true,
+    es2022: true,
+    browser: true
   },
-  plugins: ['svelte3'],
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended', 'standard', 'plugin:astro/recommended'],
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 'latest'
+  },
   overrides: [
     {
-      files: ['*.svelte'],
-      processor: 'svelte3/svelte3',
-      settings: {
-        'svelte3/ignore-styles': () => true,
+      files: ['*.astro'],
+      parser: 'astro-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.astro']
       },
-    },
-  ],
+      rules: {
+        'astro/no-set-html-directive': 'error' // prevent XSS attack
+      }
+    }
+  ]
 }
