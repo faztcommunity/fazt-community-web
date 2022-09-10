@@ -1,0 +1,12 @@
+---
+const { as: Tag = 'p', black, white } = Astro.props
+---
+
+<Tag class:list={['text-lg text-center lg:text-2xl lg:text-left max-w-prose',
+  {
+    'text-black': black,
+    'text-white': white,
+    'text-gray-300': !black && !white
+  }]}>
+  <slot />
+</Tag>
