@@ -1,0 +1,21 @@
+---
+import Link from '@/components/Link.astro'
+import Text from '@/components/Text.astro'
+import Title from '@/components/Title.astro'
+import { DISCORD_LINK } from '@/shared/constants.js'
+---
+
+<section id="hero" class="relative flex items-center justify-center min-h-screen before:content-[''] before:absolute before:opacity-50 before:top-0 before:right-0 before:bottom-0 before:left-0 before:[background-size:auto_90%] before:[background:url('/circuit.svg')_no-repeat_center_right]">
+  <div class="container grid fixed gap-6 px-3 max-w-3xl lg:px-0 2xl:max-w-7xl">
+    <article class="grid gap-4 max-w-[760px] justify-center lg:justify-start">
+      <Title>Somos Fazt Community</Title>
+      <Text>Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open source.</Text>
+    </article>
+    <article class="grid justify-items-center gap-6 lg:grid-cols-[repeat(2,fit-content(100%))]">
+      <Link external to={DISCORD_LINK} className="btn primary fill large">
+        Unirme a la comunidad
+      </Link>
+      <Link className="btn secondary outline large">Ver proyectos</Link>
+    </article>
+  </div>
+</section>

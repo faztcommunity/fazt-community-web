@@ -17,12 +17,14 @@ const { to: href, title, className, external = false } = Astro.props
     @apply block select-none cursor-pointer font-medium text-lg rounded-lg transition-all outline-none ease-in-out duration-[30ms];
 
     &.fill {
+      @apply opacity-100 border border-solid;
+
       &.primary {
-        @apply text-white bg-primary-light border border-solid border-primary-light shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(210,34,34,0.3)];
+        @apply text-white bg-primary-light border-primary-light shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(210,34,34,0.3)];
       }
 
       &.secondary {
-        @apply text-white bg-secondary border border-solid border-secondary shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(44,155,235,0.3)];
+        @apply text-white bg-secondary border-secondary shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(44,155,235,0.3)];
       }
 
       &:active {
@@ -35,12 +37,14 @@ const { to: href, title, className, external = false } = Astro.props
     }
 
     &.outline {
+      @apply bg-transparent border border-solid;
+
       &:active {
         box-shadow: inset 0px 8px 3px rgba(29, 29, 29, 0.05), 0px 0px 0px rgba(0, 0, 0, 0);
       }
 
       &.primary {
-        @apply text-primary bg-transparent border border-solid border-primary;
+        @apply text-primary border-primary;
 
         &:hover:not(&:hover.disabled) {
           @apply text-white bg-primary-light;
@@ -48,7 +52,7 @@ const { to: href, title, className, external = false } = Astro.props
       }
 
       &.secondary {
-        @apply text-secondary bg-transparent border border-solid border-secondary;
+        @apply text-secondary border-secondary;
 
         &:hover:not(&:hover.disabled) {
           @apply text-white bg-secondary-light;
