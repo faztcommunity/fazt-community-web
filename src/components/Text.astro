@@ -7,7 +7,7 @@ const { as: Tag = 'p', black, white, centered } = Astro.props
     'text-black': black,
     'text-white': white,
     'lg:text-left': !centered,
-    'text-gray-300': !black && !white,
+    'text-gray-300': !black && !white
   }]}>
   <slot />
 </Tag>
