@@ -14,17 +14,17 @@ const { to: href, title, className, external = false } = Astro.props
 
 <style lang="postcss">
   .btn {
-    @apply block select-none cursor-pointer font-medium text-lg rounded-lg transition-all outline-none ease-in-out duration-[30ms];
+    @apply block cursor-pointer select-none rounded-lg text-lg font-medium outline-none transition-all duration-[30ms] ease-in-out;
 
     &.fill {
-      @apply opacity-100 border border-solid;
+      @apply border border-solid opacity-100;
 
       &.primary {
-        @apply text-white bg-primary-light border-primary-light shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(210,34,34,0.3)];
+        @apply bg-primary-light border-primary-light text-white shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(210,34,34,0.3)];
       }
 
       &.secondary {
-        @apply text-white bg-secondary border-secondary shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(44,155,235,0.3)];
+        @apply bg-secondary border-secondary text-white shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(44,155,235,0.3)];
       }
 
       &:active {
@@ -32,12 +32,12 @@ const { to: href, title, className, external = false } = Astro.props
       }
 
       &.disabled {
-        @apply opacity-30 cursor-not-allowed shadow-none;
+        @apply cursor-not-allowed opacity-30 shadow-none;
       }
     }
 
     &.outline {
-      @apply bg-transparent border border-solid;
+      @apply border border-solid bg-transparent;
 
       &:active {
         box-shadow: inset 0px 8px 3px rgba(29, 29, 29, 0.05), 0px 0px 0px rgba(0, 0, 0, 0);

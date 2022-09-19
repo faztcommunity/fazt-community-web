@@ -1,51 +1,17 @@
----
-import users from '@/shared/users.json'
----
-
-<div class="map-grid w-[340px] h-[260px] sm:w-[490px] sm:h-[275px]">
-  <div class="map relative w-full h-full [background:url('world_map.svg')_center/contain_no-repeat]">
-    {users.map(({ name, avatar }, i) => <img class={`user${i + 1}`} src={`/${avatar}`} title={name} alt={name} />)}
+<div>
+  <div class="relative grid aspect-video w-[340px] place-items-center [background:url('/world_map.svg')_center/contain_no-repeat] lg:w-[420px] 2xl:w-[520px]">
+    <div class="relative inline-block h-40 w-40">
+      <div class="border-primary absolute rounded-full border-4 border-solid [animation:ripple_1s_cubic-bezier(0,0.2,0.8,1)_infinite]"></div>
+      <div class="border-primary absolute rounded-full border-4 border-solid [animation:ripple_1s_cubic-bezier(0,0.2,0.8,1)_infinite] [animation-delay:-0.5s]"></div>
+    </div>
   </div>
 </div>
 
 <style lang="postcss">
-  img {
-    @apply absolute w-7 h-7 rounded-full;
-
-    &.user1 { @apply top-[40px] left-[60px]; }
-    &.user2 { @apply top-[90px] left-[50px]; }
-    &.user3 { @apply top-[140px] left-[70px]; }
-    &.user4 { @apply top-[60px] left-[120px]; }
-    &.user5 { @apply top-[120px] left-[130px]; }
-    &.user6 { @apply top-[160px] left-[100px]; }
-    &.user7 { @apply top-[45px] left-[180px]; }
-    &.user8 { @apply top-[90px] left-[180px]; }
-    &.user9 { @apply top-[140px] left-[180px]; }
-    &.user10 { @apply top-[170px] left-[220px]; }
-    &.user11 { @apply top-[60px] left-[240px]; }
-    &.user12 { @apply top-[120px] left-[240px]; }
-    &.user13 { @apply top-[40px] left-[300px]; }
-    &.user14 { @apply top-[80px] left-[280px]; }
-    &.user15 { @apply top-[160px] left-[280px]; }
-
-    @screen sm {
-      @apply w-9 h-9;
-
-      &.user1 { @apply top-[40px] left-[100px]; }
-      &.user2 { @apply top-[90px] left-[80px]; }
-      &.user3 { @apply top-[160px] left-[100px]; }
-      &.user4 { @apply top-[45px] left-[180px]; }
-      &.user5 { @apply top-[130px] left-[200px]; }
-      &.user6 { @apply top-[170px] left-[150px]; }
-      &.user7 { @apply top-[40px] left-[240px]; }
-      &.user8 { @apply top-[90px] left-[240px]; }
-      &.user9 { @apply top-[140px] left-[260px]; }
-      &.user10 { @apply top-[190px] left-[320px]; }
-      &.user11 { @apply top-[60px] left-[340px]; }
-      &.user12 { @apply top-[120px] left-[350px]; }
-      &.user13 { @apply top-[30px] left-[420px]; }
-      &.user14 { @apply top-[80px] left-[420px]; }
-      &.user15 { @apply top-[200px] left-[400px]; }
-    }
+  @keyframes ripple {
+    0% { @apply top-[72px] left-[72px] h-0 w-0 opacity-0; }
+    4.9% { @apply top-[72px] left-[72px] h-0 w-0 opacity-0; }
+    5% { @apply top-[72px] left-[72px] h-0 w-0 opacity-100; }
+    100% { @apply top-0 left-0 h-36 w-36 opacity-0; }
   }
 </style>

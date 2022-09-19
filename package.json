@@ -15,8 +15,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "astro": "1.2.3",
-    "astro-icon": "0.7.3"
+    "astro": "1.2.3"
   },
   "devDependencies": {
     "@astrojs/tailwind": "1.0.1",
