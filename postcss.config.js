@@ -1,14 +1,6 @@
 module.exports = {
-  plugins: [
-    require('cssnano')({
-      preset: [
-        'default',
-        {
-          discardComments: {
-            removeAll: true,
-          },
-        },
-      ],
-    }),
-  ],
+  plugins: {
+    'tailwindcss/nesting': {},
+    tailwindcss: {}
+  }
 }

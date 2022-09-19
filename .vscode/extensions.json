@@ -1,3 +1,3 @@
 {
-    "recommendations": ["svelte.svelte-vscode", "mrmlnc.vscode-scss"]
+  "recommendations": ["astro-build.astro-vscode", "dbaeumer.vscode-eslint", "bradlc.vscode-tailwindcss"],
 }

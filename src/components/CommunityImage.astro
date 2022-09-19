@@ -1,0 +1,22 @@
+---
+const { src, blue, orange, left, right } = Astro.props
+const title = src.charAt(0).toUpperCase() + src.slice(1).split('.')[0].replace(/_/g, ' ')
+---
+
+<div class:list={[
+  'relative mb-6 max-w-[538px] rounded-lg',
+  'after:absolute after:-bottom-6 after:-z-10 after:h-[66px] after:w-[77px] after:rounded-lg after:opacity-50 after:content-[\'\']',
+  {
+    'pl-6 after:-left-[1px]': left,
+    'pr-6 after:-right-[1px]': right,
+    'after:bg-active-light': orange,
+    'after:bg-secondary-light': blue
+  }
+]}>
+  <img
+    {title}
+    alt={title}
+    src={`/${src}`}
+    class="aspect-video rounded-lg object-cover"
+  />
+</div>

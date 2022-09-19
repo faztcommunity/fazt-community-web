@@ -1,0 +1,17 @@
+<div>
+  <div class="relative grid aspect-video w-[340px] place-items-center [background:url('/world_map.svg')_center/contain_no-repeat] lg:w-[420px] 2xl:w-[520px]">
+    <div class="relative inline-block h-40 w-40">
+      <div class="border-primary absolute rounded-full border-4 border-solid [animation:ripple_1s_cubic-bezier(0,0.2,0.8,1)_infinite]"></div>
+      <div class="border-primary absolute rounded-full border-4 border-solid [animation:ripple_1s_cubic-bezier(0,0.2,0.8,1)_infinite] [animation-delay:-0.5s]"></div>
+    </div>
+  </div>
+</div>
+
+<style lang="postcss">
+  @keyframes ripple {
+    0% { @apply top-[72px] left-[72px] h-0 w-0 opacity-0; }
+    4.9% { @apply top-[72px] left-[72px] h-0 w-0 opacity-0; }
+    5% { @apply top-[72px] left-[72px] h-0 w-0 opacity-100; }
+    100% { @apply top-0 left-0 h-36 w-36 opacity-0; }
+  }
+</style>

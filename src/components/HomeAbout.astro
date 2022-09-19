@@ -1,0 +1,29 @@
+---
+import Text from '@/components/Text.astro'
+import Subtitle from '@/components/Subtitle.astro'
+import CommunityImage from '@/components/CommunityImage.astro'
+---
+
+<section id="about" class="py-28">
+  <div class="mx-auto grid max-w-4xl gap-8 px-3 lg:gap-20 lg:px-0 2xl:max-w-6xl">
+    <Subtitle as="h2">Conoce nuestra comunidad</Subtitle>
+    <div class="grid gap-8 md:gap-28">
+      <article class="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
+        <CommunityImage src="community_pair_programming.png" orange right />
+        <Text>
+          Fazt Community es un espacio donde podrás crecer como profesional,
+          participando en equipos y con personas de todo el mundo hispano
+          hablante.
+        </Text>
+      </article>
+      <article class="flex flex-col gap-4 md:flex-row-reverse md:items-center md:gap-8">
+        <CommunityImage src="community_remote_meet.png" blue left />
+        <Text>
+          No importa tu nivel, podrás encontrar un área donde unirte, aportar de
+          tu conocimiento con otros, recibir ayuda y vas a conocer gente que
+          comparten la misma pasión que tú.
+        </Text>
+      </article>
+    </div>
+  </div>
+</section>

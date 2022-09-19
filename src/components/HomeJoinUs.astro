@@ -1,0 +1,30 @@
+---
+import Text from '@/components/Text.astro'
+import Link from '@/components/Link.astro'
+import Steps from '@/components/Steps.astro'
+import Subtitle from '@/components/Subtitle.astro'
+import { DISCORD_LINK } from '@/shared/constants.js'
+import CircuitBackground from '@/components/CircuitBackground.astro'
+---
+
+<section id="join-us" class="relative pt-16 pb-24 lg:pt-28 lg:pb-[15rem]">
+  <CircuitBackground />
+  <div class="relative z-10 mx-auto grid max-w-4xl justify-items-center gap-8 px-3 lg:px-0 2xl:max-w-7xl">
+    <article class="grid justify-items-center gap-4">
+      <Subtitle as="h2">¿Qué esperas para unirte?</Subtitle>
+      <Text centered>
+        En Fazt Community somos más de 10,000 personas. Donde aprendemos juntos,
+        trabajamos en equipo y a cambio obtienes experiencias y conocimientos en
+        proyectos.
+      </Text>
+    </article>
+
+    <article class="grid justify-items-center gap-6">
+      <span class="text-lg font-bold text-gray-300">Crece como profesional en 3 pasos</span>
+
+      <Steps />
+
+      <Link external to={DISCORD_LINK} className="btn primary fill large">Unirme a la comunidad</Link>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+import Link from '@/components/Link.astro'
+import Text from '@/components/Text.astro'
+import MapGrid from '@/components/MapGrid.astro'
+import Subtitle from '@/components/Subtitle.astro'
+import { DISCORD_LINK } from '@/shared/constants.js'
+---
+
+<section id="contributors" class="py-16 lg:pt-28 lg:pb-12">
+  <div class="mx-auto grid max-w-4xl justify-items-center gap-6 px-3 lg:items-center lg:gap-20 lg:gap-x-16 lg:gap-y-4 lg:px-0 lg:[grid-template-areas:'mapgrid_subtitle''mapgrid_message'] 2xl:max-w-6xl">
+    <Subtitle as="h2" className="lg:max-w-[550px] lg:justify-self-start">Ellos son parte de nuestra comunidad</Subtitle>
+    <article class="lg:self-center lg:[grid-area:mapgrid]">
+      <MapGrid />
+    </article>
+    <article class="grid justify-items-center gap-6 lg:justify-items-start lg:[grid-area:message] lg:max-w-[550px] lg:justify-self-start">
+      <Text>
+        En los proyectos de la comunidad hay personas del todo el mundo que
+        aporta su tiempo, conocimiento y experiencia con los demás.
+      </Text>
+      <Link external to={DISCORD_LINK} className="btn primary fill large">Conócelos a todos</Link>
+    </article>
+  </div>
+</section>
