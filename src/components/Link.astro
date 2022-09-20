@@ -1,75 +1,61 @@
 ---
-const { to: href, title, className, external = false } = Astro.props
+const { to: href, btn, title, className, external = false } = Astro.props
 ---
 
 <a
   {href}
-  {title}
-  class={className}
-  aria-label={title}
+  alt={title}
+  title={!btn && title}
   target={external && '_blank'}
-  rel={external && 'external noopener noreferrer'}>
+  rel={external && 'external noopener noreferrer'}
+  class:list={['cursor-pointer',
+    { 'block select-none rounded-lg text-lg font-medium outline-none transition-all duration-100 ease-in-out': btn },
+    className]}>
   <slot />
 </a>
 
 <style lang="postcss">
-  .btn {
-    @apply block cursor-pointer select-none rounded-lg text-lg font-medium outline-none transition-all duration-[30ms] ease-in-out;
+  .fill {
+    @apply border border-solid opacity-100;
 
-    &.fill {
-      @apply border border-solid opacity-100;
+    &.primary {
+      @apply bg-primary-light border-primary-light text-white shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(210,34,34,0.3)];
+    }
 
-      &.primary {
-        @apply bg-primary-light border-primary-light text-white shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(210,34,34,0.3)];
-      }
+    &.secondary {
+      @apply bg-secondary border-secondary text-white shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(44,155,235,0.3)];
+    }
 
-      &.secondary {
-        @apply bg-secondary border-secondary text-white shadow-[inset_0px_0px_0px_rgba(0,0,0,0),0px_6px_12px_rgba(44,155,235,0.3)];
-      }
+    &:active {
+      @apply shadow-[inset_0px_8px_3px_rgba(29,29,29,0.05),0px_0px_0px_rgba(0,0,0,0)];
+    }
 
-      &:active {
-        box-shadow: inset 0px 8px 3px rgba(29, 29, 29, 0.05), 0px 0px 0px rgba(0, 0, 0, 0);
-      }
+    &.disabled {
+      @apply cursor-not-allowed opacity-30 shadow-none;
+    }
+  }
 
-      &.disabled {
-        @apply cursor-not-allowed opacity-30 shadow-none;
+  .outline {
+    @apply border border-solid bg-transparent;
+
+    &:active {
+      @apply shadow-[inset_0px_8px_3px_rgba(29,29,29,0.05),0px_0px_0px_rgba(0,0,0,0)];
+    }
+
+    &.primary {
+      @apply text-primary border-primary;
+
+      &:hover:not(&:hover.disabled) {
+        @apply text-white bg-primary-light;
       }
     }
 
-    &.outline {
-      @apply border border-solid bg-transparent;
+    &.secondary {
+      @apply text-secondary border-secondary;
 
-      &:active {
-        box-shadow: inset 0px 8px 3px rgba(29, 29, 29, 0.05), 0px 0px 0px rgba(0, 0, 0, 0);
+      &:hover:not(&:hover.disabled) {
+        @apply text-white bg-secondary-light;
       }
-
-      &.primary {
-        @apply text-primary border-primary;
-
-        &:hover:not(&:hover.disabled) {
-          @apply text-white bg-primary-light;
-        }
-      }
-
-      &.secondary {
-        @apply text-secondary border-secondary;
-
-        &:hover:not(&:hover.disabled) {
-          @apply text-white bg-secondary-light;
-        }
-      }
-    }
-
-    &.large {
-      @apply p-4;
-    }
-
-    &.medium {
-      @apply py-2 px-4;
-    }
-
-    &.small {
-      @apply p-2;
     }
   }
 </style>
