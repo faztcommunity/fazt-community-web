@@ -1,6 +1,6 @@
 ---
-const { src, blue, orange, left, right } = Astro.props
-const title = src.charAt(0).toUpperCase() + src.slice(1).split('.')[0].replace(/_/g, ' ')
+const { name, blue, orange, left, right } = Astro.props
+const title = name.charAt(0).toUpperCase() + name.slice(1).replace(/_/g, ' ')
 ---
 
 <div class:list={[
@@ -13,10 +13,9 @@ const title = src.charAt(0).toUpperCase() + src.slice(1).split('.')[0].replace(/
     'after:bg-secondary-light': blue
   }
 ]}>
-  <img
-    {title}
-    alt={title}
-    src={`/${src}`}
-    class="aspect-video rounded-lg object-cover"
-  />
+  <picture>
+    <source srcset={`/${name}.webp`} type="image/webp" />
+    <source srcset={`/${name}.png`} type="image/png" /> 
+    <img {title} alt={title} src={`/${name}.png`} class="aspect-video rounded-lg object-cover" />
+  </picture>
 </div>
