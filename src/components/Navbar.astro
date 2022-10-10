@@ -1,0 +1,50 @@
+---
+import Logo from '@/components/Logo.astro'
+import Link from '@/components/Link.astro'
+import NavbarModal from '@/components/NavbarModal.astro'
+---
+
+<script>
+  const $modal = document.querySelector('#modal')
+  const $openModal = document.querySelector('#open-modal')
+  const $closeModal = document.querySelector('#close-modal')
+
+  $openModal.addEventListener('click', () => {
+    $modal.classList.replace('hidden', 'grid')
+    document.body.style.overflow = 'hidden'
+  })
+
+  $closeModal.addEventListener('click', () => {
+    $modal.classList.replace('grid', 'hidden')
+    document.body.style.overflow = 'auto'
+  })
+</script>
+
+<header id="navbar" class="sticky top-0 z-20 w-full bg-white px-4 py-5 shadow-[0px_1px_2px_rgba(120,120,120,0.15)] dark:bg-black">
+  <div class="mx-auto grid max-w-6xl grid-cols-[1fr_1fr] items-center">
+    <div class="grid grid-cols-[40px] grid-rows-[40px] lg:grid-cols-[50px] lg:grid-rows-[50px]">
+      <Logo />
+    </div>
+
+    <div class="grid grid-cols-[32px] grid-rows-[32px] justify-end text-black dark:text-gray-100 lg:hidden">
+      <svg id="open-modal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 24">
+        <path d="M2 2H23.25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 12H23.25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 22H23.25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <nav class="hidden grid-cols-[fit-content(100%)] items-center gap-8 text-gray-100 justify-end lg:grid">
+      <ul class="grid grid-cols-[repeat(2,fit-content(100%))] gap-8">
+        <li class="cursor-pointer select-none">
+          <Link to="#about">Acerca</Link>
+        </li>
+        <li class="cursor-pointer select-none">
+          <Link to="#contributors">Contribuidores</Link>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<NavbarModal />
