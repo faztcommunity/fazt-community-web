@@ -1,0 +1,20 @@
+---
+import Link from '@/components/Link.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout withoutNavbar>
+  <main class="mx-auto grid min-h-[calc(100vh-72px)] max-w-6xl items-center justify-center px-4 lg:grid-cols-2 lg:items-end">
+    <section class="grid max-w-sm gap-6 text-center lg:self-center lg:text-left">
+      <h1 class="text-8xl font-opensans lg:text-9xl">¡Oops!</h1>
+      <h2 class="text-3xl font-semibold lg:hidden">¿Dónde estamos?</h2>
+      <p class="text-xl lg:pt-16">La página que buscas fue movida, renombrada o no existe</p>
+
+      <Link to="/" btn title="Regresar al inicio" className="secondary mx-auto w-max p-4 outline lg:ml-0">
+        Regresar al inicio
+      </Link>
+    </section>
+
+    <img class="mx-auto h-[224px] w-[224px] lg:h-[506px] lg:w-[506px]" alt="Community pet" src="/pet.svg" />
+  </main>
+</Layout>
