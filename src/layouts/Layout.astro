@@ -1,5 +1,10 @@
 ---
+import Navbar from '@/components/Navbar.astro'
+import Footer from '@/components/Footer.astro'
+
 const {
+  withoutNavbar = false,
+  withoutFooter = false,
   title = 'Fazt Community',
   description = 'Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open source'
 } = Astro.props
@@ -30,7 +35,11 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
   </head>
 
-  <body class="dark:bg-gray-400 dark:text-white">
+  <body class="min-h-screen dark:bg-gray-400 dark:text-white">
+    { !withoutNavbar && <Navbar /> }
+
     <slot />
+
+    { !withoutFooter && <Footer /> }
   </body>
 </html>
