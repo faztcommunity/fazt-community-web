@@ -8,9 +8,12 @@ const { to: href, btn, title, className, external = false } = Astro.props
   title={!btn && title}
   target={external && '_blank'}
   rel={external && 'external noopener noreferrer'}
-  class:list={['cursor-pointer',
+  class:list={[
+    'cursor-pointer',
     { 'block select-none rounded-lg text-lg font-medium outline-none transition-all duration-100 ease-in-out': btn },
-    className]}>
+    className,
+  ]}
+>
   <slot />
 </a>
 

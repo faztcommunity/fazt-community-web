@@ -2,6 +2,8 @@
 const { as: Tag = 'h1' } = Astro.props
 ---
 
-<Tag class="font-opensans inline text-center text-[40px] font-bold leading-none md:text-5xl lg:text-left xl:text-[64px]">
+<Tag
+  class="font-opensans inline text-center text-[40px] font-bold leading-none md:text-5xl lg:text-left xl:text-[64px]"
+>
   <slot />
 </Tag>

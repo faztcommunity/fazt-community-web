@@ -5,39 +5,39 @@ module.exports = {
   theme: {
     fontFamily: {
       opensans: ['Open Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
-      roboto: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif']
+      roboto: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
     },
     colors: {
       primary: {
         DEFAULT: '#EC0B2B',
-        light: '#FF295F'
+        light: '#FF295F',
       },
       secondary: {
         DEFAULT: '#2C9BEB',
         light: '#37A6F6',
-        dark: '#0776C6'
+        dark: '#0776C6',
       },
 
       active: {
         DEFAULT: '#F66C42',
-        light: '#FD8E3E'
+        light: '#FD8E3E',
       },
       info: '#4468E7',
       success: {
         DEFAULT: '#289038',
-        light: '#04AB5B'
+        light: '#04AB5B',
       },
 
       gray: {
         100: '#D9D9D9',
         200: '#909090',
         300: '#7B7B7B',
-        400: '#262626'
+        400: '#262626',
       },
 
       white: '#FFF',
       black: '#1D1D1D',
-      transparent: 'transparent'
+      transparent: 'transparent',
     },
     boxShadow: {
       none: '0px 0px 0px rgba(0, 0, 0, 0)',
@@ -64,7 +64,7 @@ module.exports = {
       'blue-6xl': '0px 16px 20px rgba(44, 155, 235, 0.3)',
 
       'inset-none': 'inset 0px 0px 0px rgba(0, 0, 0, 0)',
-      'inset-full': 'inset 0px 8px 3px rgba(29, 29, 29, 0.5)'
-    }
-  }
+      'inset-full': 'inset 0px 8px 3px rgba(29, 29, 29, 0.5)',
+    },
+  },
 }

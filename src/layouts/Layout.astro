@@ -6,7 +6,7 @@ const {
   withoutNavbar = false,
   withoutFooter = false,
   title = 'Fazt Community',
-  description = 'Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open source'
+  description = 'Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open source',
 } = Astro.props
 ---
 
@@ -36,10 +36,10 @@ const {
   </head>
 
   <body class="min-h-screen dark:bg-gray-400 dark:text-white">
-    { !withoutNavbar && <Navbar /> }
+    {!withoutNavbar && <Navbar />}
 
     <slot />
 
-    { !withoutFooter && <Footer /> }
+    {!withoutFooter && <Footer />}
   </body>
 </html>

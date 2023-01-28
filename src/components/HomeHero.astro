@@ -5,11 +5,16 @@ import Title from '@/components/Title.astro'
 import { DISCORD_LINK } from '@/shared/constants.js'
 ---
 
-<section id="hero" class="relative flex min-h-screen items-center justify-center pb-14 after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-10 after:opacity-50 after:content-[''] after:[background-size:auto_70%] after:[background:url('/circuit-black.svg')_no-repeat_center_right]">
-  <div class="container grid gap-6 px-3 max-w-4xl lg:px-0 2xl:max-w-6xl">
+<section
+  id="hero"
+  class="relative flex min-h-screen items-center justify-center pb-14 after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-10 after:opacity-50 after:content-[''] after:[background-size:auto_70%] after:[background:url('/circuit-black.svg')_no-repeat_center_right]"
+>
+  <div class="container grid max-w-4xl gap-6 px-3 lg:px-0 2xl:max-w-6xl">
     <article class="grid max-w-[760px] justify-center gap-4 lg:justify-start">
       <Title>Somos Fazt Community</Title>
-      <Text>Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open source.</Text>
+      <Text>
+        Crece como profesional compartiendo tus conocimientos con los demás y participando en proyectos open source.
+      </Text>
     </article>
     <article class="grid justify-items-center gap-6 lg:grid-cols-[repeat(2,fit-content(100%))]">
       <Link btn external to={DISCORD_LINK} title="Unirme a la comunidad" className="primary fill p-4">

@@ -2,12 +2,16 @@
 const { as: Tag = 'p', black, white, centered } = Astro.props
 ---
 
-<Tag class:list={['max-w-[520px] text-center text-lg leading-tight lg:max-w-prose lg:text-2xl',
-  {
-    'text-black': black,
-    'text-white': white,
-    'lg:text-left': !centered,
-    'text-gray-300 dark:text-gray-100': !black && !white
-  }]}>
+<Tag
+  class:list={[
+    'max-w-[520px] text-center text-lg leading-tight lg:max-w-prose lg:text-2xl',
+    {
+      'text-black': black,
+      'text-white': white,
+      'lg:text-left': !centered,
+      'text-gray-300 dark:text-gray-100': !black && !white,
+    },
+  ]}
+>
   <slot />
 </Tag>
