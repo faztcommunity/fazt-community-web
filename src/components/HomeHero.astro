@@ -7,7 +7,7 @@ import { DISCORD_LINK } from '@/shared/constants.js'
 
 <section
   id="hero"
-  class="relative flex min-h-screen items-center justify-center pb-14 after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:-z-10 after:opacity-50 after:content-[''] after:[background-size:auto_70%] after:[background:url('/circuit-black.svg')_no-repeat_center_right]"
+  class="relative flex min-h-screen items-center justify-center pb-14 after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:-z-10 after:opacity-50 after:content-[''] after:[background-size:auto_70%]"
 >
   <div class="container grid max-w-4xl gap-6 px-3 lg:px-0 2xl:max-w-6xl">
     <article class="grid max-w-[760px] justify-center gap-4 lg:justify-start">
@@ -17,10 +17,16 @@ import { DISCORD_LINK } from '@/shared/constants.js'
       </Text>
     </article>
     <article class="grid justify-items-center gap-6 lg:grid-cols-[repeat(2,fit-content(100%))]">
-      <Link btn external to={DISCORD_LINK} title="Unirme a la comunidad" className="primary fill p-4">
+      <Link btn external to={DISCORD_LINK} title="Unirme a la comunidad" class="primary fill p-4">
         Unirme a la comunidad
       </Link>
-      <Link btn title="Ver proyectos" className="secondary p-4 outline">Ver proyectos</Link>
+      <Link btn title="Ver proyectos" class="secondary p-4 outline">Ver proyectos</Link>
     </article>
   </div>
 </section>
+
+<style>
+  #hero::after {
+    background: url('/circuit-black.svg') no-repeat center right;
+  }
+</style>
