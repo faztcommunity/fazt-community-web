@@ -1,11 +1,11 @@
 ---
-const { as: Tag, className } = Astro.props
+const { as: Tag, class: extraClass } = Astro.props
 ---
 
 <Tag
   class:list={[
     'inline text-center font-opensans text-3xl font-medium lg:text-left lg:text-4xl lg:font-bold',
-    className,
+    extraClass,
   ]}
 >
   <slot />

@@ -1,23 +1,22 @@
 ---
-const { to: href, btn, title, className, external = false } = Astro.props
+const { to: href, btn, title, class: extraClass, external = false } = Astro.props
 ---
 
 <a
   {href}
-  alt={title}
   title={!btn && title}
   target={external && '_blank'}
   rel={external && 'external noopener noreferrer'}
   class:list={[
     'cursor-pointer',
     { 'block select-none rounded-lg text-lg font-medium outline-none transition-all duration-100 ease-in-out': btn },
-    className,
+    extraClass,
   ]}
 >
   <slot />
 </a>
 
-<style lang="postcss">
+<style>
   .fill {
     @apply border border-solid opacity-100;
 
