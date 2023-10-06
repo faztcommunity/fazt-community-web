@@ -10,13 +10,13 @@ import Link from '@/components/Link.astro'
     $link.addEventListener('click', () => {
       $modal.classList.replace('grid', 'hidden')
       document.body.style.overflow = 'auto'
-    })
+    }),
   )
 </script>
 
 <div
   id="modal"
-  class="fixed top-0 z-50 hidden h-screen w-full grid-rows-[fit-content(100%)_auto] bg-black py-6 px-4 text-white"
+  class="fixed top-0 z-50 hidden h-screen w-full grid-rows-[fit-content(100%)_auto] bg-black px-4 py-6 text-white"
 >
   <div class="grid w-full grid-cols-[32px] grid-rows-[32px] justify-end text-black dark:text-white">
     <svg id="close-modal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
