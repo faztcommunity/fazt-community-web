@@ -11,18 +11,18 @@
     "format": "prettier --write src/**/*.{astro,js,json}"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=16.0.0"
+    "node": ">=20.12.0",
+    "pnpm": ">=8.15.0"
   },
   "dependencies": {
-    "astro": "3.2.3"
+    "astro": "4.16.0"
   },
   "devDependencies": {
-    "@unocss/preset-web-fonts": "0.56.5",
-    "@unocss/reset": "0.56.5",
-    "@unocss/transformer-directives": "0.56.5",
-    "prettier": "3.0.3",
-    "prettier-plugin-astro": "0.12.0",
-    "unocss": "0.56.5"
+    "@unocss/preset-web-fonts": "0.63.4",
+    "@unocss/reset": "0.63.4",
+    "@unocss/transformer-directives": "0.63.4",
+    "prettier": "3.3.3",
+    "prettier-plugin-astro": "0.14.1",
+    "unocss": "0.63.4"
   }
 }
