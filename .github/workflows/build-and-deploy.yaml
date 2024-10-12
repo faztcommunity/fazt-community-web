@@ -13,14 +13,18 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup pnpm ⚙️
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Install dependencies 🔧
-        run: npm ci
+        run: pnpm install
 
       - name: Build 📦
-        run: npm run build
+        run: pnpm build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          BRANCH: gh-pages
-          FOLDER: dist
+          folder: dist
